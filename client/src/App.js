@@ -1,7 +1,9 @@
 import React from 'react';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-import logo from './logo.svg';
-import './App.css'; 
+import logo from './logo.svg'; 
+import services from './componets/services.jsx';
+import './App.css';  
+
 
 function App() {
   return (
@@ -57,119 +59,121 @@ function App() {
   </section>
 
   <section class="content-section bg-primary text-white text-center" id="services">
-    <div class="container">
-      <div class="content-section-heading">
-        <h3 class="text-secondary mb-0">Business</h3>
-        <h2 class="mb-5">Categories</h2>
-      </div>
-      <div class="row">
-        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-          <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="icon-screen-smartphone"></i>
-          </span>
-          <h4>
-            <strong>Black owned</strong>
-          </h4>
-          <p class="text-faded mb-0"></p> some text
-        </div>
-        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-          <span class="service-icon rounded-circle mx-auto mb-3">
-            
-          </span>
-          <h4>
-            <strong>LGTB owned</strong>
-          </h4>
-          <p class="text-faded mb-0"></p>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-          <span class="service-icon rounded-circle mx-auto mb-3"> some text
-           
-          </span>
-          <h4>
-            <strong>Women-owned</strong>
-          </h4>
-          <p class="text-faded mb-0">some text 
-          </p>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <span class="service-icon rounded-circle mx-auto mb-3">some text
-            
-          </span>
-          <h4>
-            <strong> Eco friendly </strong>
-          </h4>
-          <p class="text-faded mb-0">  some text</p>
-        </div>
-      </div>
+<div className="container">
+  <div className="content-section-heading">
+    <h3 className="text-secondary mb-0">Business</h3>
+    <h2 className="mb-5">Categories</h2>
+  </div>
+  <div className="row">
+    <div className="col-lg-3 col-md-6 mb-5 mb-lg-0">
+      <span className="service-icon rounded-circle mx-auto mb-3">
+        <i className="icon-screen-smartphone"></i>
+      </span>
+      <h4>
+        <strong>Black owned</strong>
+      </h4>
+      <p className="text-faded mb-0"></p> some text
     </div>
-  </section>
+    <div className="col-lg-3 col-md-6 mb-5 mb-lg-0">
+      <span className="service-icon rounded-circle mx-auto mb-3">
+        
+      </span>
+      <h4>
+        <strong>LGTB owned</strong>
+      </h4>
+      <p className="text-faded mb-0"></p>
+    </div>
+    <div className="col-lg-3 col-md-6 mb-5 mb-md-0">
+      <span className="service-icon rounded-circle mx-auto mb-3"> some text
+       
+      </span>
+      <h4>
+        <strong>Women-owned</strong>
+      </h4>
+      <p className="text-faded mb-0">some text 
+      </p>
+    </div>
+    <div className="col-lg-3 col-md-6">
+      <span className="service-icon rounded-circle mx-auto mb-3">some text
+        
+      </span>
+      <h4>
+        <strong> Eco friendly </strong>
+      </h4>
+      <p className="text-faded mb-0">  some text</p>
+    </div>
+  </div>
+</div>
+</section> 
+<services></services>
+ 
 
-  <section class="callout">
-    <div class="container text-center">
-      <h2 class="mx-auto mb-5"> Own a business?
+  <section className="callout">
+    <div className="container text-center">
+      <h2 className="mx-auto mb-5"> Own a business?
         Submit your Business and hlep grow our community!</h2>
-      <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/themes/stylish-portfolio/">Submit</a>
+      <a className="btn btn-primary btn-xl" href="">Submit</a>
     </div>
   </section>
 
-  <section class="content-section" id="portfolio">
-    <div class="container">
-      <div class="content-section-heading text-center">
-        <h3 class="text-secondary mb-0">About us</h3>
-        <h2 class="mb-5">Our Team  </h2>
+  <section className="content-section" id="portfolio">
+    <div className="container">
+      <div className="content-section-heading text-center">
+        <h3 className="text-secondary mb-0">About us</h3>
+        <h2 className="mb-5">Our Team  </h2>
       </div>
-      <div class="row no-gutters">
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#!">
-            <div class="caption">
-              <div class="caption-content">
-                <div class="h2">Marcel</div>
-                <p class="mb-0"> some text</p>
+      <div className="row no-gutters">
+        <div className="col-lg-6">
+          <a className="portfolio-item" href="#!">
+            <div className="caption">
+              <div className="caption-content">
+                <div className="h2">Marcel</div>
+                <p className="mb-0"> some text</p>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio-1.jpg" alt="" />
+            <img className="img-fluid" src="img/portfolio-1.jpg" alt="" />
           </a>
         </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#!">
-            <div class="caption">
-              <div class="caption-content">
-                <div class="h2"> Damon</div>
-                <p class="mb-0">some text</p>
+        <div className="col-lg-6">
+          <a className="portfolio-item" href="#!">
+            <div className="caption">
+              <div className="caption-content">
+                <div className="h2"> Damon</div>
+                <p className="mb-0">some text</p>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio-2.jpg" alt="" />
+            <img className="img-fluid" src="client/src/assets/images/portfolio-2.jpg" alt="" />
           </a>
         </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#!">
-            <div class="caption">
-              <div class="caption-content">
-                <div class="h2">Etam</div>
-                <p class="mb-0">some text</p>
+        <div className="col-lg-6">
+          <a className="portfolio-item" href="#!">
+            <div className="caption">
+              <div className="caption-content">
+                <div className="h2">Etam</div>
+                <p className="mb-0">some text</p>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio-3.jpg" alt="" />
+            <img className="img-fluid" src="img/portfolio-3.jpg" alt="" />
           </a>
         </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#!">
-            <div class="caption">
-              <div class="caption-content">
-                <div class="h2">Sadia</div>
-                <p class="mb-0">  some text</p>
+        <div className="col-lg-6">
+          <a className="portfolio-item" href="#!">
+            <div className="caption">
+              <div className="caption-content">
+                <div className="h2">Sadia</div>
+                <p className="mb-0">  some text</p>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio-4.jpg" alt="" />
+            <img className="img-fluid" src="img/portfolio-4.jpg" alt="" />
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="content-section bg-primary text-white">
-    <div class="container text-center">
-      <h2 class="mb-4"> Sign in  rate and submit reviews ! </h2>
+  <section className="content-section bg-primary text-white">
+    <div className="container text-center">
+      <h2 className="mb-4"> Sign in  rate and submit reviews ! </h2>
       <a href="#!" class="btn btn-xl btn-light mr-4">Sign up!</a>
       <a href="#!" class="btn btn-xl btn-dark">Login In!</a>
     </div>
@@ -183,24 +187,7 @@ function App() {
     </small>
   </div>
 
-  <footer class="footer text-center">
-    <div class="container">
-      <ul class="list-inline mb-5">
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="#!">
-            <i class="icon-social-instagram"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="#!">
-            <i class="icon-social-twitter"></i>
-          </a>
-        </li>
-        
-      </ul>
-      <p class="text-muted small mb-0">Copyright &copy; coMedia BetterBiz 2020</p>
-    </div>
-  </footer>
+  
        
     </div>
   );
