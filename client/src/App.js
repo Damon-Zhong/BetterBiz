@@ -81,10 +81,10 @@ function App() {
       <h4>
         <strong>LGTB owned</strong>
       </h4>
-      <p className="text-faded mb-0"></p>
+      <p className="text-faded mb-0">some text</p>
     </div>
     <div className="col-lg-3 col-md-6 mb-5 mb-md-0">
-      <span className="service-icon rounded-circle mx-auto mb-3"> some text
+      <span className="service-icon rounded-circle mx-auto mb-3"> 
        
       </span>
       <h4>
@@ -94,8 +94,7 @@ function App() {
       </p>
     </div>
     <div className="col-lg-3 col-md-6">
-      <span className="service-icon rounded-circle mx-auto mb-3">some text
-        
+      <span className="service-icon rounded-circle mx-auto mb-3"> 
       </span>
       <h4>
         <strong> Eco friendly </strong>
