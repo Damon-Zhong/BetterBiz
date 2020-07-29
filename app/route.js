@@ -1,4 +1,6 @@
 // const yelp = require('./apiRoute')
+const orm = require('../connection/orm')
+const path = require('path')
 
 function router( app ){
     //[GET] yelp results
@@ -7,6 +9,26 @@ function router( app ){
     //     console.log(result)
     //     res.send(result)
     // })
+
+    app.get('/', ( req, res ) => {
+        res.sendFile(path.join(__dirname, '..', '/client/build/index.html'))
+    })
+    //[POST] submit business information
+    app.post('/api/submit', async ( req, res ) => {
+        const busData = {
+            busType: req.body.busType,
+            name: req.body.name,
+            address:{
+                address1: req.body.address,
+                city: req.body.city,
+                country: req.body.country,
+                postalCode: req.body.postalCode
+            },
+            highlight: req.body.highlight.split(',')
+        }
+        await orm.insertBusiness(busData)
+        res.send({status:200, message:'Success'})
+    })
     // app.get('/api/words', async function(req, res) {
     //     console.log( '[GET] getting word')
 
@@ -28,4 +50,4 @@ function router( app ){
     // })
 }
 
-module.exports = router
+module.exports = router;

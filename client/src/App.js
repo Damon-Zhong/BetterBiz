@@ -1,26 +1,19 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import SubmitBus from './pages/submitBus'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        BetterBiz
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <Router>
+      {/* <Navbar />
+      <Jumbotron />
+      <Route exact path="/" component={SaveBook} />
+      <Route exact path="/savebook" component={SaveBook} /> */}
+      <Route path="/submit" component={SubmitBus} />
+    </Router>
   );
 }
 
