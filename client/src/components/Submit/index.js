@@ -8,7 +8,7 @@ const Submit = () => {
           {" "}
           Own a business? Submit your Business and hlep grow our community!
         </h2>
-        <a className="btn btn-primary btn-xl" href="">
+        <a className="btn btn-primary btn-xl" href="/submitbusiness">
           Submit
         </a>
       </div>

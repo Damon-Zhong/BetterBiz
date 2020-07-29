@@ -1,6 +1,12 @@
 import React from "react";
+import axios from 'axios'
 
-export default ({ servicesLinks }) => {
+export default (props) => {
+  const callYelp = async() =>{
+    const result = await axios.get('/api/yelp')
+    console.log(`[callYelp] data received: ${result}`)
+  }
+
   return (
     <section
       className="content-section bg-primary text-white text-center"
@@ -12,9 +18,9 @@ export default ({ servicesLinks }) => {
           <h2 className="mb-5">Categories</h2>
         </div>
         <div className="row">
-          {servicesLinks &&
-            servicesLinks.map(({ title, caption }, index) => (
-              <div className="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          {props.servicesLinks &&
+            props.servicesLinks.map(({ title, caption }, index) => (
+              <div key={index} className="col-lg-3 col-md-6 mb-5 mb-lg-0" onClick={callYelp}>
                 <span className="service-icon rounded-circle mx-auto mb-3">
                   <i className="icon-screen-smartphone"></i>
                 </span>
