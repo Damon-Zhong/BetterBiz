@@ -24,7 +24,15 @@
   },
   "homepage": "https://github.com/Damon-Zhong/BetterBiz#readme",
   "dependencies": {
+    "concurrently": "^5.2.0",
     "dotenv": "^8.2.0",
+<<<<<<< HEAD
     "express": "^4.17.1"
+=======
+    "express": "^4.17.1",
+    "mongoose": "^5.9.26",
+    "path": "^0.12.7",
+    "yelp-fusion": "^3.0.0"
+>>>>>>> develop
   }
 }

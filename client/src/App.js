@@ -1,11 +1,25 @@
 import React from "react";
+<<<<<<< HEAD
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 // import logo from './logo.svg';
 // import './App.css';
+=======
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Services from "./components/Services";
+import "./App.css";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Submit from "./components/Submit";
+import AboutUs from "./components/AboutUs";
+import SignUp from "./components/SignUp";
+import Map from "./components/Map";
+>>>>>>> develop
 
 function App() {
   return (
     <>
+<<<<<<< HEAD
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
           Navbar
@@ -103,6 +117,25 @@ function App() {
           <div class="col-sm-4">.col-sm-4</div>
         </div>
       </div>
+=======
+      <Router>
+        <Navbar />
+        <Route exact path="/">
+          <Header />
+          <Services />
+        </Route>
+        <Route exact path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/submit">
+          <Submit />
+        </Route>
+        <Route path="/about">
+          <AboutUs />
+        </Route>
+      </Router>
+      <Map />
+>>>>>>> develop
     </>
   );
 }
