@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 8080;
 router(app)
 
 // for serving media assets
-app.use( express.static('public') )
+app.use( express.static('client/build') )
 
 app.listen(PORT, function() {
     console.log( `Listening on port: ${PORT}` );
