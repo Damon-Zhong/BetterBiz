@@ -15,9 +15,18 @@ function router( app ){
     })
     //[POST] submit business information
     app.post('/api/submit', async ( req, res ) => {
-        console.log(`[POST] data received:${req.body}`)
-        await orm.insertBusiness(req.body)
-        // res.redirect('/')
+        const busData = {
+            busType: req.body.busType,
+            name: req.body.name,
+            address:{
+                address1: req.body.address,
+                city: req.body.city,
+                country: req.body.country,
+                postalCode: req.body.postalCode
+            },
+            highlight: req.body.highlight.split(',')
+        }
+        await orm.insertBusiness(busData)
         res.send({status:200, message:'Success'})
     })
     // app.get('/api/words', async function(req, res) {

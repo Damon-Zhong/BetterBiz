@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Modal from '../components/PopupModal'
 
 const SubmitBus = () => {
-    const [busData, setBusData] = useState({name:"", address:"", highlight:""})
+    const [busData, setBusData] = useState({busType:"", name:"", address:"", city:"", country:"", postalCode:"", highlight:""})
     const [isSubmit, setIsSubmit] = useState(false)
 
     const handleInputChange = (event) => {
@@ -13,6 +13,7 @@ const SubmitBus = () => {
 
     const handleFormSubmit = async (event) => {
             event.preventDefault()
+            
             const feedback = await fetch("/api/submit", {   
                 method: 'post',
                 headers: {
@@ -24,6 +25,7 @@ const SubmitBus = () => {
             setTimeout(()=>{
                 setIsSubmit(true)
             }, 5000)
+
         }
     return (
         <div>
@@ -56,20 +58,24 @@ const SubmitBus = () => {
                             <option>Others</option>
                             <option>Others</option>
                         </select>
-                    </div>
-                    <div className="form-group">
+                  
                         <label htmlFor="name">Business Name</label>
                         <input onChange={handleInputChange} value={busData.name} type="text" className="form-control" id="name" name="name" />
-                        <label onChange={handleInputChange} value={busData.address} htmlFor="address">Business Address</label>
-                        <input type="text" className="form-control" id="address" name="address" />
+
+                        <label htmlFor="address">Business Address</label>
+                        <input onChange={handleInputChange} value={busData.address} type="text" className="form-control" id="address" />
+
                         <label htmlFor="city">City</label>
-                        <input type="text" className="form-control" id="city" name="city" />
+                        <input onChange={handleInputChange} value={busData.city} type="text" className="form-control" id="city" name="city" />
+
                         <label htmlFor="country">Country</label>
-                        <input type="text" className="form-control" id="country" name="country" />
-                        <label htmlFor="postalcode">Postal Code</label>
-                        <input type="text" className="form-control" id="postalcode" name="postalcode" />
-                        <label onChange={handleInputChange} value={busData.highlight} htmlFor="highlight">Business Highlights</label>
-                        <input type="text" className="form-control" id="highlight" name="highlight" />
+                        <input onChange={handleInputChange} value={busData.country} type="text" className="form-control" id="country" name="country" />
+
+                        <label htmlFor="postalCode">Postal Code</label>
+                        <input onChange={handleInputChange} value={busData.postalcode} type="text" className="form-control" id="postalCode" name="postalCode" />
+
+                        <label htmlFor="highlight">Business Highlights</label>
+                        <input onChange={handleInputChange} value={busData.highlight} type="text" className="form-control" id="highlight" name="highlight" />
                     </div>
                     {/* <div className="form-group form-check">
                         <input type="checkbox" className="form-check-input" id="exampleCheck1">

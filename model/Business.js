@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const BusinessSchema = new Schema({
+    busType: {
+        type: String,
+        trim: true,
+        required: 'Business type is Required'
+    },
     name: {
         type: String,
         trim: true,
@@ -16,7 +21,9 @@ const BusinessSchema = new Schema({
         address1: String,
         zipCode: String
     },
-    hightlight:[String]
+    highlight:[{
+        type: String
+    }]
 });
 
 const Business = mongoose.model('Business', BusinessSchema);
