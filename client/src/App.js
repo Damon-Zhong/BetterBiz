@@ -1,32 +1,14 @@
-<<<<<<< HEAD
-import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import SubmitBus from './pages/submitBus'
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    
-    <Router>
-      {/* <Navbar />
-      <Jumbotron />
-      <Route exact path="/" component={SaveBook} />
-      <Route exact path="/savebook" component={SaveBook} /> */}
-      <Route path="/submit" component={SubmitBus} />
-    </Router>
-=======
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Services from "./componets/Services";
+import Services from "./components/Services";
 import "./App.css";
-import Header from "./componets/Header";
-import Navbar from "./componets/Navbar";
-import Submit from "./componets/Submit";
-import AboutUs from "./componets/AboutUs";
-import SignUp from "./componets/SignUp";
-import Map from "./componets/Map";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Submit from "./components/Submit";
+import AboutUs from "./components/AboutUs";
+import SignUp from "./components/SignUp";
+import Map from "./components/Map";
 
 function App() {
   return (
@@ -49,7 +31,6 @@ function App() {
       </Router>
       <Map />
     </>
->>>>>>> sadiia
   );
 }
 
