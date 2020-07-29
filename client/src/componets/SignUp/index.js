@@ -1,6 +1,8 @@
 import React from "react";
 
 const SignUp = () => {
+  function haha() {}
+
   return (
     <section className="content-section bg-primary text-white">
       <div className="container text-center">
