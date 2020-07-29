@@ -1,9 +1,10 @@
-require( 'dotenv' ).config()
+require("dotenv").config();
 
 const express = require("express");
 const router = require("./app/route");
 
 const app = express();
+// handlebars initialization
 
 // for parsing incoming POST data
 app.use(express.urlencoded({ extended: true }));
@@ -14,11 +15,11 @@ app.use(express.json());
 const PORT = process.env.PORT || 8080;
 
 // for routes
-router(app)
+router(app);
 
 // for serving media assets
-app.use( express.static('client/build') )
+app.use(express.static("client/build"));
 
-app.listen(PORT, function() {
-    console.log( `Listening on port: ${PORT}` );
-})
+app.listen(PORT, function () {
+  console.log(`Listening on port: ${PORT}`);
+});

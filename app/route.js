@@ -1,12 +1,4 @@
-// const yelp = require('./apiRoute')
-
 function router( app ){
-    //[GET] yelp results
-    // app.get('/api/yelp', async ( req, res ) => {
-    //     const result = await yelp()
-    //     console.log(result)
-    //     res.send(result)
-    // })
     // app.get('/api/words', async function(req, res) {
     //     console.log( '[GET] getting word')
 
