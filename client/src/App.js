@@ -1,9 +1,14 @@
-import React,{ useState} from 'react';
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import SubmitBus from './pages/submitBus'
-import SearchForm from './components/SearchForm';
-import SearchResult from './components/SearchResult'
-import './App.css';
+
+import Services from "./components/Services";
+import "./App.css";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Submit from "./components/Submit";
+import AboutUs from "./components/AboutUs";
+import SignUp from "./components/SignUp";
+import Map from "./components/Map";
 
 function App() {
   const [SearchQuery, setSearchQuery] = useState("")
@@ -15,17 +20,25 @@ function App() {
   }
 
   return (
-    
-    <Router>
-      {/* <Navbar />
-      <Jumbotron />
-      <Route exact path="/savebook" component={SaveBook} /> */}
-      <Route exact path="/">
-        <SearchForm query={SearchQuery} />
-        <SearchResult result={searchResult}/>
-      </Route>
-      <Route path="/submit" component={SubmitBus} handleFormSubmit={handleFormSubmit} />
-    </Router>
+    <>
+      <Router>
+        <Navbar />
+        <Route exact path="/">
+          <Header />
+          <Services />
+        </Route>
+        <Route exact path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/submit">
+          <Submit />
+        </Route>
+        <Route path="/about">
+          <AboutUs />
+        </Route>
+      </Router>
+      <Map />
+    </>
   );
 }
 
