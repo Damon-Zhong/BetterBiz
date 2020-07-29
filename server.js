@@ -4,7 +4,6 @@ const express = require("express");
 const router = require("./app/route");
 
 const app = express();
-// handlebars initialization
 
 // for parsing incoming POST data
 app.use(express.urlencoded({ extended: true }));
