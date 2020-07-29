@@ -1,5 +1,6 @@
 import React,{ useState } from 'react'
 import { Redirect } from 'react-router-dom';
+import axios from 'axios'
 import Modal from '../components/PopupModal'
 
 const SubmitBus = () => {
@@ -13,19 +14,12 @@ const SubmitBus = () => {
 
     const handleFormSubmit = async (event) => {
             event.preventDefault()
-            
-            const feedback = await fetch("/api/submit", {   
-                method: 'post',
-                headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-                },
-                body:JSON.stringify(busData)
-            }).then( res=>res.json() )
-            setTimeout(()=>{
-                setIsSubmit(true)
-            }, 5000)
-
+            const feedback = await axios.post('/api/submit', busData)
+            if( feedback.data.status ){
+                setTimeout(()=>{
+                    setIsSubmit(true)
+                }, 3000)
+            }
         }
     return (
         <div>
@@ -45,13 +39,13 @@ const SubmitBus = () => {
                 </div>
             </nav>
             {/* <!-- Thank-you Modal --> */}
-            <Modal />
+            <Modal status={isSubmit}/>
             {/* Submit business form  */}
             <div  className="mt-5 container">
                 <form>
                     <div className="form-group">
                         <label htmlFor="busType">Type of Business</label>
-                        <select onChange={handleInputChange} value={busData.busType} className="form-control" id="busType">
+                        <select onChange={handleInputChange} value={busData.busType} className="form-control" id="busType" required>
                             <option>Restaurant</option>
                             <option>Barber</option>
                             <option>Coffee Shop</option>
@@ -60,10 +54,10 @@ const SubmitBus = () => {
                         </select>
                   
                         <label htmlFor="name">Business Name</label>
-                        <input onChange={handleInputChange} value={busData.name} type="text" className="form-control" id="name" name="name" />
+                        <input onChange={handleInputChange} value={busData.name} type="text" className="form-control" id="name" name="name" required />
 
                         <label htmlFor="address">Business Address</label>
-                        <input onChange={handleInputChange} value={busData.address} type="text" className="form-control" id="address" />
+                        <input onChange={handleInputChange} value={busData.address} type="text" className="form-control" id="address" required />
 
                         <label htmlFor="city">City</label>
                         <input onChange={handleInputChange} value={busData.city} type="text" className="form-control" id="city" name="city" />
@@ -77,10 +71,6 @@ const SubmitBus = () => {
                         <label htmlFor="highlight">Business Highlights</label>
                         <input onChange={handleInputChange} value={busData.highlight} type="text" className="form-control" id="highlight" name="highlight" />
                     </div>
-                    {/* <div className="form-group form-check">
-                        <input type="checkbox" className="form-check-input" id="exampleCheck1">
-                        <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                    </div> */}
                     <button onClick={handleFormSubmit} type="submit" className="btn btn-primary" data-toggle="modal" data-target="#thankyouModal">Submit</button>
                 </form>
             </div>          
