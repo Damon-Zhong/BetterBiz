@@ -4,7 +4,6 @@ const express = require("express");
 const router = require("./app/route");
 
 const app = express();
-// handlebars initialization
 
 // for parsing incoming POST data
 app.use(express.urlencoded({ extended: true }));
@@ -18,7 +17,7 @@ const PORT = process.env.PORT || 8080;
 router(app)
 
 // for serving media assets
-app.use( express.static('public') )
+app.use( express.static('client/build') )
 
 app.listen(PORT, function() {
     console.log( `Listening on port: ${PORT}` );
