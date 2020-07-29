@@ -11,8 +11,13 @@ function router( app ){
     // })
 
     app.get('/', ( req, res ) => {
-        res.sendFile(path.join(__dirname, '..', '/client/build/index.html'))
+        res.sendFile(path.join(__dirname, '..', '/client/build/index.html'));
     })
+
+    app.get('/businesses/:businessName', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', '/client/build/index.html'));
+    })
+
     //[POST] submit business information
     app.post('/api/submit', async ( req, res ) => {
         const busData = {
