@@ -52,8 +52,7 @@ function App() {
         <Route path="/about">
           <AboutUs />
         </Route>
-        <Route path="/businesses/:businessName">
-          <BusinessPage />
+        <Route component={BusinessPage} path="/businesses/:businessName">
         </Route>
       </Router>
       {/* <Map /> */}

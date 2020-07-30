@@ -2,39 +2,37 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./BusinessSummary.css";
+import highlightsMap from "../../constants/highlights";
 
-function BusinessSummary(){
+function BusinessSummary({name, summary, address, website, phone, highlights}){
     return (
         <div className="container mt-5 mb-5">
-            <h2>Business example</h2>
+            <h2>{name}</h2>
             <p>
-                The Big Chill is an old-fashioned retro ice cream parlour with colourful design, checkered floors, and marble
-                counters. We have been operating for over a decade and are the ideal venue for birthday parties and
-                corporate events.
+                {summary}
             </p>
-            <p><b>743 Example St, Toronto, ON M5A 1R4<br/><a href="google.com" target="_blank">www.website.com</a> | 048233461990 | <a href="mailto:mail@website.com">mail@website.com</a></b></p>
+            <p><b>{address.join(", ")}<br/><a href={website} target="_blank">{name}'s website</a> | Phone: {phone}</b></p>
             <Row className="mt-5">
-                <Col className="col-sm-6">
+                <Col className="col-sm-12">
                     <h5 className="mb-3">What makes this business special</h5>
-                    <p>🖤&nbsp;&nbsp;<b>Black-owned</b></p>
-                    <p>🏳️‍🌈&nbsp;&nbsp;<b>LGBT-owned</b></p>
-                    <p>🌱&nbsp;&nbsp;<b>Eco-friendly</b></p>
-                    <p>These business features have been sourced by our own community. If you want to add an underrepresented business to our database, click <a href="http://google.com">here</a>.</p>
-                </Col>
-                <Col className="col-sm-6">
-                    <h5>Hours</h5>
-                    <p>
-                    Mon 3:00 pm - 11:00 pm<br />
-                    Tue 3:00 pm - 11:00 pm<br />
-                    Wed 3:00 pm - 11:00 pm<br />
-                    Thu 3:00 pm - 11:00 pm<br />
-                    Fri 3:00 pm - 12:00 am<br />
-                    Sat 2:00 pm - 12:00 am<br />
-                    Sun 2:00 pm - 11:00 pm
-                    </p>
-                    <p>Business info powered by <a className="yelp" href="https://www.yelp.com/" target="_blank">Yelp</a></p>
                 </Col>
             </Row>
+            <Row>
+                <Col className="col-sm-6">
+                    {highlights.map(
+                        (highlight) => {
+                            const highlightData = highlightsMap[highlight];
+                            return(
+                                <p key={highlight}>{highlightData.emoji}&nbsp;&nbsp;<b>{highlightData.title}</b></p>
+                            )
+                        }
+                    )}
+                </Col>
+                <Col className="col-sm-6">
+                    <p>These business features have been sourced by our own community. If you want to add an underrepresented business to our database, click <a href="http://google.com">here</a>.</p>
+                </Col>
+            </Row>
+            <hr />
         </div>
     )
 }
