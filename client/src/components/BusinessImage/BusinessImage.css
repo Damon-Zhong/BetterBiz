@@ -1,0 +1,7 @@
+.businessImage {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+}

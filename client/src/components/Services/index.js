@@ -1,6 +1,13 @@
-import React from "react";
+import React from "react"
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
-export default ({ servicesLinks }) => {
+export default (props) => {
+  const callYelp = async(title) =>{
+    const result = await axios.get(`/businesses/${title.replace(' ', '')}`)
+    console.log(`[callYelp] data received: ${result}`)
+  }
+
   return (
     <section
       className="content-section bg-primary text-white text-center"
@@ -12,13 +19,13 @@ export default ({ servicesLinks }) => {
           <h2 className="mb-5">Categories</h2>
         </div>
         <div className="row">
-          {servicesLinks &&
-            servicesLinks.map(({ title, caption }, index) => (
-              <div className="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          {props.servicesLinks.map(({ title, caption }, index) => (
+            
+              <div key={index} className="col-lg-3 col-md-6 mb-5 mb-lg-0" onClick={callYelp(title)}>
                 <span className="service-icon rounded-circle mx-auto mb-3">
                   <i className="icon-screen-smartphone"></i>
                 </span>
-                <h4>{title}</h4>
+                <Link to={`/businesses/${title.replace(' ', '')}`}>{title}</Link>
                 <p className="text-faded mb-0">{caption}</p>
               </div>
             ))}
