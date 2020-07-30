@@ -21,7 +21,7 @@ const BusinessSchema = new Schema({
         address1: String,
         zipCode: String
     },
-    highlight:[{
+    attributes:[{
         type: String
     }]
 });

@@ -11,19 +11,21 @@ import SignUp from "./components/SignUp";
 import Map from "./components/Map";
 
 function App() {
+  
   const servicesList = [{
-    title:'Black-Owned',
-    caption:'Black-Owned'
+    title:'Black Owned',
+    caption:'Black Owned'
   },{
-    title:'Women-Owned',
-    caption:'Women-Owned'
+    title:'Women Owned',
+    caption:'Women Owned'
   },{
-    title:'LGBTQ-Owned',
-    caption:'LGBTQ-Owned'
+    title:'LGBTQ Owned',
+    caption:'LGBTQ Owned'
   },{
-    title:'Eco-Friendly',
-    caption:'Eco-Friendly'
+    title:'Eco Friendly',
+    caption:'Eco Friendly'
   }]
+
   const [SearchQuery, setSearchQuery] = useState("")
   const [searchResult, setSearchResult] = useState([])
 

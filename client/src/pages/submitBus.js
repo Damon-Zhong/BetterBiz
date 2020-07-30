@@ -1,10 +1,10 @@
 import React,{ useState } from 'react'
-import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import Modal from '../components/PopupModal'
 
 const SubmitBus = () => {
-    const [busData, setBusData] = useState({busType:"", name:"", address:"", city:"", country:"", postalCode:"", highlight:""})
+    const [busData, setBusData] = useState({busType:"", name:"", address:"", city:"", country:"", postalCode:"", attributes:""})
     const [isSubmit, setIsSubmit] = useState(false)
 
     const handleInputChange = (event) => {
@@ -25,19 +25,6 @@ const SubmitBus = () => {
         <div>
             { isSubmit ? <Redirect to='/' /> : '' }
 
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand" href="/">BetterBiz</a>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
-                            <a className="nav-link" href="/">Home</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/submit">Submit</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
             {/* <!-- Thank-you Modal --> */}
             <Modal status={isSubmit}/>
             {/* Submit business form  */}
@@ -68,8 +55,8 @@ const SubmitBus = () => {
                         <label htmlFor="postalCode">Postal Code</label>
                         <input onChange={handleInputChange} value={busData.postalcode} type="text" className="form-control" id="postalCode" name="postalCode" />
 
-                        <label htmlFor="highlight">Business Highlights</label>
-                        <input onChange={handleInputChange} value={busData.highlight} type="text" className="form-control" id="highlight" name="highlight" />
+                        <label htmlFor="attributes">Business Attributes</label>
+                        <input onChange={handleInputChange} value={busData.attributes} type="text" className="form-control" id="attributes" name="attributes" />
                     </div>
                     <button onClick={handleFormSubmit} type="submit" className="btn btn-primary" data-toggle="modal" data-target="#thankyouModal">Submit</button>
                 </form>

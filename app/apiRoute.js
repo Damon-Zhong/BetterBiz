@@ -1,48 +1,43 @@
 //config env credentials
 require('dotenv').config()
+import axios from 'axios'
 //create yelp API client
-const client = require('yelp-fusion').client(process.env.yelp_API_key);
+const client = require('yelp-fusion').client(process.env.yelp_API_key)
+const AuthStr = `Bearer ${process.env.yelp_API_key}`
 
 //!TODO implement changes from input
 const Yelp = {
     // setSearchRequest: async (queryObj) =>{
 
     // },
-    generalSearch: async () => {
+    generalSearch: async (location='Toronto', query) => {
         console.log('General Search...')
-        const searchRequest = {
-            location:'Toronto',
-            limit:10
-        }
-        const resultList = await client.search(searchRequest)
-            .then( res => res.jsonBody.businesses )
-            .catch( e => console.log(e) )
+        const url = `https://api.yelp.com/v3/businesses/search?location=${location}&term=${query}`
+        const resultList = await axios.get(url, { headers: { Authorization: AuthStr } } )
+        // const searchRequest = {
+        //     location:'Toronto',
+        //     limit:10
+        // }
+        // const resultList = await client.search(searchRequest)
+        //     .then( res => res.jsonBody.businesses )
+        //     .catch( e => console.log(e) )
         return resultList
     },
 
-    fetchByName: async (name, location='Toronto') => {
-        console.log(`Fetching by name: ${name}`)
-        const searchRequest = {
-            location,
-            name
-        }
-        const resultList = await client.search(searchRequest)
-            .then( res => res.jsonBody.businesses )
-            .catch( e => console.log(e) )
+    getBusById: async (id) => {
+        console.log(`[getBusById] get business information by ID: ${id}`)
+        const url = `https://api.yelp.com/v3/businesses/${id}`
+        const resultList = await axios.get(url, { headers: { Authorization: AuthStr } } )
+        // const searchRequest = {
+        //     location,
+        //     name
+        // }
+        // const resultList = await client.search(searchRequest)
+        //     .then( res => res.jsonBody.businesses )
+        //     .catch( e => console.log(e) )
         return resultList
     },
 
-    fetchById: async (id, location='Toronto') => {
-        console.log(`Fetching by Id: ${id}`)
-        const searchRequest = {
-            location,
-            id
-        }
-        const resultList = await client.search(searchRequest)
-            .then( res => res.jsonBody.businesses )
-            .catch( e => console.log(e) )
-        return resultList
-    }
 }
 
 module.exports = Yelp
