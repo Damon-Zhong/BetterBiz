@@ -43,7 +43,7 @@ function App() {
           <Header />
           <Services servicesLinks={servicesList}/>
         </Route>
-        <Route exact path="/signup">
+        <Route path="/signup">
           <SignUp />
         </Route>
         <Route exact path="/submit">
