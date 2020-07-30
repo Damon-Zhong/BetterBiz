@@ -19,24 +19,20 @@ function LogIn() {
         let confirmInput = Object.values(formInput).filter(value => { return value.trim() !== "" })
         if (confirmInput.length === 2) {
             console.log("All areas filled!")
-            axios.get("/api/login", {
-                params: {
-                    email: formInput.email,
-                    password: formInput.password
-                }
-            }).then(result => {
-                if (result.data === "failed") {
+            axios.get(`/api/login?email=${formInput.email}&pwd=${formInput.password}`).then(result => {
+                
+                if (result.message === "failed") {
                     clearTimeout(warning);
                     setFormState({ ...formState, formFailedStyle: "block" })
                     warning = setTimeout(() => {
                         setFormState({ ...formState, formFailedStyle: "none" })
                     }, 3000)
                 } else {
-                    window.localStorage.setItem('currUser', JSON.stringify({ id: result.data[0].id, role: result.data[0].role }));
-                    if (result.data[0].role !== null) {
-                        window.location.pathname = `/profile/${result.data[0].id}`;
+                    window.localStorage.setItem('currUser', JSON.stringify({ email: result.email }));
+                    if (result.role !== null) {
+                        window.location.pathname = `/`; //profile/${result.id}
                     } else {
-                        window.location.pathname = "/setup";
+                        window.location.pathname = "/";
                     }
                 }
             })
