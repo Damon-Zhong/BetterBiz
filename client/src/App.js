@@ -1,21 +1,40 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import SubmitBus from './pages/submitBus';
-import BusinessPage from './pages/businessPage';
-import logo from './logo.svg';
-import './App.css';
+
+import Services from "./components/Services";
+import "./App.css";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Submit from "./components/Submit";
+import AboutUs from "./components/AboutUs";
+import SignUp from "./components/SignUp";
+import BusinessPage from "./pages/businessPage";
+// import Map from "./components/Map";
 
 function App() {
   return (
-    
-    <Router>
-      {/* <Navbar />
-      <Jumbotron />
-      <Route exact path="/" component={SaveBook} />
-      <Route exact path="/savebook" component={SaveBook} /> */}
-      <Route path="/submit" component={SubmitBus} />
-      <Route path="/businesses/:businessName" component={BusinessPage} />
-    </Router>
+    <>
+      <Router>
+        <Navbar />
+        <Route exact path="/">
+          <Header />
+          <Services />
+        </Route>
+        <Route exact path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/submit">
+          <Submit />
+        </Route>
+        <Route path="/about">
+          <AboutUs />
+        </Route>
+        <Route path="/businesses/:businessName">
+          <BusinessPage />
+        </Route>
+      </Router>
+      {/* <Map /> */}
+    </>
   );
 }
 
