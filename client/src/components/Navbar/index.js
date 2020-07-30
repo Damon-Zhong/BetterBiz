@@ -31,7 +31,13 @@ const Navbar = () => {
             <a class="nav-link" href="/about">
               About Us <span class="sr-only">(current)</span>
             </a>
-          </li>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="/login">
+              Login <span class="sr-only">(current)</span>
+            </a>
+          </li> 
+          
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"

@@ -1,4 +1,5 @@
 import React from "react";
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Services from "./components/Services";
@@ -8,7 +9,8 @@ import Navbar from "./components/Navbar";
 import Submit from "./components/Submit";
 import AboutUs from "./components/AboutUs";
 import SignUp from "./components/SignUp";
-import Map from "./components/Map";
+import Map from "./components/Map"; 
+
 // just  testing this 
 function App() {
   return (
@@ -16,12 +18,14 @@ function App() {
       <Router>
         <Navbar />
         <Route exact path="/">
-          <Header />
-          <Services />
-        </Route>
-        <Route exact path="/signup">
+          <Header /> 
+          <Services /> 
+          <Submit />
           <SignUp />
         </Route>
+        {/* <Route exact path="/login">
+          <SignUp />
+        </Route> */}
         <Route path="/submit">
           <Submit />
         </Route>
@@ -32,6 +36,7 @@ function App() {
       <Map />
     </>
   );
-}
+}  
+
 
 export default App;
