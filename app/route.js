@@ -16,6 +16,16 @@ function router( app ){
         const results = await yelp.getBusById(yelpID)
         res.send(results)
     })
+
+    app.get('/businesses/:businessName', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', '/client/build/index.html'));
+    })
+
+    app.get('/api/businesses/:businessUrl', async (req, res) => {
+        const renderData = await orm.readBusiness(req.params.businessUrl);
+        res.send({status: 200, ...renderData });
+    })
+
     //[POST] submit business information
     app.post('/api/submit', async ( req, res ) => {
         if( !req.body.busType || !req.body.name ){

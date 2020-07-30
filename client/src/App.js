@@ -8,7 +8,8 @@ import Submit from "./components/Submit";
 import SubmitPage from './pages/submitBus'
 import AboutUs from "./components/AboutUs";
 import SignUp from "./components/SignUp";
-import Map from "./components/Map";
+import BusinessPage from "./pages/businessPage";
+// import Map from "./components/Map";
 
 function App() {
   
@@ -54,8 +55,11 @@ function App() {
         <Route path="/about">
           <AboutUs />
         </Route>
+        <Route path="/businesses/:businessName">
+          <BusinessPage />
+        </Route>
       </Router>
-      <Map />
+      {/* <Map /> */}
     </>
   );
 }

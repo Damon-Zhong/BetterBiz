@@ -12,6 +12,9 @@ const BusinessSchema = new Schema({
         trim: true,
         required: 'Business name is Required'
     },
+    url: {
+        type: String,
+    },
     image: {
         type: String,
     },
@@ -23,7 +26,13 @@ const BusinessSchema = new Schema({
     },
     attributes:[{
         type: String
-    }]
+    }],
+    yelpId: {
+        type: String
+    },
+    ownDelivery: {
+        type: Boolean
+    }
 });
 
 const Business = mongoose.model('Business', BusinessSchema);
