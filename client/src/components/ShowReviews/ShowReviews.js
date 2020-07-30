@@ -5,7 +5,7 @@ function ShowReviews(){
         <div className="container mt-5">
             <hr className="mb-5"></hr>
             <h4>What our users think about this business</h4>
-            <p>This business does not have any reviews yet. If you want to leave a review, please <a>sign up or log in</a> and submit a review.</p>
+            <p>This business does not have any reviews yet. If you want to leave a review, please <a href="http://google.ca">sign up or log in</a> and submit a review by clicking on the button below.</p>
             <div id="reviewCards">
                 <div className="card mb-3">
                     <div className="card-body">

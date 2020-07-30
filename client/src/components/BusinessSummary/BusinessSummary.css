@@ -4,10 +4,10 @@
 }
 
 a {
-    color: #0F7173;
+    color: #0F7173!important;
 }
 
 h2 {
-    font-weight: bold;
-    color: #0F7173;
+    font-weight: bold!important;
+    color: #0F7173!important;
 }

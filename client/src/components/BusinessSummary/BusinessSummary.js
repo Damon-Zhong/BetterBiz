@@ -19,6 +19,7 @@ function BusinessSummary(){
                     <p>🖤&nbsp;&nbsp;<b>Black-owned</b></p>
                     <p>🏳️‍🌈&nbsp;&nbsp;<b>LGBT-owned</b></p>
                     <p>🌱&nbsp;&nbsp;<b>Eco-friendly</b></p>
+                    <p>These business features have been sourced by our own community. If you want to add an underrepresented business to our database, click <a href="http://google.com">here</a>.</p>
                 </Col>
                 <Col className="col-sm-6">
                     <h5>Hours</h5>
