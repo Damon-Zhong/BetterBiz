@@ -10,6 +10,7 @@ import SignUp from "./components/SignUp";
 import BusinessPage from "./pages/businessPage";
 // import Map from "./components/Map";
 
+// just  testing this 
 function App() {
   
   const servicesList = [{
@@ -42,7 +43,7 @@ function App() {
           <Header />
           <Services servicesLinks={servicesList}/>
         </Route>
-        <Route exact path="/signup">
+        <Route path="/signup">
           <SignUp />
         </Route>
         <Route exact path="/submit">
@@ -58,6 +59,7 @@ function App() {
       {/* <Map /> */}
     </>
   );
-}
+}  
+
 
 export default App;
