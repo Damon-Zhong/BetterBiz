@@ -25,7 +25,31 @@ function router( app ){
         const renderData = await orm.readBusiness(req.params.businessUrl);
         res.send({status: 200, ...renderData });
     })
-
+    //[POST] save user credentials
+    app.post('/api/register', async ( req, res ) => {
+        const isExist = await orm.findUser(req.body.email) //return true/false
+        if(isExist) {
+            res.send({status:"exists"}) //
+        }else{
+            const userId = await orm.registerUser(req.body)
+            res.send({status:'new', message:"Register successfully!", insertId:userId._id })
+        }
+    })
+    //[GET] login user
+    app.get('/api/login', async ( req, res )=>{
+        console.log(`User input:${req.query.email} ${req.query.pwd}`)
+        const userEmail = req.query.email
+        const userPwd = req.query.pwd
+        const isMatch = await orm.matchUser( userEmail, userPwd )
+        if(isMatch){
+            console.log(`Login Successfully`)
+            const user = await orm.findUser(userEmail)
+            res.status(200).send(user)
+        }else{
+            console.log(`Login FAILED`)
+            res.send({message:"failed"})
+        }
+    })
     //[POST] submit business information
     app.post('/api/submit', async ( req, res ) => {
         if( !req.body.busType || !req.body.name ){

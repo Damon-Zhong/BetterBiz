@@ -20,27 +20,19 @@ function SignUp() {
         event.preventDefault();
         let confirmInput = Object.values(formInput).filter(value => { return value !== "" })
         if (confirmInput.length === 4) {
-                        
-            let sendObj = {};
-            sendObj.email = Object.values(formInput)[0];
-            sendObj.firstName = Object.values(formInput)[1];
-            sendObj.lastName = Object.values(formInput)[2];
-            sendObj.password = Object.values(formInput)[3];
 
-            let url = '/register';
-            
-            axios.post(url, sendObj)
+            axios.post('/api/register', formInput)
             .then((data)=>{
                 /* Set insertId into localStrorage, redirect to profile page */
-                if (data.data === "exists") {
+                if (data.status === "exists") {
                     clearTimeout(warning);
                     setFormState({ ...formState, userValidStyle: "block" })
                     warning = setTimeout(() => {
                         setFormState({ ...formState, userValidStyle: "none" })
                     }, 5000)
                 } else {
-                    window.localStorage.setItem('currUser', JSON.stringify({id: data.data.insertId, role: null}));
-                    window.location.pathname = '/setup';
+                    window.localStorage.setItem('currUser', JSON.stringify({id: data.insertId, role: null}));
+                    window.location.pathname = '/';
                 }
             })
             .catch((err)=>{
