@@ -12,7 +12,7 @@ function BusinessSummary(){
                 counters. We have been operating for over a decade and are the ideal venue for birthday parties and
                 corporate events.
             </p>
-            <p><b><a href="google.com" target="_blank">www.website.com</a> | 048233461990 | <a href="mailto:mail@website.com">mail@website.com</a></b></p>
+            <p><b>743 Example St, Toronto, ON M5A 1R4<br/><a href="google.com" target="_blank">www.website.com</a> | 048233461990 | <a href="mailto:mail@website.com">mail@website.com</a></b></p>
             <Row className="mt-5">
                 <Col className="col-sm-6">
                     <h5 className="mb-3">What makes this business special</h5>

@@ -1,4 +1,5 @@
 const mongoose = require( 'mongoose' );
+const yelpBusinessResult = require( '../app/apiRoute').yelpBusinessResult;
 
 mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost/betterbiz', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
@@ -17,7 +18,19 @@ const orm = {
     insertBusiness: async (busData) => {
         console.log('Data received:', busData)
         await db.Business.create(busData)
+    },
+
+    readBusiness: async (businessUrl) => {
+        const businesses = await db.Business.find({url: businessUrl});
+
+        if (businesses.length) {
+            const businessData = businesses[0];
+            const yelpData = await yelpBusinessResult(businessData.yelpId);
+            return { businessData, yelpData };
+        }
+
+        return { businessData: {} };
     }
 }
 
-module.exports = orm
+module.exports = orm;

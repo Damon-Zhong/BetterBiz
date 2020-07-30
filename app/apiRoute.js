@@ -19,7 +19,25 @@ async function yelpResult(){
     return resultList
 }
 
-module.exports = yelpResult
+async function yelpBusinessResult(yelpId){
+    // await client.search({
+    //     term:'Pai Northern Thai Kitchen',
+    //     location: 'Toronto, Ontario, Canada'
+    // })
+    // .then( res => console.log('business', res.jsonBody))
+    // .catch(e => {
+    //     console.log(e);
+    // });
+
+    const businessResult = await client.business('pai-northern-thai-kitchen-toronto-5')
+        .then( res => res.jsonBody )
+        .catch(e => {
+            console.log(e);
+        })
+    return businessResult;
+}
+
+module.exports = { yelpResult, yelpBusinessResult }
 //  const firstResult = response.jsonBody.businesses[0];
 //   const prettyJson = JSON.stringify(firstResult, null, 4);
 //   console.log(prettyJson);
