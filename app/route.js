@@ -1,6 +1,6 @@
 const yelp = require('./apiRoute')
 const orm = require('../connection/orm')
-// const path = require('path')
+const path = require('path')
 
 function router( app ){
     //[GET] general serach by term

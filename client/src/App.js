@@ -4,7 +4,6 @@ import Services from "./components/Services";
 import "./App.css";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-import Submit from "./components/Submit";
 import SubmitPage from './pages/submitBus'
 import AboutUs from "./components/AboutUs";
 import SignUp from "./components/SignUp";
@@ -47,9 +46,6 @@ function App() {
           <SignUp />
         </Route>
         <Route exact path="/submit">
-          <Submit />
-        </Route>
-        <Route exact path="/submitbusiness">
           <SubmitPage />
         </Route>
         <Route path="/about">

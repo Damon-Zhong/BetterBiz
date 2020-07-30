@@ -1,6 +1,7 @@
 import React,{ useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import Submit from '../components/Submit'
 import Modal from '../components/PopupModal'
 
 const SubmitBus = () => {
@@ -28,6 +29,7 @@ const SubmitBus = () => {
             {/* <!-- Thank-you Modal --> */}
             <Modal status={isSubmit}/>
             {/* Submit business form  */}
+            <Submit />
             <div  className="mt-5 container">
                 <form>
                     <div className="form-group">

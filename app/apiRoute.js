@@ -1,13 +1,13 @@
 //config env credentials
 require('dotenv').config()
-import axios from 'axios'
+const axios = require('axios')
 //create yelp API client
 const client = require('yelp-fusion').client(process.env.yelp_API_key)
 const AuthStr = `Bearer ${process.env.yelp_API_key}`
 
 //!TODO implement changes from input
 const Yelp = {
-    // setSearchRequest: async (queryObj) =>{
+    // autoComplete: async (term) => {
 
     // },
     generalSearch: async (location='Toronto', query) => {
