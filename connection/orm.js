@@ -1,5 +1,5 @@
 const mongoose = require( 'mongoose' );
-const yelpBusinessResult = require( '../app/apiRoute').yelpBusinessResult;
+const Yelp = require( '../app/apiRoute');
 
 mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost/betterbiz', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
@@ -25,7 +25,7 @@ const orm = {
 
         if (businesses.length) {
             const businessData = businesses[0];
-            const yelpData = await yelpBusinessResult(businessData.yelpId);
+            const yelpData = await Yelp.yelpBusinessResult(businessData.yelpId);
             return { businessData, yelpData };
         }
 
