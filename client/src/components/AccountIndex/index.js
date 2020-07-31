@@ -1,11 +1,10 @@
 import React from "react";
-import { Route } from "react-router-dom"
-import SignupForm from '../SignupForm'
-import LoginForm from '../LoginForm' 
-
+import { Route } from "react-router-dom";
+import SignupForm from "../SignupForm";
+import LoginForm from "../LoginForm";
+import ChangePwd from "../ChangePwdForm";
 
 const AccountIndex = (props) => {
-
   return (
     <section className="content-section bg-primary text-white">
       {/* {window.location.pathname === '/signup' ? (
@@ -20,6 +19,7 @@ const AccountIndex = (props) => {
       </div>) : ''} */}
       <Route exact path={`/account/signup`} component={SignupForm} />
       <Route exact path={`/account`} component={LoginForm} />
+      <Route exact path={`/account/password`} component={ChangePwd} />
     </section>
   );
 };

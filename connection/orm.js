@@ -33,13 +33,23 @@ const orm = {
 
     findUser: async (userEmail) => {
         const user = await db.User.find({email: userEmail})
-        return user
+        return user[0]
     },
 
     registerUser: async (userData) =>{
         await db.User.create(userData)
         const user = await db.User.findOne({email: userData.email})
         return user
+    },
+
+    updateUser: async(userEmail, userPwd)=>{
+        const updateUser = await db.User.findOne({email: userEmail})
+        if(updateUser!==null){
+            await db.User.updateOne({email: userEmail},{password: userPwd })
+            return true
+        }else{
+            return false
+        }
     },
 
     matchUser: async (userEmail, userPwd) => {
