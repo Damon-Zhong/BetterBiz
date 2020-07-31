@@ -23,10 +23,10 @@ export default (props) => {
             
               <div key={index} className="col-lg-3 col-md-6 mb-5 mb-lg-0" onClick={callYelp(title)}>
                 <span className="service-icon rounded-circle mx-auto mb-3">
-                  <i className="icon-screen-smartphone"></i>
+                  <i className="icon-screen-smartphone">&#127793;</i>
                 </span>
                 <Link to={`/businesses/${title.replace(' ', '')}`}>{title}</Link>
-                <p className="text-faded mb-0">{caption}</p>
+                <h3 className="text-secondary mb-0">{caption}</h3>
               </div>
             ))}
         </div>

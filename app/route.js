@@ -73,6 +73,13 @@ function router( app ){
             res.send({isMatch:false, body:' '})
         }
     })
+    //[PUT] change password
+    app.put('/api/changepassword', async ( req, res ) => {
+        console.log(`[PUT] change password: ${req.body}`)
+
+        const result = await orm.updateUser(req.body.email, req.body.password)
+        res.send(result)
+    })
     //[POST] submit business information
     app.post('/api/submit', async ( req, res ) => {
         if( !req.body.busType || !req.body.name ){
