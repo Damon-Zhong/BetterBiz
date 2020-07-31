@@ -92,6 +92,7 @@ function SignUp() {
                     </div>
                     <div className="button">
                         <button className="btn btn-primary" style={{ marginBottom: "10px" }} id="createNewAccount">Submit</button>
+                        <span className='pl-5'>Already have an account? <a className="text-decoration-none text-white" href="/account"><u>Log in</u></a></span>
                     </div>
                 </form>
                 <div className="alert alert-danger" id="alertFailed" style={{ display: formState.formValidStyle }}>

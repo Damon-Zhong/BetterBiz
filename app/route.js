@@ -40,14 +40,13 @@ function router( app ){
         console.log(`User input:${req.query.email} ${req.query.pwd}`)
         const userEmail = req.query.email
         const userPwd = req.query.pwd
-        const isMatch = await orm.matchUser( userEmail, userPwd )
-        if(isMatch){
-            console.log(`Login Successfully`)
-            const user = await orm.findUser(userEmail)
-            res.status(200).send(user)
+        const matchUser = await orm.matchUser( userEmail, userPwd )
+        if(matchUser){
+            console.log(`User Found...${matchUser}`)
+            res.send({isMatch:true, body:matchUser})
         }else{
             console.log(`Login FAILED`)
-            res.send({message:"failed"})
+            res.send({isMatch:false, body:' '})
         }
     })
     //[POST] submit business information
