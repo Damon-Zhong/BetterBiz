@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-let warning = 0;
-
 function SignUp() {
     const [formInput, setFormInput] = useState({
         email: "",
@@ -16,32 +14,23 @@ function SignUp() {
         formValidStyle: "none"
     })
 
-    function handleFormSubmit(event) {
+    async function handleFormSubmit(event) {
         event.preventDefault();
         let confirmInput = Object.values(formInput).filter(value => { return value !== "" })
         if (confirmInput.length === 4) {
-            axios.post('/api/register', formInput)
-            .then((data)=>{
-                /* Set insertId into localStrorage, redirect to profile page */
-                if (data.status === "exists") {
-                    clearTimeout(warning);
-                    setFormState({ ...formState, userValidStyle: "block" })
-                    warning = setTimeout(() => {
-                        setFormState({ ...formState, userValidStyle: "none" })
-                    }, 5000)
-                } else {
-                    window.localStorage.setItem('currUser', JSON.stringify({id: data.insertId, role: null}));
-                    window.location.pathname = '/';
-                }
-            })
-            .catch((err)=>{
-                console.log(err, 'err')
-            });
-
-        } else {
-            clearTimeout(warning);
+            const result = await axios.post('/api/register', formInput).catch((err)=>{ console.log(err, 'err') })
+            if( result.data.isExist ){
+                setFormState({ ...formState, userValidStyle: "block" })
+                setTimeout(() => {
+                    setFormState({ ...formState, userValidStyle: "none" })
+                }, 5000)
+            }else{
+                window.localStorage.setItem('currUser', JSON.stringify({id:result.data.body._id, email: result.data.body.email, firstName: result.data.body.firstName }))
+                window.location.pathname = "/login"
+            }
+        }else{
             setFormState({ ...formState, formValidStyle: "block" })
-            warning = setTimeout(() => {
+            setTimeout(() => {
                 setFormState({ ...formState, formValidStyle: "none" })
             }, 3000)
         }

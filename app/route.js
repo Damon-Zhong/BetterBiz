@@ -23,16 +23,16 @@ function router( app ){
 
     app.get('/api/businesses/:businessUrl', async (req, res) => {
         const renderData = await orm.readBusiness(req.params.businessUrl);
-        res.send({status: 200, ...renderData });
+        res.status(200).send(...renderData );
     })
     //[POST] save user credentials
     app.post('/api/register', async ( req, res ) => {
-        const isExist = await orm.findUser(req.body.email) //return true/false
-        if(isExist) {
-            res.send({status:"exists"}) //
+        const user = await orm.findUser(req.body.email)
+        if(user.length !== 0) {
+            res.send( { isExist: true, body: user })
         }else{
-            const userId = await orm.registerUser(req.body)
-            res.send({status:'new', message:"Register successfully!", insertId:userId._id })
+            const userNew = await orm.registerUser(req.body)
+            res.send( { isExist: false, body: userNew })
         }
     })
     //[GET] login user
@@ -43,7 +43,7 @@ function router( app ){
         if(matchUser !== ' '){
             res.send({isMatch:true, body:matchUser})
         }else{
-            console.log(`Login FAILED`)
+            console.log('Login FAILED')
             res.send({isMatch:false, body:' '})
         }
     })

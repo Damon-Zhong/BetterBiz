@@ -39,11 +39,10 @@ const Navbar = (props) => {
           </a>
         </li>
       </ul>
-    </div>
-    {props.currUser ? 
-    (<span>Welcome Back! {props.currUser.firstName}<button className='btn btn-primary' onClick={signOut}>Log Out</button></span>):
+      {props.currUser ? 
+    (<span>Welcome Back! {props.currUser.firstName}<a href='/' onClick={signOut}>Log Out</a></span>):
     (<Link to='/account'>Login | Signup</Link>)}
-    
+    </div>
   </nav>
   )
 };

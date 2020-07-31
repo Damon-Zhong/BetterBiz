@@ -32,15 +32,14 @@ const orm = {
     },
 
     findUser: async (userEmail) => {
-        const user = await db.User.findOne({email: userEmail})
-        return user ? true:false
+        const user = await db.User.find({email: userEmail})
+        return user
     },
 
     registerUser: async (userData) =>{
-        console.log('[registerUser] Data received:', userData)
         await db.User.create(userData)
-        const userID = await db.User.findOne({email: userData.email}, '_id')
-        return userID
+        const user = await db.User.findOne({email: userData.email})
+        return user
     },
 
     matchUser: async (userEmail, userPwd) => {
