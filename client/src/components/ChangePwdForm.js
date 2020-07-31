@@ -1,16 +1,29 @@
-import React, { useState } from "react";
 import axios from "axios";
+import React, { useState } from "react";
 
-function LogIn() {
+const ChangePwd = () => {
   const [formInput, setFormInput] = useState({
     email: "",
     password: "",
   });
 
   const [formState, setFormState] = useState({
-    formValidStyle: "none",
     formFailedStyle: "none",
+    formValidStyle: "none",
   });
+
+  const handleInputChange = (event) => {
+    switch (event.target.id) {
+      case "email":
+        setFormInput({ ...formInput, email: event.target.value });
+        break;
+      case "password":
+        setFormInput({ ...formInput, password: event.target.value });
+        break;
+      default:
+        break;
+    }
+  };
 
   async function handleFormSubmit(event) {
     event.preventDefault();
@@ -18,19 +31,10 @@ function LogIn() {
       return value.trim() !== "";
     });
     if (confirmInput.length === 2) {
-      const result = await axios.get(
-        `/api/login?email=${formInput.email}&pwd=${formInput.password}`
-      );
-      if (result.data.isMatch) {
-        window.localStorage.setItem(
-          "currUser",
-          JSON.stringify({
-            id: result.data.body._id,
-            email: result.data.body.email,
-            firstName: result.data.body.firstName,
-          })
-        );
-        window.location.pathname = "/login";
+      const response = await axios.put("/api/changepassword", formInput);
+      console.log(response);
+      if (response !== null) {
+        window.location.pathname = "/account";
       } else {
         setFormState({ ...formState, formFailedStyle: "block" });
         setTimeout(() => {
@@ -45,23 +49,10 @@ function LogIn() {
     }
   }
 
-  function handleInputChange(event) {
-    switch (event.target.id) {
-      case "user":
-        setFormInput({ ...formInput, email: event.target.value });
-        break;
-      case "password":
-        setFormInput({ ...formInput, password: event.target.value });
-        break;
-      default:
-        break;
-    }
-  }
-
   return (
     <div className="container">
       <div className="container col-xl-5 col-lg-6 col-md-8 col-sm-10">
-        <h1 className="text-center">Log In</h1>
+        <h1 className="text-center">Change Password</h1>
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
             <label>
@@ -72,14 +63,13 @@ function LogIn() {
             <input
               type="email"
               className="form-control form-control-lg"
-              id="user"
+              id="email"
               onChange={handleInputChange}
             />
-          </div>
-          <div className="form-group">
-            <label htmlFor="exampleInputPassword1">
+
+            <label>
               <i>
-                <strong> Password</strong>
+                <strong> New Password</strong>
               </i>
             </label>
             <input
@@ -89,6 +79,7 @@ function LogIn() {
               onChange={handleInputChange}
             />
           </div>
+
           <div className="button">
             <button
               className="btn btn-primary"
@@ -97,25 +88,6 @@ function LogIn() {
             >
               Submit
             </button>
-            <span className="pl-5">
-              Don't have an account yet?{" "}
-              <a
-                className="text-decoration-none text-white"
-                href="/account/signup"
-              >
-                <u>Sign up</u>
-              </a>
-            </span>
-            <br />
-            <span className="pl-5">
-              Forgot your passward?{" "}
-              <a
-                className="text-decoration-none text-white"
-                href="/account/password"
-              >
-                <u>I got you!</u>
-              </a>
-            </span>
           </div>
         </form>
         <div
@@ -130,11 +102,11 @@ function LogIn() {
           id="alertFailed"
           style={{ display: formState.formFailedStyle }}
         >
-          Email or password is invalid!
+          Email is invalid!
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default LogIn;
+export default ChangePwd;
