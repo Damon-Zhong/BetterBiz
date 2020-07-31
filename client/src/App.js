@@ -28,11 +28,11 @@ function App() {
   }]
 
   const [isLogin, setLogin] = useState( window.localStorage ? true : false)
-
+  let currUser = JSON.parse(window.localStorage.getItem('currUser'))
   return (
     <>
       <Router>
-        <Navbar isLogin={isLogin}/>
+        <Navbar isLogin={isLogin} currUser={currUser}/>
         <Route exact path="/">
           <Header />
           <Services servicesLinks={servicesList}/>

@@ -35,7 +35,7 @@ const Navbar = (props) => (
         </li>
       </ul>
     </div>
-    {props.isLogin ? <span>Welcome Back!</span>:<Link to='/account'>Login | Signup</Link>}
+    {props.isLogin ? <span>Welcome Back!{props.currUser.firstName}</span>:<Link to='/account'>Login | Signup</Link>}
     
   </nav>
 );

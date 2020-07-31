@@ -20,7 +20,7 @@ function LogIn() {
             console.log(result.data.isMatch)
             if(result.data.isMatch){
                 console.log(`[handleFormSubmit] data received from server:${result.data.isMatch} ${result.data.body}`)
-                window.localStorage.setItem('currUser', JSON.stringify({id:result.data.body._id, email: result.data.body.email }))
+                window.localStorage.setItem('currUser', JSON.stringify({id:result.data.body._id, email: result.data.body.email, firstName: result.data.body.firstName }))
                 window.location.pathname = "/login"
             }else{
                 setFormState({ ...formState, formFailedStyle: "block" })
