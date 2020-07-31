@@ -3,7 +3,6 @@ import BusinessImage from "../components/BusinessImage/BusinessImage";
 import BusinessSummary from "../components/BusinessSummary/BusinessSummary";
 import BusinessHighlights from "../components/BusinessHighlights/BusinessHighlights";
 import ShowReviews from "../components/ShowReviews/ShowReviews";
-import SubmitReviews from "../components/SubmitReviews/SubmitReviews";
 import Image from "react-bootstrap/Image";
 import loadingSpinner from "../images/loadingSpinner.gif";
 
@@ -46,9 +45,8 @@ function BusinessPage({match}){
     <div>
         <BusinessImage imageUrl={data.yelp.image_url} />
         <BusinessSummary name={data.betterBiz.name} summary={data.betterBiz.summary} address={data.yelp.location.display_address} website={data.betterBiz.website} phone={data.yelp.phone} highlights={data.betterBiz.highlight}/>
-        <BusinessHighlights />
-        <ShowReviews />
-        <SubmitReviews />
+        {data.betterBiz.ownDelivery ? <BusinessHighlights /> : null}
+        <ShowReviews businessId={data.betterBiz._id}/>
     </div>
     )
 }

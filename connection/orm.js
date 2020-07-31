@@ -49,6 +49,69 @@ const orm = {
         }else{
             return ' '
         }
+    },
+
+    getReviews: async (businessId) => {
+        // const reviews = await db.Review.find({businessId: businessId});
+        const reviews = await db.Review.aggregate([
+            { '$match': {
+                businessId: businessId
+            }
+            },
+            { '$lookup': {
+                'let': { 'userObjId': { '$toObjectId': '$userId' } },
+                'from': 'users',
+                'pipeline': [
+                    { '$match': { '$expr': { '$eq': [ '$_id', '$$userObjId' ] } } }
+                ],
+                'as': 'userDetails'
+            }},
+            { '$project': {
+                '_id': 1,
+                'review': 1,
+                'createdAt': 1,
+                'userDetails.firstName': 1,
+                'userDetails.lastName': 1
+            }
+            }
+        ])
+        return reviews;
+    },
+
+    submitReview: async (reviewData) => {
+        // Limiting to 1 review per business and user
+        // Step 1: Looking if user has already submitted a review for that business
+        const existingReview = await db.Review.findOne({userId: reviewData.userId, businessId: reviewData.businessId});
+        // If it exists, our function returns (cancelling submission)
+        if(existingReview){
+            return {existingReview: true};
+        }
+        // If it does not exist yet, we'll create a new review
+        await db.Review.create(reviewData);
+        const reviews = await db.Review.aggregate([
+            { '$match': {
+                userId: reviewData.userId,
+                businessId: reviewData.businessId,
+            }
+            },
+            { '$lookup': {
+                'let': { 'userObjId': { '$toObjectId': '$userId' } },
+                'from': 'users',
+                'pipeline': [
+                    { '$match': { '$expr': { '$eq': [ '$_id', '$$userObjId' ] } } }
+                ],
+                'as': 'userDetails'
+            }},
+            { '$project': {
+                '_id': 1,
+                'review': 1,
+                'createdAt': 1,
+                'userDetails.firstName': 1,
+                'userDetails.lastName': 1
+            }
+            }
+        ])
+        return reviews[0];
     }
 }
 
