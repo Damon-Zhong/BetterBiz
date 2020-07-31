@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import SubmitPage from './pages/submitBus'
 import AboutUs from "./components/AboutUs";
-import SignUp from "./components/SignUp";
+import AccountIndex from "./components/AccountIndex";
 import BusinessPage from "./pages/businessPage";
 // import Map from "./components/Map";
 
@@ -27,24 +27,18 @@ function App() {
     caption:'Eco Friendly'
   }]
 
-  const [SearchQuery, setSearchQuery] = useState("")
-  const [searchResult, setSearchResult] = useState([])
-
-  const handleFormSubmit = (event) => {
-
-
-  }
-
+  const [isLogin, setLogin] = useState( window.localStorage ? true : false)
+  let currUser = JSON.parse(window.localStorage.getItem('currUser'))
   return (
     <>
       <Router>
-        <Navbar />
+        <Navbar isLogin={isLogin} currUser={currUser}/>
         <Route exact path="/">
           <Header />
           <Services servicesLinks={servicesList}/>
         </Route>
-        <Route path="/signup">
-          <SignUp />
+        <Route path="/account">
+          <AccountIndex />
         </Route>
         <Route exact path="/submit">
           <SubmitPage />

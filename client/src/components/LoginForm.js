@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-let warning = 0;
-
 function LogIn() {
     const [formInput, setFormInput] = useState({
         email: "",
@@ -14,37 +12,30 @@ function LogIn() {
         formFailedStyle: "none"
     })
 
-    function handleFormSubmit(event) {
+    async function handleFormSubmit(event) {
         event.preventDefault();
         let confirmInput = Object.values(formInput).filter(value => { return value.trim() !== "" })
         if (confirmInput.length === 2) {
-            console.log("All areas filled!")
-            axios.get(`/api/login?email=${formInput.email}&pwd=${formInput.password}`).then(result => {
-                
-                if (result.message === "failed") {
-                    clearTimeout(warning);
-                    setFormState({ ...formState, formFailedStyle: "block" })
-                    warning = setTimeout(() => {
-                        setFormState({ ...formState, formFailedStyle: "none" })
-                    }, 3000)
-                } else {
-                    window.localStorage.setItem('currUser', JSON.stringify({ email: result.email }));
-                    if (result.role !== null) {
-                        window.location.pathname = `/`; //profile/${result.id}
-                    } else {
-                        window.location.pathname = "/";
-                    }
-                }
-            })
+            const result = await axios.get(`/api/login?email=${formInput.email}&pwd=${formInput.password}`)
+            console.log(result.data.isMatch)
+            if(result.data.isMatch){
+                console.log(`[handleFormSubmit] data received from server:${result.data.isMatch} ${result.data.body}`)
+                window.localStorage.setItem('currUser', JSON.stringify({id:result.data.body._id, email: result.data.body.email, firstName: result.data.body.firstName }))
+                window.location.pathname = "/login"
+            }else{
+                setFormState({ ...formState, formFailedStyle: "block" })
+                setTimeout(() => {
+                    setFormState({ ...formState, formFailedStyle: "none" })
+                }, 3000)
+            }
         } else {
-            clearTimeout(warning);
             setFormState({ ...formState, formValidStyle: "block" })
-            warning = setTimeout(() => {
+            setTimeout(() => {
                 setFormState({ ...formState, formValidStyle: "none" })
             }, 3000)
         }
     }
-
+           
     function handleInputChange(event) {
         switch (event.target.id) {
             case ("user"):
@@ -73,6 +64,7 @@ function LogIn() {
                     </div>
                     <div className="button">
                         <button className="btn btn-primary" style={{ marginBottom: "10px" }} id="logIntoAccount">Submit</button>
+                        <span className='pl-5'>Don't have an account yet? <a className="text-decoration-none text-white" href="/account/signup"><u>Sign up</u></a></span>
                     </div>
                 </form>
                 <div className="alert alert-danger" id="alertEmpty" style={{ display: formState.formValidStyle }}>
