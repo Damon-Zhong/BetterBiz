@@ -44,9 +44,9 @@ const orm = {
     },
 
     matchUser: async (userEmail, userPwd) => {
-        const user = await db.User.findOne({email: userEmail}) //this becomes null if we couldn't match any user
+        const user = await db.User.findOne({email: userEmail, password:userPwd})
         if( user !== null ){
-            return user.password === userPwd ? user : ' '
+            return user
         }else{
             return ' '
         }

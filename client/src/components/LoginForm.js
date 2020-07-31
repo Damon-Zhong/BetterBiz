@@ -17,9 +17,7 @@ function LogIn() {
         let confirmInput = Object.values(formInput).filter(value => { return value.trim() !== "" })
         if (confirmInput.length === 2) {
             const result = await axios.get(`/api/login?email=${formInput.email}&pwd=${formInput.password}`)
-            console.log(result.data.isMatch)
             if(result.data.isMatch){
-                console.log(`[handleFormSubmit] data received from server:${result.data.isMatch} ${result.data.body}`)
                 window.localStorage.setItem('currUser', JSON.stringify({id:result.data.body._id, email: result.data.body.email, firstName: result.data.body.firstName }))
                 window.location.pathname = "/login"
             }else{

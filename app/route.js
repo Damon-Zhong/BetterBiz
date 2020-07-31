@@ -37,12 +37,10 @@ function router( app ){
     })
     //[GET] login user
     app.get('/api/login', async ( req, res )=>{
-        console.log(`User input:${req.query.email} ${req.query.pwd}`)
         const userEmail = req.query.email
         const userPwd = req.query.pwd
         const matchUser = await orm.matchUser( userEmail, userPwd )
-        if(matchUser){
-            console.log(`User Found...${matchUser}`)
+        if(matchUser !== ' '){
             res.send({isMatch:true, body:matchUser})
         }else{
             console.log(`Login FAILED`)

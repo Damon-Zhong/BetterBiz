@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = (props) => (
+const Navbar = (props) => {
+  const signOut = () => {
+    window.localStorage.clear()
+    window.location.pathname = '/'
+  }
+  return(
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <Link to='/'>BetterBiz</Link>
     <button
@@ -35,9 +40,12 @@ const Navbar = (props) => (
         </li>
       </ul>
     </div>
-    {props.isLogin ? <span>Welcome Back!{props.currUser.firstName}</span>:<Link to='/account'>Login | Signup</Link>}
+    {props.currUser ? 
+    (<span>Welcome Back! {props.currUser.firstName}<button className='btn btn-primary' onClick={signOut}>Log Out</button></span>):
+    (<Link to='/account'>Login | Signup</Link>)}
     
   </nav>
-);
+  )
+};
 
 export default Navbar;
