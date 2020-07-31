@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import OAuth from './OAuth'
 
 function LogIn() {
     const [formInput, setFormInput] = useState({
@@ -35,16 +36,18 @@ function LogIn() {
     }
            
     function handleInputChange(event) {
-        switch (event.target.id) {
-            case ("user"):
-                setFormInput({ ...formInput, email: event.target.value })
-                break;
-            case ("password"):
-                setFormInput({ ...formInput, password: event.target.value })
-                break;
-            default:
-                break;
-        }
+        const { id, value } = event.target
+        setFormInput({ ...formInput, [id]:value } )
+        // switch (event.target.id) {
+        //     case ("email"):
+        //         setFormInput({ ...formInput, email: event.target.value })
+        //         break;
+        //     case ("password"):
+        //         setFormInput({ ...formInput, password: event.target.value })
+        //         break;
+        //     default:
+        //         break;
+        // }
     }
 
     return (
@@ -54,7 +57,7 @@ function LogIn() {
                 <form onSubmit={handleFormSubmit}>
                     <div className="form-group">
                         <label><i><strong> Email</strong></i></label>
-                        <input type="email" className="form-control form-control-lg" id="user" onChange={handleInputChange} />
+                        <input type="email" className="form-control form-control-lg" id="email" onChange={handleInputChange} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputPassword1"><i><strong> Password</strong></i></label>
@@ -71,6 +74,8 @@ function LogIn() {
                 <div className="alert alert-danger" id="alertFailed" style={{ display: formState.formFailedStyle }}>
                     Email or password is invalid!
                 </div>
+                {''}
+                <OAuth providers={['twitter','facebook','github','google','linkedin']}/>
             </div>
         </div>
     )
