@@ -20,7 +20,6 @@ function SignUp() {
         event.preventDefault();
         let confirmInput = Object.values(formInput).filter(value => { return value !== "" })
         if (confirmInput.length === 4) {
-
             axios.post('/api/register', formInput)
             .then((data)=>{
                 /* Set insertId into localStrorage, redirect to profile page */
@@ -101,7 +100,6 @@ function SignUp() {
             </div>
         </div>
     )
-
 }
 
 export default SignUp;
