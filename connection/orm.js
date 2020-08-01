@@ -44,7 +44,8 @@ const orm = {
 
     updateUser: async(userEmail, userPwd)=>{
         const updateUser = await db.User.findOne({email: userEmail})
-        if(updateUser!==null){
+        console.log(updateUser)
+        if(updateUser){
             await db.User.updateOne({email: userEmail},{password: userPwd })
             return true
         }else{
