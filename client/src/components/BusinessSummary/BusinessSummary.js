@@ -32,7 +32,6 @@ function BusinessSummary({name, summary, address, website, phone, highlights}){
                     <p>These business features have been sourced by our own community. If you want to add an underrepresented business to our database, click <a href="http://google.com">here</a>.</p>
                 </Col>
             </Row>
-            <hr />
         </div>
     )
 }

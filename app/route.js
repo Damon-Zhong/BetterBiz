@@ -12,8 +12,8 @@ function router( app ){
     })
     //[GET] match business by yelp ID
     app.get('/businessess/:id', async( req, res ) => {
-        const yelpID = req.params.id
-        const results = await yelp.getBusById(yelpID)
+        const yelpId = req.params.id
+        const results = await yelp.getBusById(yelpId)
         res.send(results)
     })
 
@@ -23,8 +23,34 @@ function router( app ){
 
     app.get('/api/businesses/:businessUrl', async (req, res) => {
         const renderData = await orm.readBusiness(req.params.businessUrl);
-        res.status(200).send(...renderData );
+        res.status(200).send(renderData);
     })
+
+    // [GET] get reviews from database
+    app.get('/api/reviews/:businessId', async (req, res) => {
+        const renderData = await orm.getReviews(req.params.businessId);
+        res.status(200).send(renderData);
+    })
+
+    //[POST] save review
+    app.post('/api/review', async (req, res) => {
+        try {
+            const reviewContent = await orm.submitReview(req.body);
+
+            if (reviewContent.existingReview === true){
+                res.status(403).send({
+                    success: false,
+                    message: 'You have already reviewed this business and cannot add additional reviews.',
+                });
+            } else {
+                res.send({ success: true, body: reviewContent });
+            }
+        } catch (error) {
+            console.log(error);
+            res.status(500).send({ success: false, message: 'There has been an error saving your review. Please try again.' });
+        }
+    })
+
     //[POST] save user credentials
     app.post('/api/register', async ( req, res ) => {
         const user = await orm.findUser(req.body.email)
@@ -46,6 +72,13 @@ function router( app ){
             console.log('Login FAILED')
             res.send({isMatch:false, body:' '})
         }
+    })
+    //[PUT] change password
+    app.put('/api/changepassword', async ( req, res ) => {
+        console.log(`[PUT] change password: ${req.body}`)
+
+        const result = await orm.updateUser(req.body.email, req.body.password)
+        res.send(result)
     })
     //[POST] submit business information
     app.post('/api/submit', async ( req, res ) => {

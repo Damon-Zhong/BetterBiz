@@ -3,52 +3,53 @@ import axios from 'axios';
 import OAuth from './OAuth'
 
 function LogIn() {
-    const [formInput, setFormInput] = useState({
-        email: "",
-        password: ""
-    })
+  const [formInput, setFormInput] = useState({
+    email: "",
+    password: "",
+  });
 
-    const [formState, setFormState] = useState({
-        formValidStyle: "none",
-        formFailedStyle: "none"
-    })
+  const [formState, setFormState] = useState({
+    formValidStyle: "none",
+    formFailedStyle: "none",
+  });
 
-    async function handleFormSubmit(event) {
-        event.preventDefault();
-        let confirmInput = Object.values(formInput).filter(value => { return value.trim() !== "" })
-        if (confirmInput.length === 2) {
-            const result = await axios.get(`/api/login?email=${formInput.email}&pwd=${formInput.password}`)
-            if(result.data.isMatch){
-                window.localStorage.setItem('currUser', JSON.stringify({id:result.data.body._id, email: result.data.body.email, firstName: result.data.body.firstName }))
-                window.location.pathname = "/login"
-            }else{
-                setFormState({ ...formState, formFailedStyle: "block" })
-                setTimeout(() => {
-                    setFormState({ ...formState, formFailedStyle: "none" })
-                }, 3000)
-            }
-        } else {
-            setFormState({ ...formState, formValidStyle: "block" })
-            setTimeout(() => {
-                setFormState({ ...formState, formValidStyle: "none" })
-            }, 3000)
-        }
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+    let confirmInput = Object.values(formInput).filter((value) => {
+      return value.trim() !== "";
+    });
+    if (confirmInput.length === 2) {
+      const result = await axios.get(
+        `/api/login?email=${formInput.email}&pwd=${formInput.password}`
+      );
+      if (result.data.isMatch) {
+        window.localStorage.setItem(
+          "currUser",
+          JSON.stringify({
+            id: result.data.body._id,
+            email: result.data.body.email,
+            firstName: result.data.body.firstName,
+          })
+        );
+        window.location.pathname = "/login";
+      } else {
+        setFormState({ ...formState, formFailedStyle: "block" });
+        setTimeout(() => {
+          setFormState({ ...formState, formFailedStyle: "none" });
+        }, 3000);
+      }
+    } else {
+      setFormState({ ...formState, formValidStyle: "block" });
+      setTimeout(() => {
+        setFormState({ ...formState, formValidStyle: "none" });
+      }, 3000);
     }
            
     function handleInputChange(event) {
         const { id, value } = event.target
         setFormInput({ ...formInput, [id]:value } )
-        // switch (event.target.id) {
-        //     case ("email"):
-        //         setFormInput({ ...formInput, email: event.target.value })
-        //         break;
-        //     case ("password"):
-        //         setFormInput({ ...formInput, password: event.target.value })
-        //         break;
-        //     default:
-        //         break;
-        // }
     }
+  }
 
     return (
         <div className="container">
@@ -77,9 +78,8 @@ function LogIn() {
                 {''}
                 <OAuth providers={['twitter','facebook','github','google','linkedin']}/>
             </div>
-        </div>
-    )
-
+      </div>
+  );
 }
 
 export default LogIn;

@@ -37,7 +37,7 @@ const Yelp = {
         //     .catch( e => console.log(e) )
         return resultList
     },
-    yelpBusinessResult: async (yelpID) => {
+    yelpBusinessResult: async (yelpId) => {
         // yelpIdawait client.search({
         //     term:'Pai Northern Thai Kitchen',
         //     location: 'Toronto, Ontario, Canada'
@@ -47,7 +47,7 @@ const Yelp = {
         //     console.log(e);
         // });
 
-        const businessResult = await client.business('pai-northern-thai-kitchen-toronto-5')
+        const businessResult = await client.business(yelpId)
             .then( res => res.jsonBody )
             .catch(e => {
                 console.log(e);

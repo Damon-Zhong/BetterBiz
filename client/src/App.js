@@ -8,7 +8,8 @@ import Navbar from "./components/Navbar";
 import SubmitPage from './pages/submitBus'
 import AboutUs from "./components/AboutUs";
 import AccountIndex from "./components/AccountIndex";
-import BusinessPage from "./pages/businessPage";
+import BusinessPage from "./pages/businessPage"; 
+import SocialFollow from "./components/SocialFollow"
 // import Map from "./components/Map";
 
 // just  testing this 
@@ -49,7 +50,8 @@ function App() {
         </Route>
         <Route component={BusinessPage} path="/businesses/:businessName">
         </Route>
-      </Router>
+      </Router> 
+       <SocialFollow />
       {/* <Map /> */}
     </GlobalStore>
   );

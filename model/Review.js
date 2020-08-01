@@ -12,9 +12,11 @@ const ReviewSchema = new Schema({
         title: String,
         body: String
     }
+},
+{
+    timestamps: true /* creates corresponding timestamp fields: createdAt, updatedAt */
 });
 
 const Review = mongoose.model('Review', ReviewSchema);
 
 module.exports = Review;
-

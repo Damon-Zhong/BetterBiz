@@ -11,6 +11,7 @@ import "./BusinessHighlights.css";
 function BusinessHighlights(){
     return (
         <div className="container">
+            <hr className="mb-5" />
             <Row>
                 <Col className="col-sm-6">
                     <Image className="delivery" src={delivery}></Image>
