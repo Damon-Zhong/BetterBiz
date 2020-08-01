@@ -1,5 +1,6 @@
 const mongoose = require( 'mongoose' )
 const Yelp = require( '../app/apiRoute')
+const bcrypt = require('bcrypt')
 
 mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost/betterbiz', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
@@ -36,7 +37,15 @@ const orm = {
         return user[0]
     },
 
-    registerUser: async (userData) =>{
+    registerUser: async (userInfo, session) =>{
+        //hashing password
+        const passwordHash = await bcrypt.hash(userInfo.password, 10)
+        const userData = {
+            email: userInfo.email,
+            password: passwordHash,
+            firstName: userInfo.firstName,
+            lastName: userInfo.LastName,
+            session:session}
         await db.User.create(userData)
         const user = await db.User.findOne({email: userData.email})
         return user

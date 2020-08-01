@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, {useState} from 'react';
+import axios from 'axios';
+import OAuth from './OAuth'
 
 function LogIn() {
   const [formInput, setFormInput] = useState({
@@ -43,97 +44,41 @@ function LogIn() {
         setFormState({ ...formState, formValidStyle: "none" });
       }, 3000);
     }
-  }
-
-  function handleInputChange(event) {
-    switch (event.target.id) {
-      case "user":
-        setFormInput({ ...formInput, email: event.target.value });
-        break;
-      case "password":
-        setFormInput({ ...formInput, password: event.target.value });
-        break;
-      default:
-        break;
+           
+    function handleInputChange(event) {
+        const { id, value } = event.target
+        setFormInput({ ...formInput, [id]:value } )
     }
   }
 
-  return (
-    <div className="container">
-      <div className="container col-xl-5 col-lg-6 col-md-8 col-sm-10">
-        <h1 className="text-center">Log In</h1>
-        <form onSubmit={handleFormSubmit}>
-          <div className="form-group">
-            <label>
-              <i>
-                <strong> Email</strong>
-              </i>
-            </label>
-            <input
-              type="email"
-              className="form-control form-control-lg"
-              id="user"
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="exampleInputPassword1">
-              <i>
-                <strong> Password</strong>
-              </i>
-            </label>
-            <input
-              type="password"
-              className="form-control form-control-lg"
-              id="password"
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="button">
-            <button
-              className="btn btn-primary"
-              style={{ marginBottom: "10px" }}
-              id="logIntoAccount"
-            >
-              Submit
-            </button>
-            <span className="pl-5">
-              Don't have an account yet?{" "}
-              <a
-                className="text-decoration-none text-white"
-                href="/account/signup"
-              >
-                <u>Sign up</u>
-              </a>
-            </span>
-            <br />
-            <span className="pl-5">
-              Forgot your passward?{" "}
-              <a
-                className="text-decoration-none text-white"
-                href="/account/password"
-              >
-                <u>I got you!</u>
-              </a>
-            </span>
-          </div>
-        </form>
-        <div
-          className="alert alert-danger"
-          id="alertEmpty"
-          style={{ display: formState.formValidStyle }}
-        >
-          Please fill in missing information!
-        </div>
-        <div
-          className="alert alert-danger"
-          id="alertFailed"
-          style={{ display: formState.formFailedStyle }}
-        >
-          Email or password is invalid!
-        </div>
+    return (
+        <div className="container">
+            <div className="container col-xl-5 col-lg-6 col-md-8 col-sm-10">
+                <h1 className="text-center">Log In</h1>
+                <form onSubmit={handleFormSubmit}>
+                    <div className="form-group">
+                        <label><i><strong> Email</strong></i></label>
+                        <input type="email" className="form-control form-control-lg" id="email" onChange={handleInputChange} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputPassword1"><i><strong> Password</strong></i></label>
+                        <input type="password" className="form-control form-control-lg" id="password" onChange={handleInputChange} />
+                    </div>
+                    <div className="button">
+                        <button className="btn btn-primary" style={{ marginBottom: "10px" }} id="logIntoAccount">Submit</button>
+                        <span className='pl-5'>Don't have an account yet? <a className="text-decoration-none text-white" href="/account/signup"><u>Sign up</u></a></span>
+                    </div>
+                </form>
+                <div className="alert alert-danger" id="alertEmpty" style={{ display: formState.formValidStyle }}>
+                    Please fill in missing information!
+                </div>
+                <div className="alert alert-danger" id="alertFailed" style={{ display: formState.formFailedStyle }}>
+                    Email or password is invalid!
+                </div>
+                {''}
+                <OAuth providers={['twitter','facebook','github','google','linkedin']}/>
+            </div>
       </div>
-    </div>
   );
 }
 
