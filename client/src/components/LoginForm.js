@@ -9,6 +9,7 @@ function LogIn() {
   });
 
   const [formState, setFormState] = useState({
+    message:'',
     formValidStyle: "none",
     formFailedStyle: "none",
   });
@@ -19,21 +20,17 @@ function LogIn() {
       return value.trim() !== "";
     });
     if (confirmInput.length === 2) {
-      const result = await axios.get(
-        `/api/login?email=${formInput.email}&pwd=${formInput.password}`
-      );
-      if (result.data.isMatch) {
-        window.localStorage.setItem(
-          "currUser",
-          JSON.stringify({
-            id: result.data.body._id,
-            email: result.data.body.email,
-            firstName: result.data.body.firstName,
+      const result = await axios.post('/api/login', formInput)
+      if( result.data.isLogin ){
+          window.localStorage.setItem("currUser", JSON.stringify({
+            id: result.data.id,
+            email: result.data.email,
+            firstName: result.data.firstName,
           })
-        );
-        window.location.pathname = "/login";
-      } else {
-        setFormState({ ...formState, formFailedStyle: "block" });
+        )
+        window.location.pathname = "/"
+      }else {
+        setFormState({ ...formState, message: result.data.message, formFailedStyle: "block" });
         setTimeout(() => {
           setFormState({ ...formState, formFailedStyle: "none" });
         }, 3000);
@@ -120,7 +117,8 @@ function LogIn() {
           id="alertFailed"
           style={{ display: formState.formFailedStyle }}
         >
-          Email or password is invalid!
+          {/* Email or password is invalid! */}
+          {formState.message}
         </div>
         {""}
         <OAuth

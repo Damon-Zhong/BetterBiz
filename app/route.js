@@ -1,6 +1,7 @@
 const yelp = require('./apiRoute')
 const orm = require('../connection/orm')
 const path = require('path')
+const uuid = require('uuid')
 
 function router( app ){
     //[GET] general serach by term
@@ -53,30 +54,30 @@ function router( app ){
 
     //[POST] save user credentials
     app.post('/api/register', async ( req, res ) => {
-        const user = await orm.findUser(req.body.email)
-        if(user.length !== 0) {
-            res.send( { isExist: true, body: user })
-        }else{
-            const userNew = await orm.registerUser(req.body)
-            res.send( { isExist: false, body: userNew })
-        }
+        // const user = await orm.findUser(req.body.email)
+        // if(user.length !== 0) {
+        //     res.send( { isExist: true, body: user })
+        // }else{
+        //     const userNew = await orm.registerUser(req.body)
+        //     res.send( { isExist: false, body: userNew })
+        // }
+        const userData = req.body;
+        console.log( '[POST: /api/register] userData: ', userData );
+        const registerResult = await orm.registerUser( userData );
+        res.send( registerResult );
     })
-    //[GET] login user
-    app.get('/api/login', async ( req, res )=>{
-        const userEmail = req.query.email
-        const userPwd = req.query.pwd
-        const matchUser = await orm.matchUser( userEmail, userPwd )
-        if(matchUser !== ' '){
-            res.send({isMatch:true, body:matchUser})
-        }else{
-            console.log('Login FAILED')
-            res.send({isMatch:false, body:' '})
-        }
+
+    //[POST] login user
+    app.post('/api/login', async ( req, res )=>{
+        const userInput = req.body
+        //create a session for login
+        const session = uuid.v4()
+        const loginResult = await orm.loginUser( userInput.email, userInput.password, session )
+        res.send( loginResult )
     })
     //[PUT] change password
     app.put('/api/changepassword', async ( req, res ) => {
         console.log(`[PUT] change password: ${req.body}`)
-
         const result = await orm.updateUser(req.body.email, req.body.password)
         res.send(result)
     })
