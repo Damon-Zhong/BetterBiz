@@ -86,16 +86,17 @@ function oAuth( app, API_URL, providers, createOAuthSession ){
         let user = { type: provider };
         switch( provider ){
         case 'twitter':
-            user.name = req.user.displayName ? req.user.displayName : req.user.username;
+            user.firstName = req.user.displayName ? req.user.displayName : req.user.username;
             user.authId = `twitterid:${req.user.id}`;
             break;
         case 'google':
-            user.name = req.user.displayName;
+            user.firstName = req.user.displayName;
             user.authId = `googleid:${req.user.id}`;
             break;
         case 'facebook':
-            user.name = `${req.user.name.givenName} ${req.user.name.familyName}`;
-            user.authId = `facebookid:${req.user.id}`;
+            user.firstName = `${req.user.name.givenName}`
+            user.lastName = `${req.user.name.familyName}`
+            user.authId = `facebookid:${req.user.id}`
             break;
         default:
             console.log( `[ERROR] Unknown provider ${provider}`, req.user );

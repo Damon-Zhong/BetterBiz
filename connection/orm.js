@@ -84,11 +84,16 @@ const orm = {
         //check user type
         //if user type is one of the providers return provider information
         if( userData.type !== 'Customer'){
+            const returnUser = await db.User.findOne({firstName: userData.firstName})
+            console.log(returnUser)
+            if( !returnUser ){
+                await db.User.create(userData)
+            }
             return {
                 isLogin: true,
                 message: `Successfully Logging in! with ${userData.type}`,
                 id: userData.authId,
-                name: userData.name,
+                name: userData.firstName,
                 session: userData.session
             }
         }
