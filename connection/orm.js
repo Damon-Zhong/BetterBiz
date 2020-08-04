@@ -39,7 +39,7 @@ const orm = {
         return user
     },
 
-    registerUser: async (userInfo, session='') =>{
+    registerUser: async function (userInfo, session=''){
         //check duplicate user
         const duplicateUser = await db.User.findOne({ email: userInfo.email })
         if(duplicateUser){
@@ -59,6 +59,7 @@ const orm = {
             return {
                 isExist: false,
                 messgae:`Success! ${newUser.email} was successfully registered`,
+                id:newUser._id,
                 firstName: newUser.firstName,
                 email: newUser.email,
                 session
@@ -82,31 +83,47 @@ const orm = {
         }
     },
 
-    loginUser: async (userEmail, userPwd, session) => {
+    loginUser: async function (userData, session){
+        //check user type
+        //if user type is one of the providers return provider information
+        if( userData.type !== 'Customer'){
+            const returnUser = await db.User.findOne({firstName: userData.firstName})
+            console.log(returnUser)
+            if( !returnUser ){
+                await db.User.create(userData)
+            }
+            return {
+                isLogin: true,
+                message: `Successfully Logging in! with ${userData.type}`,
+                id: userData.authId,
+                name: userData.firstName,
+                session: userData.session
+            }
+        }
         if( !session ){
             return { isLogin:false, message:'System session not provided!'}
         }
         //check if email exsits
-        const userData = await db.User.findOne({ email: userEmail }, '-createdAt -updatedAt')
-        if( !userData ) {
+        const userDB = await db.User.findOne({ email: userData.email }, '-createdAt -updatedAt')
+        if( !userDB ) {
             return { isLogin: false, message: 'Email does not exsit. Please sign up.' }
         }
         //compare crypted password
-        const isValidPassword = await bcrypt.compare( userPwd, userData.password )
+        const isValidPassword = await bcrypt.compare( userData.password, userDB.password )
         if( !isValidPassword ) {
             return { isLogin: false, message: 'Invalid password' }
         }
         //update user session
-        await db.User.findOneAndUpdate({ _id: userData._id},{ session: session})
+        await db.User.findOneAndUpdate({ _id: userDB._id},{ session: session})
         //return user information with session
         return {
             isLogin: true,
             message: 'Successfully Logging in!',
-            id: userData._id,
-            fisrtName: userData.fisrtName,
-            email: userData.email,
-            session: userData.session,
-            // createdAt: userData.createdAt
+            id: userDB._id,
+            name: userDB.firstName,
+            email: userDB.email,
+            session: userDB.session,
+            // createdAt: userDB.createdAt
         }
     },
 

@@ -58,7 +58,7 @@ const Navbar = (props) => {
         {props.currUser ? (
           <span>
             <p className="welcomeName">
-              Welcome Back! {props.currUser.firstName}
+              Welcome Back! {props.currUser.name}
             </p>
             <a className="logoutBtn" href="/" onClick={signOut}>
               Log Out

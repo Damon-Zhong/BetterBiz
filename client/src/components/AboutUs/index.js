@@ -49,7 +49,7 @@ const AboutUs = () => {
               <div className="caption">
                 <div className="caption-content">
                   <div className="h2">Etam</div>
-                  <p className="mb-0">some text</p>
+                  <p className="mb-0">OH yeaaaaa</p>
                 </div>
               </div>
               <img className="img-fluid" src="img/portfolio-3.jpg" alt="" />
