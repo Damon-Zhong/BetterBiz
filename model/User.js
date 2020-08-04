@@ -2,18 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    // type: {
-    //     type: String,
-    //     required: true },
+    type: {
+        type: String,
+        default: 'Customer' },
     firstName: {
         type: String,
-        trim: true,
-        required: true
+        trim: true
     },
     lastName: {
         type: String,
-        trim: true,
-        required: true
+        trim: true
     },
     email:  {
         type: String,
@@ -22,10 +20,9 @@ const UserSchema = new Schema({
     },
     password: {
         type: String,
-        trim: true,
-        required: true
+        trim: true
     },
-    // authId: { type: String, default: '' },
+    authId: { type: String, default: '' },
     session: { type: String, default: '' },
 
 }, {

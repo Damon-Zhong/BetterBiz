@@ -21,7 +21,7 @@ function LogIn() {
     const loginResult = await axios.post('/api/login', userData)
 
     if( !loginResult.data.isLogin ){
-      localStorage.session = ''
+      // localStorage.session = ''
       setFormState({ ...formState, message: loginResult.data.message, formFailedStyle: "block" })
         setTimeout(() => {
           setFormState({ ...formState, formFailedStyle: "none" })
@@ -41,8 +41,7 @@ function LogIn() {
     //save active session
     localStorage.setItem('currUser', JSON.stringify( {
       id:userData.id, 
-      email: userData.email, 
-      firstName: userData.firstName,
+      name: userData.name,
       session: userData.session
     }))
 
@@ -127,7 +126,7 @@ function LogIn() {
         </div>
         {""}
         <OAuth
-          providers={["twitter", "facebook", "github", "google", "linkedin"]} 
+          providers={["twitter", "facebook", "google"]} 
           loginComplete={loginComplete}
         />
       </div>

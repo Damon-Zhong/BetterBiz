@@ -72,7 +72,7 @@ function router( app ){
         const userData = req.body
         //create a session for login
         const session = uuid.v4()
-        const loginResult = await orm.loginUser( userData.email, userData.password, session )
+        const loginResult = await orm.loginUser( userData, session )
         res.send( loginResult )
     })
     //[PUT] change password
