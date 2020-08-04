@@ -1,6 +1,8 @@
-const mongoose = require( 'mongoose' )
-const Yelp = require( '../app/apiRoute')
-const bcrypt = require('bcrypt')
+const mongoose = require( 'mongoose' );
+const Yelp = require( '../app/apiRoute');
+const bcrypt = require('bcrypt');
+var Filter = require('bad-words'),
+    filter = new Filter();
 
 mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost/betterbiz', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
@@ -144,11 +146,14 @@ const orm = {
             return {existingReview: true};
         }
         // If it does not exist yet, we'll create a new review
-        await db.Review.create(reviewData);
+        let dataToSubmit = filter.clean(reviewData);
+        console.log("1" + dataToSubmit);
+        await db.Review.create("2" + dataToSubmit);
+        console.log("3" + dataToSubmit);
         const reviews = await db.Review.aggregate([
             { '$match': {
-                userId: reviewData.userId,
-                businessId: reviewData.businessId,
+                userId: dataToSubmit.userId,
+                businessId: dataToSubmit.businessId,
             }
             },
             { '$lookup': {
