@@ -83,30 +83,32 @@ function LogIn() {
             />
           </div>
           <div className="button">
-            <button
-              className="btn btn-primary"
-              style={{ marginBottom: "10px" }}
-              id="logIntoAccount"
-            >
-              Submit
-            </button>
-            <span className="pl-5">
-              <a
-                className="text-decoration-none text-white"
-                href="/account/signup"
+            <div className="row">
+              <button
+                className="col-3 btn btn-primary"
+                style={{ marginBottom: "10px" }}
+                id="logIntoAccount"
               >
-                <u>Don't have an account yet? </u>
-              </a>
-            </span>
-            <br />
-            <span className="pl-5">
+                Submit
+              </button>
+              <span className="col-9 pl-5 loginTxt">
+                <a
+                  className="text-decoration-none text-white"
+                  href="/account/signup"
+                >
+                  <u>Don't have an account yet? </u>
+                </a>
+              </span>
+            </div>
+
+            <p className="pl-5 loginTxt ">
               <a
                 className="text-decoration-none text-white"
                 href="/account/password"
               >
                 <u>Forgot your password? </u>
               </a>
-            </span>
+            </p>
           </div>
         </form>
         <div
