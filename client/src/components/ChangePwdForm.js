@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import "./ChangePwdForm.css";
 
 const ChangePwd = () => {
   const [formInput, setFormInput] = useState({
@@ -82,7 +83,7 @@ const ChangePwd = () => {
 
           <div className="button">
             <button
-              className="btn btn-primary"
+              className="btn btn-primary box5"
               style={{ marginBottom: "10px" }}
               id="logIntoAccount"
             >
