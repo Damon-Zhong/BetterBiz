@@ -57,6 +57,7 @@ const orm = {
             return {
                 isExist: false,
                 messgae:`Success! ${newUser.email} was successfully registered`,
+                id:newUser._id,
                 firstName: newUser.firstName,
                 email: newUser.email,
                 session

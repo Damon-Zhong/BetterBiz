@@ -35,9 +35,9 @@ function SignUp() {
         window.localStorage.setItem(
           "currUser",
           JSON.stringify({
-            id: result.data.body._id,
-            email: result.data.body.email,
-            firstName: result.data.body.firstName,
+            id: result.data.id,
+            email: result.data.email,
+            firstName: result.data.firstName,
           })
         );
         window.location.pathname = "/";
