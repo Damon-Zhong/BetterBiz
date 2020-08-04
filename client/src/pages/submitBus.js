@@ -3,17 +3,19 @@ import { Redirect } from "react-router-dom";
 import axios from "axios";
 import Submit from "../components/Submit";
 import Modal from "../components/PopupModal";
+import slugify from "../utils/slugify";
 import "./submitBus.css";
 
 const SubmitBus = () => {
   const [busData, setBusData] = useState({
     busType: "",
     name: "",
-    address: "",
-    city: "",
-    country: "",
-    postalCode: "",
+    url: "",
+    summary: "",
+    yelpId: "",
+    website: "",
     highlight: [],
+    ownDelivery: true
   });
   const [isSubmit, setIsSubmit] = useState(false);
 
@@ -29,6 +31,17 @@ const SubmitBus = () => {
       setBusData({...busData, highlight: [...busData.highlight, value]});
     }
   }
+
+  const handleDeliveryChange = (event) => {
+    const deliveryStatus = event.currentTarget.value === "Yes";
+    setBusData({...busData, ownDelivery: deliveryStatus});
+  }
+
+  const handleNameChange = (event) => {
+    const { id, value } = event.target;
+    const url = slugify(value);
+    setBusData({ ...busData, [id]: value, url: url });
+  };
 
   const handleInputChange = (event) => {
     const { id, value } = event.target;
@@ -58,7 +71,7 @@ const SubmitBus = () => {
 
             <label className="mt-3 formLabel" htmlFor="name">Business Name</label>
             <input
-              onChange={handleInputChange}
+              onChange={handleNameChange}
               value={busData.name}
               type="text"
               className="form-control"
@@ -92,7 +105,7 @@ const SubmitBus = () => {
               <option>Other</option>
             </select>
 
-            <label className="mt-3 formLabel" htmlFor="attributes">What makes this business special?</label>
+            <label className="mt-3 formLabel" htmlFor="highlights">What makes this business special?</label>
             <div class="form-check">
               <input class="form-check-input" onClick={handleHighlightChange} type="checkbox" value="Black" id="black-owned-check"/>
               <label class="form-check-label" for="black-owned-check">
@@ -122,6 +135,21 @@ const SubmitBus = () => {
               <label class="form-check-label" for="community-impact-check">
                 🤲 Community impact
               </label>
+            </div>
+
+            <label className="mt-3 formLabel" htmlFor="summary">Add a short business description</label>
+            <div class="form-group">
+              <label for="businessDescription">Please summarize what this business has to offer.</label>
+              <textarea class="form-control" id="summary" onChange={handleInputChange} rows="3"></textarea>
+            </div>
+
+            <label className="mt-3 formLabel" htmlFor="ownDelivery">Does this business offer its own, independent delivery services?</label>
+            <div class="form-group">
+              <label for="businessDelivery">Letting others know how to order from this business not using one of the big delivery platforms can help this business make more money.</label>
+              <select class="form-control" id="ownDelivery" onChange={handleDeliveryChange}>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
             </div>
           </div>
           <button
