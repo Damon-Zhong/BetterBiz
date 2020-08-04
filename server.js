@@ -13,7 +13,7 @@ app.use(express.json());
 
 // OAUTH Authentication
 async function createOAuthSession( userData ){
-    console.log( `[createOAuthSession] called for ${userData.name}` );
+    console.log( '[createOAuthSession] called for', userData );
     // register user in system (if they aren't there, and get the associated session)
     const session = uuid.v4();
     const authUserData = await orm.registerUser( userData, session );

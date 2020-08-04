@@ -95,18 +95,24 @@ function oAuth( app, API_URL, providers, createOAuthSession ){
         let user = { type: provider };
         switch( provider ){
         case 'twitter':
-            user.name = req.user.displayName ? req.user.displayName : req.user.username;
-            user.thumbnail = req.user.photos[0].value.replace(/_normal/, '');
-            user.authId = `twitterid:${req.user.id}`;
+            console.log(req.user)
+            user.firstName = req.user.displayName ? req.user.displayName : req.user.username
+            user.lastName = req.user.displayName ? req.user.displayName : req.user.username
+            // user.thumbnail = req.user.photos[0].value.replace(/_normal/, '');
+            user.authId = `twitterid:${req.user.id}`
             break;
         case 'google':
-            user.name = req.user.displayName;
-            user.thumbnail = req.user.photos[0].value.replace(/sz=50/gi, 'sz=250');
+            console.log(req.user)
+            user.firstName = req.user.displayName
+            user.lastName = req.user.displayName
+            // user.thumbnail = req.user.photos[0].value.replace(/sz=50/gi, 'sz=250');
             user.authId = `googleid:${req.user.id}`;
             break;
         case 'facebook':
-            user.name = `${req.user.name.givenName} ${req.user.name.familyName}`;
-            user.thumbnail = req.user.photos[0].value;
+            console.log(req.user)
+            user.firstName = req.user.name.givenName,
+            user.lastName = req.user.name.familyName
+            // user.thumbnail = req.user.photos[0].value;
             user.authId = `facebookid:${req.user.id}`;
             break;
         // case 'github':
@@ -128,7 +134,7 @@ function oAuth( app, API_URL, providers, createOAuthSession ){
         console.log( ' ... parsed the result to get user (passing to createOAuthSession): ', user );
 
         // create a session for this user
-        const authUserData = JSON.stringify( await createOAuthSession( user ) );
+        const authUserData = JSON.stringify( await createOAuthSession( user ) )
 
         // this login info is secure [only on node side];
         // we don't need to send all of it to client, but we do in our case - for easy integration with prior login

@@ -26,7 +26,6 @@ const UserSchema = new Schema({
         required: true
     },
     // authId: { type: String, default: '' },
-    // password:  { type: String, trim: true },
     session: { type: String, default: '' },
 
 }, {
