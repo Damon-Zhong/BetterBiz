@@ -163,10 +163,14 @@ const orm = {
             return {existingReview: true};
         }
         // If it does not exist yet, we'll create a new review
-        let dataToSubmit = filter.clean(reviewData);
-        console.log("1" + dataToSubmit);
-        await db.Review.create("2" + dataToSubmit);
-        console.log("3" + dataToSubmit);
+        const dataToSubmit = {
+            ...reviewData,
+            review: {
+                ...reviewData.review, 
+                body: filter.clean(reviewData.review.body)
+            }
+        }
+        await db.Review.create(dataToSubmit);
         const reviews = await db.Review.aggregate([
             { '$match': {
                 userId: dataToSubmit.userId,
