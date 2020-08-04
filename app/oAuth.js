@@ -12,8 +12,6 @@ const session = require('express-session');
 const { Strategy: TwitterStrategy } = require('passport-twitter');
 const { OAuth2Strategy: GoogleStrategy } = require('passport-google-oauth');
 const { Strategy: FacebookStrategy } = require('passport-facebook');
-// const { Strategy: GithubStrategy} = require('passport-github');
-// const { OAuth2Strategy: LinkedInStrategy } = require('passport-linkedin-oauth2');
 
 function oAuth( app, API_URL, providers, createOAuthSession ){
     console.log( '[oAuth] adding oAuth related endpoints & middleware' );
@@ -57,13 +55,6 @@ function oAuth( app, API_URL, providers, createOAuthSession ){
                 CONFIG.profileFields = ['id', 'emails', 'name', 'picture.width(250)'];
                 passport.use(new FacebookStrategy(CONFIG, callback));
                 break;
-            // case 'github':
-            //     passport.use(new GithubStrategy(CONFIG, callback));
-            //     break;
-            // case 'linkedin':
-            //     CONFIG.scope = ['r_emailaddress', 'r_liteprofile'];
-            //     passport.use(new LinkedInStrategy(CONFIG, callback));
-            //     break;
             default:
                 console.log( `[oAuth ERROR Unknown provider (${provider}); not doing anythiny.` );
                 break;
@@ -96,30 +87,16 @@ function oAuth( app, API_URL, providers, createOAuthSession ){
         switch( provider ){
         case 'twitter':
             user.name = req.user.displayName ? req.user.displayName : req.user.username;
-            user.thumbnail = req.user.photos[0].value.replace(/_normal/, '');
             user.authId = `twitterid:${req.user.id}`;
             break;
         case 'google':
             user.name = req.user.displayName;
-            user.thumbnail = req.user.photos[0].value.replace(/sz=50/gi, 'sz=250');
             user.authId = `googleid:${req.user.id}`;
             break;
         case 'facebook':
             user.name = `${req.user.name.givenName} ${req.user.name.familyName}`;
-            user.thumbnail = req.user.photos[0].value;
             user.authId = `facebookid:${req.user.id}`;
             break;
-        // case 'github':
-        //     user.name = req.user.username;
-        //     user.thumbnail = req.user.photos[0].value;
-        //     user.authId = `githubid:${req.user.id}`;
-        //     break;
-        // case 'linkedin':
-        //     user.name = req.user.displayName;
-        //     user.thumbnail = req.user.photos[0].value;
-        //     user.email = req.user.emails[0].value;
-        //     user.authId = `linkedinid:${req.user.id}`;
-        //     break;
         default:
             console.log( `[ERROR] Unknown provider ${provider}`, req.user );
             break;

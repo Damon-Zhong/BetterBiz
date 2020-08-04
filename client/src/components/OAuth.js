@@ -56,8 +56,6 @@ function OAuth( props ){
         facebook: "fa-facebook-square",
         twitter: "fa-twitter-square",
         google: "fa-google-plus-square",
-        github: "fa-github-square",
-        linkedin: "fa-linkedin"
     }
     return (
         <div class="card">

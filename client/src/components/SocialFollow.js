@@ -8,32 +8,32 @@ import {
 
 export default function SocialFollow() {
   return (  
-    <footer class="footer text-center">
-    <div class="container">
-      <ul class="list-inline mb-5">
-        <li class="list-inline-item">
+    <footer className="footer text-center">
+    <div className="container">
+      <ul className="list-inline mb-5">
+        <li className="list-inline-item">
           <a className="facebook social" href="#!" > 
           <FontAwesomeIcon icon={faFacebook} size="4x" /> 
-            <i class="icon-social-facebook"></i>
+            <i className="icon-social-facebook"></i>
           </a>
         </li>
-        <li class="list-inline-item">
+        <li className="list-inline-item">
           <a className="twitter social" href="#!"> 
           <FontAwesomeIcon icon={faTwitter} size="4x" />
-            <i class="icon-social-twitter"></i>
+            <i className="icon-social-twitter"></i>
           </a>
         </li>
-        <li class="list-inline-item">
+        <li className="list-inline-item">
           <a className="instagram social" href="#!" > 
           <FontAwesomeIcon icon={faInstagram} size="4x" /> 
-            <i class="icon-social-github"></i>
+            <i className="icon-social-github"></i>
           </a>
         </li>
       </ul>
-      <p class="text-muted small mb-0">Copyright &copy; BetterBiz 2020</p>
+      <p className="text-muted small mb-0">Copyright &copy; BetterBiz 2020</p>
     </div>
   </footer>
-    // <footer class="footer text-center">
+    // <footer className="footer text-center">
     //   <h3>Connect with Us!</h3>   
     //   <a href="" 
     //     className="facebook social"> 

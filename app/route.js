@@ -69,10 +69,10 @@ function router( app ){
 
     //[POST] login user
     app.post('/api/login', async ( req, res )=>{
-        const userInput = req.body
+        const userData = req.body
         //create a session for login
         const session = uuid.v4()
-        const loginResult = await orm.loginUser( userInput.email, userInput.password, session )
+        const loginResult = await orm.loginUser( userData, session )
         res.send( loginResult )
     })
     //[PUT] change password
