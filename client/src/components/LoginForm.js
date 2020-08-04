@@ -1,35 +1,47 @@
-import React, { useState } from "react"
-import { Redirect } from 'react-router-dom'
-import axios from "axios"
-import OAuth from "./OAuth"
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import axios from "axios";
+import OAuth from "./OAuth";
+import "./LoginForm.css";
 
 function LogIn() {
-  const [userData, setFormInput] = useState({ email: "", password: "", })
-  const [formState, setFormState] = useState({ message:'', formValidStyle: "none", formFailedStyle: "none", isLogin:false})
+  const [userData, setFormInput] = useState({ email: "", password: "" });
+  const [formState, setFormState] = useState({
+    message: "",
+    formValidStyle: "none",
+    formFailedStyle: "none",
+    isLogin: false,
+  });
 
   async function handleFormSubmit(event) {
-    event.preventDefault()
-    const confirmInput = Object.values(userData).filter((value) => value.trim() === "" )
-    if( confirmInput.length > 0 ){
+    event.preventDefault();
+    const confirmInput = Object.values(userData).filter(
+      (value) => value.trim() === ""
+    );
+    if (confirmInput.length > 0) {
       setFormState({ ...formState, formValidStyle: "block" });
       setTimeout(() => {
         setFormState({ ...formState, formValidStyle: "none" });
-      }, 3000)
-      return
+      }, 3000);
+      return;
     }
 
-    const loginResult = await axios.post('/api/login', userData)
+    const loginResult = await axios.post("/api/login", userData);
 
-    if( !loginResult.data.isLogin ){
+    if (!loginResult.data.isLogin) {
       // localStorage.session = ''
-      setFormState({ ...formState, message: loginResult.data.message, formFailedStyle: "block" })
-        setTimeout(() => {
-          setFormState({ ...formState, formFailedStyle: "none" })
-        }, 3000)
-      return
+      setFormState({
+        ...formState,
+        message: loginResult.data.message,
+        formFailedStyle: "block",
+      });
+      setTimeout(() => {
+        setFormState({ ...formState, formFailedStyle: "none" });
+      }, 3000);
+      return;
     }
 
-    loginComplete(loginResult.data)
+    loginComplete(loginResult.data);
   }
 
   function handleInputChange(event) {
@@ -37,22 +49,25 @@ function LogIn() {
     setFormInput({ ...userData, [id]: value });
   }
 
-  function loginComplete(userData){
+  function loginComplete(userData) {
     //save active session
-    localStorage.setItem('currUser', JSON.stringify( {
-      id:userData.id, 
-      name: userData.name,
-      session: userData.session
-    }))
+    localStorage.setItem(
+      "currUser",
+      JSON.stringify({
+        id: userData.id,
+        name: userData.name,
+        session: userData.session,
+      })
+    );
 
-    setTimeout( function(){ 
-      setFormState({ ...formState, isLogin:true })
-      }, 3000 )
+    setTimeout(function () {
+      setFormState({ ...formState, isLogin: true });
+    }, 3000);
   }
 
   return (
     <div className="container">
-      { formState.isLogin ? <Redirect to='/' /> : '' }
+      {formState.isLogin ? <Redirect to="/" /> : ""}
       <div className="container col-xl-5 col-lg-6 col-md-8 col-sm-10">
         <h1 className="text-center">Log In</h1>
         <form onSubmit={handleFormSubmit}>
@@ -128,7 +143,7 @@ function LogIn() {
         </div>
         {""}
         <OAuth
-          providers={["twitter", "facebook", "google"]} 
+          providers={["twitter", "facebook", "google"]}
           loginComplete={loginComplete}
         />
       </div>
