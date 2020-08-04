@@ -31,7 +31,6 @@ function App() {
   const [isLogin, setLogin] = useState( false )
   let currUser = JSON.parse(window.localStorage.getItem('currUser'))
   return (
-    <GlobalStore>
       <Router>
         <Navbar isLogin={isLogin} currUser={currUser}/>
         <Route exact path="/">
@@ -49,10 +48,8 @@ function App() {
         </Route>
         <Route component={BusinessPage} path="/businesses/:businessName">
         </Route>
-      </Router> 
-       <SocialFollow />
-      {/* <Map /> */}
-    </GlobalStore>
+        <SocialFollow />
+      </Router>
   );
 }  
 
