@@ -37,7 +37,7 @@ const orm = {
         return user
     },
 
-    registerUser: async (userInfo, session='') =>{
+    registerUser: async function (userInfo, session=''){
         //check duplicate user
         const duplicateUser = await db.User.findOne({ email: userInfo.email })
         if(duplicateUser){
@@ -80,7 +80,7 @@ const orm = {
         }
     },
 
-    loginUser: async (userEmail, userPwd, session) => {
+    loginUser: async function (userEmail, userPwd, session){
         if( !session ){
             return { isLogin:false, message:'System session not provided!'}
         }

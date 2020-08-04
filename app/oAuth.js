@@ -1,106 +1,59 @@
-// Compact oAuth library
-// ---------------------
-// Written By: Filipe Laborde // fil@rezox.com
-// License:    MIT - use as you wish
-//
-// Usage: include server-side code for oAuth
-// require('./oAuth')(app);
-
-const cors = require('cors');
-const passport = require('passport');
-const session = require('express-session');
-const { Strategy: TwitterStrategy } = require('passport-twitter');
-const { OAuth2Strategy: GoogleStrategy } = require('passport-google-oauth');
-const { Strategy: FacebookStrategy } = require('passport-facebook');
-// const { Strategy: GithubStrategy} = require('passport-github');
-// const { OAuth2Strategy: LinkedInStrategy } = require('passport-linkedin-oauth2');
+const cors = require('cors')
+const passport = require('passport')
+const session = require('express-session')
+const { Strategy: FacebookStrategy } = require('passport-facebook')
 
 function oAuth( app, API_URL, providers, createOAuthSession ){
-    console.log( '[oAuth] adding oAuth related endpoints & middleware' );
-
+    console.log( '[oAuth] adding oAuth related endpoints & middleware' )
     // we need to enable API calls from OUTSIDE our system
     // as the oAuth will be coming from another server
-    app.use( cors() );
-
+    app.use( cors() )
     // oAuth requires session-library
-    app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
-
-    app.use(passport.initialize());
+    app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }))
+    app.use(passport.initialize())
     // Allowing passport to serialize and deserialize users into sessions
-    passport.serializeUser((user, cb) => cb(null, user));
-    passport.deserializeUser((obj, cb) => cb(null, obj));
-
+    passport.serializeUser((user, cb) => cb(null, user))
+    passport.deserializeUser((obj, cb) => cb(null, obj))
     // The callback is what the strategy uses below.
-    const callback = (accessToken, refreshToken, profile, cb) => cb(null, profile, accessToken, refreshToken);
+    // const callback = (accessToken, refreshToken, profile, cb) => cb(null, profile, accessToken, refreshToken)
 
-    // setup & call the passport pre-defined 'strategies' for each oAuth option
-    // we have valid keys for
-    providers.map( provider=>{
-        if( process.env[`${provider.toUpperCase()}_KEY`] ){
-            console.log( `   > found ** ${provider} ** KEY, Added!`);
+    let CONFIG = {
+        clientID: process.env.FACEBOOK_KEY,
+        clientSecret: process.env.FACEBOOK_SECRET,
+        callbackURL: `${API_URL}/oauth/facebook/callback`
+    }
 
-            let CONFIG = {
-                clientID: process.env[`${provider.toUpperCase()}_KEY`],
-                clientSecret: process.env[`${provider.toUpperCase()}_SECRET`],
-                callbackURL: `${API_URL}/oauth/${provider}/callback`
-            };
-            switch( provider ){
-            case 'twitter':
-                CONFIG.consumerKey = CONFIG.clientID;
-                CONFIG.consumerSecret = CONFIG.clientSecret;
-                passport.use(new TwitterStrategy(CONFIG, callback));
-                break;
-            case 'google':
-                passport.use(new GoogleStrategy(CONFIG, callback));
-                break;
-            case 'facebook':
-                CONFIG.profileFields = ['id', 'emails', 'name', 'picture.width(250)'];
-                passport.use(new FacebookStrategy(CONFIG, callback));
-                break;
-            // case 'github':
-            //     passport.use(new GithubStrategy(CONFIG, callback));
-            //     break;
-            // case 'linkedin':
-            //     CONFIG.scope = ['r_emailaddress', 'r_liteprofile'];
-            //     passport.use(new LinkedInStrategy(CONFIG, callback));
-            //     break;
-            default:
-                console.log( `[oAuth ERROR Unknown provider (${provider}); not doing anythiny.` );
-                break;
-            }
+    passport.use(new FacebookStrategy(CONFIG,
+        function(accessToken, refreshToken, profile, done) {
+            console.log('[Facebook] Auth done', accessToken )
+            done( null, profile )
         }
-    });
+    ))
 
     // OAUTH ENDPOINTS
     // For the popup window, this will organize the initil login box on provider
-    app.get( '/oauth/:provider', function( req,res,next ){
-        const provider = req.params.provider;
-        console.log( `[/oauth/${provider}/] popup called.` );
-        // we are running this, as it will generate code an actual function
-        passport.authenticate(provider, (provider==='google'?{ scope: ['profile'] }:undefined))(req,res,next);
-    });
+    app.get( '/oauth/facebook', function( req,res,next ){
+        // const provider = req.params.provider;
+        // console.log( `[/oauth/${provider}/] popup called.` );
+        // we are running this, as it will generate code an actual function(req,res,next)
+        passport.authenticate('facebook')
+    })
 
     // this is called BY the provider with the auth-token + access-token + user-info for us
-    app.get('/oauth/:provider/callback', function( req,res,next ){
-        const provider = req.params.provider;
-        console.log( `[/oauth/${provider}/callback] oAuth callback received...` );
+    app.get('/oauth/facebook/callback', function( req,res,next ){
+        // const provider = req.params.provider;
+        // console.log( `[/oauth/${provider}/callback] oAuth callback received...` );
         // we are running this, as it will generate code an actual function
-        passport.authenticate(provider, (provider==='google'?{ scope: ['profile'] }:undefined))(req,res,next);
+        // passport.authenticate(provider, (provider==='google'?{ scope: ['profile'] }:undefined))(req,res,next);
+        passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' })
     },
     // chain a SECOND function on that handles the call-back result
     async function( req,res ){
-        const provider = req.params.provider;
+        const provider = 'facebook' //req.params.provider;
 
         // make the returned user structure consistent
         let user = { type: provider };
         switch( provider ){
-        case 'twitter':
-            console.log(req.user)
-            user.firstName = req.user.displayName ? req.user.displayName : req.user.username
-            user.lastName = req.user.displayName ? req.user.displayName : req.user.username
-            // user.thumbnail = req.user.photos[0].value.replace(/_normal/, '');
-            user.authId = `twitterid:${req.user.id}`
-            break;
         case 'google':
             console.log(req.user)
             user.firstName = req.user.displayName
@@ -115,17 +68,6 @@ function oAuth( app, API_URL, providers, createOAuthSession ){
             // user.thumbnail = req.user.photos[0].value;
             user.authId = `facebookid:${req.user.id}`;
             break;
-        // case 'github':
-        //     user.name = req.user.username;
-        //     user.thumbnail = req.user.photos[0].value;
-        //     user.authId = `githubid:${req.user.id}`;
-        //     break;
-        // case 'linkedin':
-        //     user.name = req.user.displayName;
-        //     user.thumbnail = req.user.photos[0].value;
-        //     user.email = req.user.emails[0].value;
-        //     user.authId = `linkedinid:${req.user.id}`;
-        //     break;
         default:
             console.log( `[ERROR] Unknown provider ${provider}`, req.user );
             break;
