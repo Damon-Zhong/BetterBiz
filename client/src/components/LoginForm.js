@@ -85,13 +85,13 @@ function LogIn() {
           <div className="button">
             <div className="row">
               <button
-                className="col-3 btn btn-primary"
+                className="col-2 btn btn-primary box3"
                 style={{ marginBottom: "10px" }}
                 id="logIntoAccount"
               >
                 Submit
               </button>
-              <span className="col-9 pl-5 loginTxt">
+              <span className="col-10 pl-5 loginTxt">
                 <a
                   className="text-decoration-none text-white"
                   href="/account/signup"
