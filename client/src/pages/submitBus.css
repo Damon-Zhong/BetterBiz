@@ -12,3 +12,7 @@
     15px 15px 15px rgba(0, 0, 0, 0), inset 0px 0px 5px rgba(255, 255, 255, 0.8),
     inset -4px -4px 5px rgba(0, 0, 0, 0.05), 0 50px 40px rgba(0, 0, 0, 0.05) !important;
 }
+
+.formLabel {
+  font-weight: bold;
+}
