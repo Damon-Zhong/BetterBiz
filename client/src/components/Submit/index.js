@@ -1,4 +1,5 @@
 import React from "react";
+import "./Submit.css";
 
 const Submit = () => {
   return (
@@ -8,7 +9,7 @@ const Submit = () => {
           {" "}
           Own a business? Submit your Business and hlep grow our community!
         </h2>
-        <a className="btn btn-primary btn-xl" href="/submitbusiness">
+        <a className="btn btn-primary btn-xl box" href="/submitbusiness">
           Submit
         </a>
       </div>

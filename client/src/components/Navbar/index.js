@@ -8,7 +8,7 @@ const Navbar = (props) => {
     window.location.pathname = "/";
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link to="/">BetterBiz</Link>
       <button
         className="navbar-toggler"
