@@ -24,10 +24,10 @@ const UserSchema = new Schema({
         type: String,
         trim: true,
         required: true
-    }
+    },
     // authId: { type: String, default: '' },
     // password:  { type: String, trim: true },
-    // session: { type: String, default: '' },
+    session: { type: String, default: '' },
 
 }, {
     timestamps: true /* creates corresponding timestamp fields: createdAt, updatedAt */

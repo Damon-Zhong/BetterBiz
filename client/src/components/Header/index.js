@@ -1,4 +1,5 @@
 import React from "react";
+import "./Header.css";
 
 const Header = () => {
   return (
@@ -8,7 +9,10 @@ const Header = () => {
         <h3 className="mb-5">
           <em>Support your community! </em>
         </h3>
-        <a className="btn btn-primary btn-xl js-scroll-trigger" href="#about">
+        <a
+          className="btn btn-primary btn-xl js-scroll-trigger box"
+          href="#about"
+        >
           {" "}
           Let Go!
         </a>

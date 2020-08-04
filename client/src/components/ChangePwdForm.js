@@ -32,8 +32,8 @@ const ChangePwd = () => {
     });
     if (confirmInput.length === 2) {
       const response = await axios.put("/api/changepassword", formInput);
-      console.log(response);
-      if (response !== null) {
+      console.log(`Getting response`);
+      if (response.data) {
         window.location.pathname = "/account";
       } else {
         setFormState({ ...formState, formFailedStyle: "block" });

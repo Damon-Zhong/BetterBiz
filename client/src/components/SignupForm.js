@@ -26,7 +26,7 @@ function SignUp() {
                 }, 5000)
             }else{
                 window.localStorage.setItem('currUser', JSON.stringify({id:result.data.body._id, email: result.data.body.email, firstName: result.data.body.firstName }))
-                window.location.pathname = "/login"
+                window.location.pathname = "/"
             }
         }else{
             setFormState({ ...formState, formValidStyle: "block" })

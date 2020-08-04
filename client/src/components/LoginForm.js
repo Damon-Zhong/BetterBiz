@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import OAuth from "./OAuth";
+import "./LoginForm.css";
 
 function LogIn() {
   const [formInput, setFormInput] = useState({
@@ -8,6 +10,7 @@ function LogIn() {
   });
 
   const [formState, setFormState] = useState({
+    message: "",
     formValidStyle: "none",
     formFailedStyle: "none",
   });
@@ -18,21 +21,23 @@ function LogIn() {
       return value.trim() !== "";
     });
     if (confirmInput.length === 2) {
-      const result = await axios.get(
-        `/api/login?email=${formInput.email}&pwd=${formInput.password}`
-      );
-      if (result.data.isMatch) {
+      const result = await axios.post("/api/login", formInput);
+      if (result.data.isLogin) {
         window.localStorage.setItem(
           "currUser",
           JSON.stringify({
-            id: result.data.body._id,
-            email: result.data.body.email,
-            firstName: result.data.body.firstName,
+            id: result.data.id,
+            email: result.data.email,
+            firstName: result.data.firstName,
           })
         );
-        window.location.pathname = "/login";
+        window.location.pathname = "/";
       } else {
-        setFormState({ ...formState, formFailedStyle: "block" });
+        setFormState({
+          ...formState,
+          message: result.data.message,
+          formFailedStyle: "block",
+        });
         setTimeout(() => {
           setFormState({ ...formState, formFailedStyle: "none" });
         }, 3000);
@@ -44,18 +49,9 @@ function LogIn() {
       }, 3000);
     }
   }
-
   function handleInputChange(event) {
-    switch (event.target.id) {
-      case "user":
-        setFormInput({ ...formInput, email: event.target.value });
-        break;
-      case "password":
-        setFormInput({ ...formInput, password: event.target.value });
-        break;
-      default:
-        break;
-    }
+    const { id, value } = event.target;
+    setFormInput({ ...formInput, [id]: value });
   }
 
   return (
@@ -72,7 +68,7 @@ function LogIn() {
             <input
               type="email"
               className="form-control form-control-lg"
-              id="user"
+              id="email"
               onChange={handleInputChange}
             />
           </div>
@@ -90,32 +86,32 @@ function LogIn() {
             />
           </div>
           <div className="button">
-            <button
-              className="btn btn-primary"
-              style={{ marginBottom: "10px" }}
-              id="logIntoAccount"
-            >
-              Submit
-            </button>
-            <span className="pl-5">
-              Don't have an account yet?{" "}
-              <a
-                className="text-decoration-none text-white"
-                href="/account/signup"
+            <div className="row">
+              <button
+                className="col-3 btn btn-primary"
+                style={{ marginBottom: "10px" }}
+                id="logIntoAccount"
               >
-                <u>Sign up</u>
-              </a>
-            </span>
-            <br />
-            <span className="pl-5">
-              Forgot your passward?{" "}
+                Submit
+              </button>
+              <span className="col-9 pl-5 loginTxt">
+                <a
+                  className="text-decoration-none text-white"
+                  href="/account/signup"
+                >
+                  <u>Don't have an account yet? </u>
+                </a>
+              </span>
+            </div>
+
+            <p className="pl-5 loginTxt ">
               <a
                 className="text-decoration-none text-white"
                 href="/account/password"
               >
-                <u>I got you!</u>
+                <u>Forgot your password? </u>
               </a>
-            </span>
+            </p>
           </div>
         </form>
         <div
@@ -130,8 +126,13 @@ function LogIn() {
           id="alertFailed"
           style={{ display: formState.formFailedStyle }}
         >
-          Email or password is invalid!
+          {/* Email or password is invalid! */}
+          {formState.message}
         </div>
+        {""}
+        <OAuth
+          providers={["twitter", "facebook", "github", "google", "linkedin"]}
+        />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 const mongoose = require( 'mongoose' )
 const Yelp = require( '../app/apiRoute')
+const bcrypt = require('bcrypt')
 
 mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost/betterbiz', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
@@ -33,18 +34,45 @@ const orm = {
 
     findUser: async (userEmail) => {
         const user = await db.User.find({email: userEmail})
-        return user[0]
+        return user
     },
 
-    registerUser: async (userData) =>{
-        await db.User.create(userData)
-        const user = await db.User.findOne({email: userData.email})
-        return user
+    registerUser: async (userInfo, session='') =>{
+        //check duplicate user
+        const duplicateUser = await db.User.findOne({ email: userInfo.email })
+        if(duplicateUser){
+            return {isExist:true, message:'This email has been registered, please log in instead.', session:false}
+        }
+        //hashing password
+        const passwordHash = await bcrypt.hash(userInfo.password, 10)
+        const userData = {
+            email: userInfo.email,
+            password: passwordHash,
+            firstName: userInfo.firstName,
+            lastName: userInfo.lastName,
+            session:session}
+        const newUser = await db.User.create(userData)
+        // const user = await db.User.findOne({email: userData.email})
+        if( newUser._id ){
+            return {
+                isExist: false,
+                messgae:`Success! ${newUser.email} was successfully registered`,
+                firstName: newUser.firstName,
+                email: newUser.email,
+                session
+            }
+        }else{
+            return {
+                isExist: false,
+                message:'Registration failed',
+            }
+        }
     },
 
     updateUser: async(userEmail, userPwd)=>{
         const updateUser = await db.User.findOne({email: userEmail})
-        if(updateUser!==null){
+        console.log(updateUser)
+        if(updateUser){
             await db.User.updateOne({email: userEmail},{password: userPwd })
             return true
         }else{
@@ -52,12 +80,31 @@ const orm = {
         }
     },
 
-    matchUser: async (userEmail, userPwd) => {
-        const user = await db.User.findOne({email: userEmail, password:userPwd})
-        if( user !== null ){
-            return user
-        }else{
-            return ' '
+    loginUser: async (userEmail, userPwd, session) => {
+        if( !session ){
+            return { isLogin:false, message:'System session not provided!'}
+        }
+        //check if email exsits
+        const userData = await db.User.findOne({ email: userEmail }, '-createdAt -updatedAt')
+        if( !userData ) {
+            return { isLogin: false, message: 'Email does not exsit. Please sign up.' }
+        }
+        //compare crypted password
+        const isValidPassword = await bcrypt.compare( userPwd, userData.password )
+        if( !isValidPassword ) {
+            return { isLogin: false, message: 'Invalid password' }
+        }
+        //update user session
+        await db.User.findOneAndUpdate({ _id: userData._id},{ session: session})
+        //return user information with session
+        return {
+            isLogin: true,
+            message: 'Successfully Logging in!',
+            id: userData._id,
+            fisrtName: userData.fisrtName,
+            email: userData.email,
+            session: userData.session,
+            // createdAt: userData.createdAt
         }
     },
 
