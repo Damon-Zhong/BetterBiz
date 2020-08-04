@@ -18,7 +18,7 @@ const AccountIndex = (props) => {
         </a>
       </div>) : ''} */}
       <Route exact path={`/account/signup`} component={SignupForm} />
-      <Route exact path={`/account`} component={LoginForm} />
+      <Route exact path={`/account`}><LoginForm setLogin={props.setLogin} /></Route>
       <Route exact path={`/account/password`} component={ChangePwd} />
     </section>
   );

@@ -4,7 +4,7 @@ import axios from "axios";
 import OAuth from "./OAuth";
 import "./LoginForm.css";
 
-function LogIn() {
+function LogIn(props) {
   const [userData, setFormInput] = useState({ email: "", password: "" });
   const [formState, setFormState] = useState({
     message: "",
@@ -58,8 +58,8 @@ function LogIn() {
         name: userData.name,
         session: userData.session,
       })
-    );
-
+    )
+    props.setLogin(true)
     setTimeout(function () {
       setFormState({ ...formState, isLogin: true });
     }, 3000);
