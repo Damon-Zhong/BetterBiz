@@ -31,7 +31,7 @@ export default function SocialFollow() {
         </a> 
         </li>
       </ul>
-      <p class="text-muted small mb-0">Copyright &copy; BetterBiz 2020</p>
+      <p className="text-muted small mb-0">Copyright &copy; BetterBiz 2020</p>
     </div>
   </footer>
 

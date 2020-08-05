@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { GlobalStore } from "./components/GlobalStore";
 import Services from "./components/Services";
 import "./App.css";
 import Header from "./components/Header";
@@ -29,10 +28,10 @@ function App() {
     caption:'Eco Friendly'
   }]
 
-  const [isLogin, setLogin] = useState( window.localStorage ? true : false)
+  const [isLogin, setLogin] = useState( false )
   let currUser = JSON.parse(window.localStorage.getItem('currUser'))
   return (
-    <GlobalStore>
+    <>
       <Router>
         <Navbar isLogin={isLogin} currUser={currUser}/>
         <Route exact path="/">
@@ -40,7 +39,7 @@ function App() {
           <Services servicesLinks={servicesList}/>
         </Route>
         <Route path="/account">
-          <AccountIndex />
+          <AccountIndex setLogin={setLogin}/>
         </Route>
         <Route exact path="/submit">
           <SubmitPage />
@@ -53,7 +52,7 @@ function App() {
       </Router> 
        <SocialFollow />
       {/* <Map /> */}
-    </GlobalStore>
+    </>
   );
 }  
 

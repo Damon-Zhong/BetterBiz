@@ -21,7 +21,7 @@ export default (props) => {
         <div className="row">
           {props.servicesLinks.map(({ title, caption }, index) => (
             
-              <div key={index} className="col-lg-3 col-md-6 mb-5 mb-lg-0" onClick={callYelp(title)}>
+              <div key={index} className="col-lg-3 col-md-6 mb-5 mb-lg-0" onClick={callYelp}>
                 <span className="service-icon rounded-circle mx-auto mb-3">
                   <i className="icon-screen-smartphone">&#127793;</i>
                 </span>

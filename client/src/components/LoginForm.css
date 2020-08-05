@@ -1,19 +1,18 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.loginTxt {
+  text-align: right;
 }
-.box {
+
+.box3 {
   position: relative;
-  width: 150px;
-  height: 70px;
-  margin: 15px;
+  width: 100px !important;
+  height: 40px;
+  margin: 0px;
   border-radius: 25px !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f3f4f6 !important;
-  box-shadow: -15px -15px 15px #1d809f, 15px 15px 15px rgba(0, 0, 0, 0),
+  background: #1d809f !important;
+  box-shadow: 0px 0px 5px #1c5f74, 15px 15px 15px rgba(0, 0, 0, 0),
     inset 0px 0px 5px #1d809f, inset -4px -4px 5px rgba(0, 0, 0, 0.05),
     0 50px 40px rgba(0, 0, 0, 0.05) !important;
 }

@@ -69,10 +69,10 @@ function router( app ){
 
     //[POST] login user
     app.post('/api/login', async ( req, res )=>{
-        const userInput = req.body
+        const userData = req.body
         //create a session for login
         const session = uuid.v4()
-        const loginResult = await orm.loginUser( userInput.email, userInput.password, session )
+        const loginResult = await orm.loginUser( userData, session )
         res.send( loginResult )
     })
     //[PUT] change password
@@ -80,6 +80,12 @@ function router( app ){
         console.log(`[PUT] change password: ${req.body}`)
         const result = await orm.updateUser(req.body.email, req.body.password)
         res.send(result)
+    })
+    //[POST] submit business name and city for suggestions
+    app.post('/api/business/suggestion', async ( req, res ) => {
+        console.log(`[POST] fetching suggestions for: ${req.body}`)
+        const suggestList = await yelp.getSuggestionList(req.body)
+        res.send(suggestList)
     })
     //[POST] submit business information
     app.post('/api/submit', async ( req, res ) => {

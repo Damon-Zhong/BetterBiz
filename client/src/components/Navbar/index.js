@@ -8,7 +8,7 @@ const Navbar = (props) => {
     window.location.pathname = "/";
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link to="/">BetterBiz</Link>
       <button
         className="navbar-toggler"
@@ -58,7 +58,7 @@ const Navbar = (props) => {
         {props.currUser ? (
           <span>
             <p className="welcomeName">
-              Welcome Back! {props.currUser.firstName}
+              Welcome Back! {props.currUser.name}
             </p>
             <a className="logoutBtn" href="/" onClick={signOut}>
               Log Out
