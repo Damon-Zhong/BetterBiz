@@ -57,7 +57,8 @@ const SubmitBus = () => {
         setIsSubmit(true);
       }, 3000);
     }
-  };
+  }
+
   return (
     <div>
       {isSubmit ? <Redirect to="/" /> : ""}

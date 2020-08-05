@@ -81,6 +81,12 @@ function router( app ){
         const result = await orm.updateUser(req.body.email, req.body.password)
         res.send(result)
     })
+    //[POST] submit business name and city for suggestions
+    app.post('/api/business/suggestion', async ( req, res ) => {
+        console.log(`[POST] fetching suggestions for: ${req.body}`)
+        const suggestList = await yelp.getSuggestionList(req.body)
+        res.send(suggestList)
+    })
     //[POST] submit business information
     app.post('/api/submit', async ( req, res ) => {
         if( !req.body.busType || !req.body.name ){
