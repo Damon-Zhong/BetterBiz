@@ -94,7 +94,7 @@ const AboutUs = () => {
               <img
                 class="mx-auto rounded-circle"
                 src={require(process.env.PUBLIC_URL +
-                  "./team-images/default.png")}
+                  "./team-images/damon.jpg")}
                 alt=""
               />
               <h4>Damon</h4>
