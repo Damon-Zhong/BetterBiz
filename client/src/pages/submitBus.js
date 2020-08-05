@@ -4,10 +4,13 @@ import axios from "axios";
 import Submit from "../components/Submit";
 import Modal from "../components/PopupModal";
 import Alert from "react-bootstrap/Alert";
+import Image from "react-bootstrap/Image";
 import slugify from "../utils/slugify";
 import "./submitBus.css";
+import loadingSpinner from "../images/loadingSpinner.gif";
 
 const SubmitBus = () => {
+
   const [busData, setBusData] = useState({
     busType: "Food",
     name: "",
@@ -22,6 +25,7 @@ const SubmitBus = () => {
   const [isSubmit, setIsSubmit] = useState(false);
   const [yelpData, setYelpData] = useState(undefined);
   const [errorMessage, setErrorMessage] = React.useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleHighlightChange = (event) => {
     const {value} = event.currentTarget;
@@ -57,6 +61,7 @@ const SubmitBus = () => {
     if(!yelpData){
       const endpointData = {name: busData.name, city: busData.city};
       setErrorMessage("");
+      setLoading(true);
       fetch('/api/business/suggestion', {
         method: "POST",
         headers: {
@@ -66,6 +71,7 @@ const SubmitBus = () => {
       })
       .then(res => res.json())
       .then(res => {
+        setLoading(false);
         if(Array.isArray(res)){
           setYelpData(res)
           setBusData({...busData, yelpId: res[0].id})
@@ -74,14 +80,17 @@ const SubmitBus = () => {
         }
       })
       .catch( () => {
+        setLoading(false);
         setErrorMessage("Opps! Couldn't get business from Yelp. Please try again.")
       })
     } else {
+      setLoading(true);
       const feedback = await axios.post("/api/submit", busData);
+      setLoading(false);
       if (feedback.data.status) {
         setIsSubmit(true);
       } else {
-        setErrorMessage("Your business was not saved in our database. Please try again.")
+        setErrorMessage(feedback.data.message || "Your business was not saved in our database. Please try again.")
       }
     }
   };
@@ -206,6 +215,10 @@ const SubmitBus = () => {
               {`Yay! You've successfully saved ${busData.name} business to our database. You can find your entry `}
               <a href={`/businesses/${busData.url}`}>here!</a>
           </Alert> : null}
+          {/* Loading spinner */}
+          {loading ? <div className="container mt-5">
+                <Image src={loadingSpinner} style={{margin: "0 auto", width: "100px", display: "block" }}/>
+            </div> : null}
           {/* Submit button                     */}
           <button
             onClick={handleFormSubmit}

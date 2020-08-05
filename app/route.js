@@ -3,6 +3,8 @@ const orm = require('../connection/orm')
 const path = require('path')
 const uuid = require('uuid')
 
+const db = require( '../model' )
+
 function router( app ){
     //[GET] general serach by term
     app.get('/businesses', async ( req, res ) => {
@@ -85,15 +87,29 @@ function router( app ){
     app.post('/api/business/suggestion', async ( req, res ) => {
         console.log(`[POST] fetching suggestions for: ${req.body}`)
         const suggestList = await yelp.getSuggestionList(req.body)
-        res.send(suggestList)
+
+        if (Array.isArray(suggestList)) {
+            const yelpId = suggestList[0].id;
+            // Check if we already have this business
+            const returnBusiness = await db.Business.findOne({ yelpId });
+            if(returnBusiness){
+                res.send({ status: false, message: 'This business already exists. Each business can only be added once to BetterBiz.' });
+            }
+        }
+
+        res.send(suggestList);
     })
     //[POST] submit business information
     app.post('/api/submit', async ( req, res ) => {
-        if( !req.body.name ){
+        if( !req.body.busType || !req.body.name ){
             res.send({status:false, message:'Business Type and Name is required.'})
         }else{
-            await orm.insertBusiness(req.body)
-            res.send({status:true, message:'Success'})
+            try {
+                await orm.insertBusiness(req.body)
+                res.send({status:true, message:'Success'});
+            } catch(error) {
+                res.send({status: false, message: error.toString()});
+            }
         }
     })
 }
