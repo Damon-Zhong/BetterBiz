@@ -54,7 +54,6 @@ const orm = {
             lastName: userInfo.lastName,
             session:session}
         const newUser = await db.User.create(userData)
-        // const user = await db.User.findOne({email: userData.email})
         if( newUser._id ){
             return {
                 isExist: false,
