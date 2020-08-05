@@ -7,9 +7,9 @@ const EventCard = (props) => {
             <div className="card" style={{ width: "18rem" }}>
               {/* image_url */}
               <img
-                src={props.image_url}
+                src={props.image_url ? props.image_url : 'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483296.jpg'}
                 className="card-img-top"
-                alt={props.image_url ? props.id : 'no image available'}
+                alt={props.id}
               />
               <div className="card-body">
                 {/* name */}
@@ -29,7 +29,7 @@ const EventCard = (props) => {
                 {/* category */}
                 <li className="list-group-item">{props.category}</li>
                 {/* Free */}
-                <li className="list-group-item">{props.isFree ? 'This event is free':<a href={props.tickets_url}>Tickets available here</a>}</li>
+                <li className="list-group-item">{props.isFree ? <p>This event is free</p>:<a href={props.tickets_url}>Tickets available here</a>}</li>
               </ul>
               <div className="card-body">
                 {/* event_site_url */}
