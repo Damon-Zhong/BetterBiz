@@ -1,5 +1,8 @@
 import React from "react";
-import "./AboutUs.css";
+import "./AboutUs.css"; 
+
+// to upload images , use 224 px by 224 px 
+
 
 const AboutUs = () => {
   return (
@@ -13,61 +16,49 @@ const AboutUs = () => {
           </div>
 
           <h2 className="mb-5">Our Team </h2>
+        </div>     
+        <div class Name="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src= {require(process.env.PUBLIC_URL + "./team-images/default.png")} alt="" />
+                            <h4>Marcel </h4>
+                            <p class="text-muted">Lead Designer</p>
+                            <a className="btn btn-dark btn-social mx-2" href="https://github.com/cestmarcel"><i class="fab fa-github"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div> 
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                        <img class="mx-auto rounded-circle" src= {require(process.env.PUBLIC_URL + "./team-images/default.png")} alt="" />
+                            <h4>Damon</h4>
+                            <p class="text-muted">Lead Designer</p>
+                            <a className="btn btn-dark btn-social mx-2" href="https://github.com/Damon-Zhong"><i class="fab fa-github"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            
+                        </div>
+                    </div> 
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                        <img class="mx-auto rounded-circle" src= {require(process.env.PUBLIC_URL + "./team-images/default.png")} alt="" />
+                            <h4>Etam</h4>
+                            <p class="text-muted">Lead Designer</p> 
+                            <a className="btn btn-dark btn-social mx-2" href="https://github.com/etammao"><i class="fab fa-github"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="!#"><i class="fab fa-linkedin-in"></i></a>
+                           
+                        </div>
+                    </div> 
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                        <img class="mx-auto rounded-circle" src= {require(process.env.PUBLIC_URL + "./team-images/sadia1.jpeg")} alt="" />
+                            <h4>Sadia</h4>
+                            <p class="text-muted">Lead Designer</p> 
+                            <a className="btn btn-dark btn-social mx-2" href="https://github.com/sadia110"><i class="fab fa-github"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            
+                        </div>
+                    </div>
         </div>
-        <div className="row no-gutters">
-          <div className="col-lg-6">
-            <a className="portfolio-item members" href="#!">
-              <div className="caption">
-                <div className="caption-content">
-                  <div className="h2">Marcel</div>
-                  <p className="mb-0">
-                    Hi, I'm Marcel, a developer and mobility specialist with a
-                    background in strategy and enterprise software.
-                  </p>
-                </div>
-              </div>
-              <img className="img-fluid" src="./images/black.jpg" alt="" />
-            </a>
-          </div>
-          <div className="col-lg-6">
-            <a className="portfolio-item members" href="#!">
-              <div className="caption">
-                <div className="caption-content">
-                  <div className="h2"> Damon</div>
-                  <p className="mb-0">some text</p>
-                </div>
-              </div>
-              <img
-                className="img-fluid"
-                src="client/src/assets/images/portfolio-2.jpg"
-                alt=""
-              />
-            </a>
-          </div>
-          <div className="col-lg-6">
-            <a className="portfolio-item members" href="#!">
-              <div className="caption">
-                <div className="caption-content">
-                  <div className="h2">Etam</div>
-                  <p className="mb-0">OH yeaaaaa</p>
-                </div>
-              </div>
-              <img className="img-fluid" src="img/portfolio-3.jpg" alt="" />
-            </a>
-          </div>
-          <div className="col-lg-6">
-            <a className="portfolio-item members" href="#!">
-              <div className="caption">
-                <div className="caption-content">
-                  <div className="h2">Sadia</div>
-                  <p className="mb-0"> some text</p>
-                </div>
-              </div>
-              <img className="img-fluid" src="img/portfolio-4.jpg" alt="" />
-            </a>
-          </div>
-        </div>
-      </div>
+      </div> 
     </section>
   );
 };
