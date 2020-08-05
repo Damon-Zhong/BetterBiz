@@ -46,7 +46,7 @@ const Yelp = {
         //     console.log(e);
         // });
 
-        const businessResult = await client.business(yelpId)
+        const businessResult = await client.business("IOFzd7mBYCopQQUlRivPCw")
             .then( res => res.jsonBody )
             .catch(e => {
                 console.log(e);
@@ -54,7 +54,7 @@ const Yelp = {
         return businessResult;
     },
     getSuggestionList: async (busInfo) => {
-        //inpunt: { name: business name, city: city name}
+        //input: { name: business name, city: city name}
         //output: [ {id, name}, {id, name},....]
         const GeometryResult = await axios.get( `https://api.opencagedata.com/geocode/v1/json?q=${busInfo.city}&key=${process.env.Map_Key}` )
         if( GeometryResult.data.results.length === 0 ){

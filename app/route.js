@@ -89,21 +89,10 @@ function router( app ){
     })
     //[POST] submit business information
     app.post('/api/submit', async ( req, res ) => {
-        if( !req.body.busType || !req.body.name ){
+        if( !req.body.name ){
             res.send({status:false, message:'Business Type and Name is required.'})
         }else{
-            const busData = {
-                busType: req.body.busType,
-                name: req.body.name,
-                address:{
-                    address1: req.body.address,
-                    city: req.body.city,
-                    country: req.body.country,
-                    postalCode: req.body.postalCode
-                },
-                attributes: req.body.attributes.split(',')
-            }
-            await orm.insertBusiness(busData)
+            await orm.insertBusiness(req.body)
             res.send({status:true, message:'Success'})
         }
     })

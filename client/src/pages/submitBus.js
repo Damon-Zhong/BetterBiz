@@ -3,12 +3,13 @@ import { Redirect } from "react-router-dom";
 import axios from "axios";
 import Submit from "../components/Submit";
 import Modal from "../components/PopupModal";
+import Alert from "react-bootstrap/Alert";
 import slugify from "../utils/slugify";
 import "./submitBus.css";
 
 const SubmitBus = () => {
   const [busData, setBusData] = useState({
-    busType: "",
+    busType: "Food",
     name: "",
     url: "",
     summary: "",
@@ -19,6 +20,7 @@ const SubmitBus = () => {
   });
   const [isSubmit, setIsSubmit] = useState(false);
   const [yelpData, setYelpData] = useState(undefined);
+  const [errorMessage, setErrorMessage] = React.useState("");
 
   const handleHighlightChange = (event) => {
     const {value} = event.currentTarget;
@@ -51,14 +53,37 @@ const SubmitBus = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const feedback = await axios.post("/api/submit", busData);
-    if (feedback.data.status) {
-      setTimeout(() => {
+    if(!yelpData){
+      const endpointData = {name: busData.name, city: busData.city};
+      setErrorMessage("");
+      fetch('/api/business/suggestion', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(endpointData)
+      })
+      .then(res => res.json())
+      .then(res => {
+        if(Array.isArray(res)){
+          setYelpData(res)
+          setBusData({...busData, yelpId: res[0].id})
+        } else {
+          setErrorMessage(res.message || "Error getting data from Yelp. Please try again");
+        }
+      })
+      .catch( () => {
+        setErrorMessage("Opps! Couldn't get business from Yelp. Please try again.")
+      })
+    } else {
+      const feedback = await axios.post("/api/submit", busData);
+      if (feedback.data.status) {
         setIsSubmit(true);
-      }, 3000);
+      } else {
+        setErrorMessage("Your business was not saved in our database. Please try again.")
+      }
     }
-  }
-
+  };
   return (
     <div>
       {isSubmit ? <Redirect to="/" /> : ""}
@@ -102,11 +127,11 @@ const SubmitBus = () => {
                   id="busType"
                   required
                 >
-                  <option>Food</option>
-                  <option>Service</option>
-                  <option>Office</option>
-                  <option>Culture</option>
-                  <option>Other</option>
+                  <option value="Food">Food</option>
+                  <option value="Service">Service</option>
+                  <option value="Office">Office</option>
+                  <option value="Culture">Culture</option>
+                  <option value="Other">Other</option>
                 </select>
     
                 <label className="mt-3 formLabel" htmlFor="highlights">What makes this business special?</label>
@@ -159,12 +184,22 @@ const SubmitBus = () => {
             )}
 
           </div>
+          {/* Error alert */}
+          {errorMessage ? <Alert variant={"danger"}>
+                        {errorMessage}
+                    </Alert> : null}
+          {/* Success alert */}
+          {isSubmit ? <Alert variant={"success"}>
+              {`Yay! You've successfully saved ${busData.name} business to our database. You can find your entry `}
+              <a href={`/businesses/${busData.url}`}>here!</a>
+          </Alert> : null}
+          {/* Submit button                     */}
           <button
             onClick={handleFormSubmit}
             type="submit"
             className="btn btn-primary box2"
-            data-toggle="modal"
-            data-target="#thankyouModal"
+            // data-toggle="modal"
+            // data-target="#thankyouModal"
           >
             Submit
           </button>
