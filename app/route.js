@@ -104,11 +104,17 @@ function router( app ){
         if( !req.body.busType || !req.body.name ){
             res.send({status:false, message:'Business Type and Name is required.'})
         }else{
-            try {
-                await orm.insertBusiness(req.body)
-                res.send({status:true, message:'Success'});
-            } catch(error) {
-                res.send({status: false, message: error.toString()});
+            filter = new Filter();
+            const filteredData = filter.clean(req.body.summary);
+            if(filteredData.includes('*')){
+                res.send({status: false, message: 'We have detected that your summary contains words or characters that we do not accept on the platform. Please check your submission again.'})
+            } else {
+                try {
+                    await orm.insertBusiness(req.body)
+                    res.send({status:true, message:'Success'});
+                } catch(error) {
+                    res.send({status: false, message: error.toString()});
+                }
             }
         }
     })
