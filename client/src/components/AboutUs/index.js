@@ -50,7 +50,7 @@ const AboutUs = () => {
           <h2 className="mb-5">Our Team </h2>
         </div>     
         <div className="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src= {require(process.env.PUBLIC_URL + "./team-images/default.png")} alt="" />
                             <h4>Marcel </h4>
@@ -59,7 +59,7 @@ const AboutUs = () => {
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div> 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="team-member">
                         <img class="mx-auto rounded-circle" src= {require(process.env.PUBLIC_URL + "./team-images/default.png")} alt="" />
                             <h4>Damon</h4>
@@ -69,7 +69,7 @@ const AboutUs = () => {
                             
                         </div>
                     </div> 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="team-member">
                         <img class="mx-auto rounded-circle" src= {require(process.env.PUBLIC_URL + "./team-images/default.png")} alt="" />
                             <h4>Etam</h4>
@@ -79,7 +79,7 @@ const AboutUs = () => {
                            
                         </div>
                     </div> 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="team-member">
                         <img class="mx-auto rounded-circle" src= {require(process.env.PUBLIC_URL + "./team-images/sadia1.jpeg")} alt="" />
                             <h4>Sadia</h4>
