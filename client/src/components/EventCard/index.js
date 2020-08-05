@@ -25,7 +25,7 @@ const EventCard = (props) => {
                 {/* time_start*/}
                 <li className="list-group-item">{moment(props.time_start).format('LL')}</li>
                 {/* location.city */}
-                <li className="list-group-item">{props.location.address1}</li>
+                <li className="list-group-item">{props.location.address1 ? props.location.address1 : props.location.city}</li>
                 {/* category */}
                 <li className="list-group-item">{props.category}</li>
                 {/* Free */}

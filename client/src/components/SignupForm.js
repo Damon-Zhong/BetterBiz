@@ -4,6 +4,7 @@ import "./SignupForm.css";
 
 function SignUp() {
   const [formInput, setFormInput] = useState({
+    type:'',
     email: "",
     firstName: "",
     lastName: "",
@@ -35,6 +36,7 @@ function SignUp() {
         window.localStorage.setItem(
           "currUser",
           JSON.stringify({
+            type: result.data.typ,
             id: result.data.id,
             email: result.data.email,
             name: result.data.firstName,
@@ -51,22 +53,8 @@ function SignUp() {
   }
 
   function handleInputChange(event) {
-    switch (event.target.id) {
-      case "email":
-        setFormInput({ ...formInput, email: event.target.value });
-        break;
-      case "first-name":
-        setFormInput({ ...formInput, firstName: event.target.value });
-        break;
-      case "last-name":
-        setFormInput({ ...formInput, lastName: event.target.value });
-        break;
-      case "password":
-        setFormInput({ ...formInput, password: event.target.value });
-        break;
-      default:
-        break;
-    }
+    const { id, value } = event.target
+    setFormInput({ ...formInput, [id]:value })
   }
 
   return (
@@ -75,70 +63,32 @@ function SignUp() {
         <h1 className="text-center">Create an account</h1>
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
-            <label>
-              <i>
-                <strong> Email</strong>
-              </i>
-            </label>
-            <input
-              type="email"
-              className="form-control form-control-lg"
-              id="email"
-              autoComplete="off"
-              onChange={handleInputChange}
-            />
-            <small
-              id="alertTaken"
-              className="form-text text-danger"
-              style={{ display: formState.userValidStyle }}
-            >
+            {/* user type */}
+            <label>Type of User</label>
+            <select className="form-control" id="type" onChange={handleInputChange} required >
+              <option>Customer</option>
+              <option>Business</option>
+            </select>
+            {/* Email */}
+            <label><i><strong> Email</strong></i></label>
+            <input type="email" className="form-control form-control-lg" id="email" onChange={handleInputChange} />
+            <small id="alertTaken" className="form-text text-danger" style={{ display: formState.userValidStyle }} >
               This email is already in use!
             </small>
-          </div>
-          <div className="form-group">
-            <label>
-              <i>
-                <strong> First Name</strong>
-              </i>
-            </label>
-            <input
-              className="form-control form-control-lg"
-              id="first-name"
-              autoComplete="off"
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <label>
-              <i>
-                <strong> Last Name</strong>
-              </i>
-            </label>
-            <input
-              className="form-control form-control-lg"
-              id="last-name"
-              autoComplete="off"
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="exampleInputPassword1">
-              <i>
-                <strong> Password</strong>
-              </i>
-            </label>
-            <input
-              type="password"
-              className="form-control form-control-lg"
-              id="password"
-              autoComplete="off"
-              onChange={handleInputChange}
-            />
+            {/* First Name */}
+            <label><i><strong> First Name</strong></i></label>
+            <input type='text' className="form-control form-control-lg" id="firstName" onChange={handleInputChange} />
+            {/* Last Name */}
+            <label><i><strong> Last Name</strong></i></label>
+            <input type='text' className="form-control form-control-lg" id="lastName" onChange={handleInputChange} />
+            {/* Password */}
+            <label><i><strong> Password</strong></i></label>
+            <input type="password" className="form-control form-control-lg" id="password" onChange={handleInputChange} />
           </div>
           <div className="button">
             <div className="row">
               <button
-                className="col-2 btn btn-primary box4"
+                className="col-2 btn btn-primary mb-10 box4"
                 style={{ marginBottom: "10px" }}
                 id="createNewAccount"
               >
