@@ -9,10 +9,10 @@ import {
 
 export default function SocialFollow() {
   return (  
-    <footer class="footer text-center">
-    <div class="container">
-      <ul class="list-inline mb-5">
-        <li class="list-inline-item"> 
+    <footer className="footer text-center">
+    <div className="container">
+      <ul className="list-inline mb-5">
+        <li className="list-inline-item"> 
         <h3>Connect with Us!</h3>   
          <a href="" 
         className="facebook social"> 

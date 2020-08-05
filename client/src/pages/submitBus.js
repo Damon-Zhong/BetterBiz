@@ -138,6 +138,7 @@ const SubmitBus = () => {
                   required
                 >
                   <option value="Food">Food</option>
+                  <option value="Shop">Shop</option>
                   <option value="Service">Service</option>
                   <option value="Office">Office</option>
                   <option value="Culture">Culture</option>
