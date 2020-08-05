@@ -2,6 +2,8 @@ const yelp = require('./apiRoute')
 const orm = require('../connection/orm')
 const path = require('path')
 const uuid = require('uuid')
+var Filter = require('bad-words'),
+    filter = new Filter();
 
 const db = require( '../model' )
 
@@ -104,7 +106,6 @@ function router( app ){
         if( !req.body.busType || !req.body.name ){
             res.send({status:false, message:'Business Type and Name is required.'})
         }else{
-            filter = new Filter();
             const filteredData = filter.clean(req.body.summary);
             if(filteredData.includes('*')){
                 res.send({status: false, message: 'We have detected that your summary contains words or characters that we do not accept on the platform. Please check your submission again.'})

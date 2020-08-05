@@ -56,17 +56,22 @@ const Yelp = {
     getSuggestionList: async (busInfo) => {
         //input: { name: business name, city: city name}
         //output: [ {id, name}, {id, name},....]
-        const GeometryResult = await axios.get( `https://api.opencagedata.com/geocode/v1/json?q=${busInfo.city}&key=${process.env.Map_Key}` )
-        if( GeometryResult.data.results.length === 0 ){
-            return {message:'City not found. Please try again'}
+        try {
+            const GeometryResult = await axios.get( `https://api.opencagedata.com/geocode/v1/json?q=${busInfo.city}&key=${process.env.Map_Key}` )
+            if( GeometryResult.data.results.length === 0 ){
+                return {message:'City not found. Please try again'}
+            }
+            const { lat, lng } = GeometryResult.data.results[0].geometry
+            const url = `https://api.yelp.com/v3/autocomplete?text=${busInfo.name.replace(/ /g, '-')}&latitude=${lat}&longitude=${lng}`
+            const result = await axios.get(url, { headers: { Authorization: AuthStr } } )
+            if( result.data.businesses.length === 0 ){
+                return {message:'Business not found. Please try again'}
+            }
+            return result.data.businesses
+        } catch(error) {
+            console.log(error)
+            return {message: error.toString()}
         }
-        const { lat, lng } = GeometryResult.data.results[0].geometry
-        const url = `https://api.yelp.com/v3/autocomplete?text=${busInfo.name.replace(/ /g, '-')}&latitude=${lat}&longitude=${lng}`
-        const result = await axios.get(url, { headers: { Authorization: AuthStr } } )
-        if( result.data.businesses.length === 0 ){
-            return {message:'Business not found. Please try again'}
-        }
-        return result.data.businesses
     }
 }
 
