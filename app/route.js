@@ -54,15 +54,7 @@ function router( app ){
 
     //[POST] save user credentials
     app.post('/api/register', async ( req, res ) => {
-        // const user = await orm.findUser(req.body.email)
-        // if(user.length !== 0) {
-        //     res.send( { isExist: true, body: user })
-        // }else{
-        //     const userNew = await orm.registerUser(req.body)
-        //     res.send( { isExist: false, body: userNew })
-        // }
         const userData = req.body;
-        console.log( '[POST: /api/register] userData: ', userData );
         const registerResult = await orm.registerUser( userData );
         res.send( registerResult );
     })
@@ -80,6 +72,12 @@ function router( app ){
         console.log(`[PUT] change password: ${req.body}`)
         const result = await orm.updateUser(req.body.email, req.body.password)
         res.send(result)
+    })
+    //[POST] submit business name and city for suggestions
+    app.post('/api/business/suggestion', async ( req, res ) => {
+        console.log(`[POST] fetching suggestions for: ${req.body}`)
+        const suggestList = await yelp.getSuggestionList(req.body)
+        res.send(suggestList)
     })
     //[POST] submit business information
     app.post('/api/submit', async ( req, res ) => {
