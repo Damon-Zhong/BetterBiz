@@ -1,4 +1,46 @@
 .members {
   height: 250px;
 }  
+.flexbox-container {
+  display: flex;
+  flex-direction: row;
+}
+.row {
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: -0.75rem;
+  margin-left: -0.75rem;
+}
 
+.rounded-circle {
+    border-radius: 50% !important;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+} 
+.team-member img { 
+  flex-direction: row;
+  width: 14rem;
+  height: 14rem;
+  border: 0.5rem solid rgba(0, 0, 0, 0.1);
+} 
+
+img::selection {
+  background: transparent;
+} 
+
+.team-member {
+  margin-bottom: 3rem;
+  text-align: center;
+} 
+
+::selection {
+  background: #fed136;
+  text-shadow: none;
+} 
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
