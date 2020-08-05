@@ -37,7 +37,7 @@ function SignUp() {
           JSON.stringify({
             id: result.data.id,
             email: result.data.email,
-            firstName: result.data.firstName,
+            name: result.data.firstName,
           })
         );
         window.location.pathname = "/";

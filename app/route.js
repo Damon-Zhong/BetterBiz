@@ -54,15 +54,7 @@ function router( app ){
 
     //[POST] save user credentials
     app.post('/api/register', async ( req, res ) => {
-        // const user = await orm.findUser(req.body.email)
-        // if(user.length !== 0) {
-        //     res.send( { isExist: true, body: user })
-        // }else{
-        //     const userNew = await orm.registerUser(req.body)
-        //     res.send( { isExist: false, body: userNew })
-        // }
         const userData = req.body;
-        console.log( '[POST: /api/register] userData: ', userData );
         const registerResult = await orm.registerUser( userData );
         res.send( registerResult );
     })
