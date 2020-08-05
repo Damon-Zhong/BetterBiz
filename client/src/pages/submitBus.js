@@ -145,6 +145,7 @@ const SubmitBus = () => {
                 </select>
     
                 <label className="mt-3 formLabel" htmlFor="highlights">What makes this business special?</label>
+                <label>Please keep in mind that BetterBiz is targeted at underrepresented businesses, so at least one of the following criteria should be met.</label>
                 <div class="form-check">
                   <input class="form-check-input" onClick={handleHighlightChange} type="checkbox" value="Black" id="black-owned-check"/>
                   <label class="form-check-label" for="black-owned-check">
