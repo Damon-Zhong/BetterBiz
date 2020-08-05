@@ -101,6 +101,13 @@ function router( app ){
             res.send({status:true, message:'Success'})
         }
     })
+
+    //[POST] get events
+    app.post('/api/events', async ( req, res )=>{
+        const input = req.body
+        const eventList = await yelp.getEvent(input)
+        res.send(eventList)
+    })
 }
 
 module.exports = router;

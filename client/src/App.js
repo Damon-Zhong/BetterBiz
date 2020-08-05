@@ -1,45 +1,50 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Services from "./components/Services";
 import "./App.css";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-import SubmitPage from './pages/submitBus'
+import SubmitPage from "./pages/submitBus";
 import AboutUs from "./components/AboutUs";
 import AccountIndex from "./components/AccountIndex";
-import BusinessPage from "./pages/businessPage"; 
-import SocialFollow from "./components/SocialFollow"
+import BusinessPage from "./pages/businessPage";
+import SocialFollow from "./components/SocialFollow";
+import Events from "./components/Events";
 // import Map from "./components/Map";
 
-// just  testing this 
+// just  testing this
 function App() {
-  
-  const servicesList = [{
-    title:'Black Owned',
-    caption:'Black Owned'
-  },{
-    title:'Women Owned',
-    caption:'Women Owned'
-  },{
-    title:'LGBTQ Owned',
-    caption:'LGBTQ Owned'
-  },{
-    title:'Eco Friendly',
-    caption:'Eco Friendly'
-  }]
+  const servicesList = [
+    {
+      title: "Black Owned",
+      caption: "Black Owned",
+    },
+    {
+      title: "Women Owned",
+      caption: "Women Owned",
+    },
+    {
+      title: "LGBTQ Owned",
+      caption: "LGBTQ Owned",
+    },
+    {
+      title: "Eco Friendly",
+      caption: "Eco Friendly",
+    },
+  ];
 
-  const [isLogin, setLogin] = useState( false )
-  let currUser = JSON.parse(window.localStorage.getItem('currUser'))
+  const [isLogin, setLogin] = useState(false);
+  let currUser = JSON.parse(window.localStorage.getItem("currUser"));
   return (
-    <GlobalStore>
+    <>
       <Router>
-        <Navbar isLogin={isLogin} currUser={currUser}/>
+        <Navbar isLogin={isLogin} currUser={currUser} />
         <Route exact path="/">
           <Header />
-          <Services servicesLinks={servicesList}/>
+          <Services servicesLinks={servicesList} />
         </Route>
         <Route path="/account">
-          <AccountIndex setLogin={setLogin}/>
+          <AccountIndex setLogin={setLogin} />
         </Route>
         <Route exact path="/submit">
           <SubmitPage />
@@ -47,14 +52,18 @@ function App() {
         <Route path="/about">
           <AboutUs />
         </Route>
-        <Route component={BusinessPage} path="/businesses/:businessName">
+        <Route path="/events">
+          <Events />
         </Route>
-      </Router> 
-       <SocialFollow />
+        <Route
+          component={BusinessPage}
+          path="/businesses/:businessName"
+        ></Route>
+      </Router>
+      <SocialFollow />
       {/* <Map /> */}
-    </GlobalStore>
+    </>
   );
-}  
-
+}
 
 export default App;
