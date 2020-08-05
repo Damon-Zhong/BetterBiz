@@ -4,9 +4,7 @@ const axios = require('axios')
 //create yelp API client
 const client = require('yelp-fusion').client(process.env.yelp_API_key)
 const AuthStr = `Bearer ${process.env.yelp_API_key}`
-const Geocode = require('react-geocode')
 
-//!TODO implement changes from input
 const Yelp = {
     // autoComplete: async (term) => {
 
@@ -56,39 +54,13 @@ const Yelp = {
         return businessResult;
     },
     getSuggestionList: async (busInfo) => {
-        const { results } = await fetch( `https://api.opencagedata.com/geocode/v1/json?q=${busInfo.city}&key=${process.env.Map_Key}` ).then( (result)=>result.json() )
-        const { lat, lng } = results[0].geometry
-        // const addrList = await Geocode.fromAddress(busInfo.city)
-        // console.log(`[getSuggestionList] for ${busInfo.city}: result:${addrList}`)
-        // const { lat, lng } = addrList.results[0].geometry.location
-        // console.log(`Latitude:${lat} Longitude: ${lng}`)
-        //https://api.yelp.com/v3/autocomplete?text=pai-northern-thai-kitchen&latitude=43.64784&longitude=-79.38872&latitude=${lat}&longitude=${lng}
+        //inpunt: { name: business name, city: city name}
+        //output: [ {id, name}, {id, name},....]
+        const GeometryResult = await axios.get( `https://api.opencagedata.com/geocode/v1/json?q=${busInfo.city}&key=${process.env.Map_Key}` )
+        const { lat, lng } = GeometryResult.data.results[0].geometry
         const url = `https://api.yelp.com/v3/autocomplete?text=${busInfo.name.replace(/ /g, '-')}&latitude=${lat}&longitude=${lng}`
         const result = await axios.get(url, { headers: { Authorization: AuthStr } } )
         console.log(result.data)
-        //{
-        //     "categories": [
-        //         {
-        //             "alias": "restaurants",
-        //             "title": "Restaurants"
-        //         },
-        //         {
-        //             "alias": "thai",
-        //             "title": "Thai"
-        //         }
-        //     ],
-        //     "businesses": [
-        //         {
-        //             "id": "r_BrIgzYcwo1NAuG9dLbpg",
-        //             "name": "Pai Northern Thai Kitchen"
-        //         }
-        //     ],
-        //     "terms": [
-        //         {
-        //             "text": "Thai Delivery"
-        //         }
-        //     ]
-        // }
         return result.data.businesses
     }
 
@@ -96,7 +68,3 @@ const Yelp = {
 }
 
 module.exports = Yelp
-
-//  const firstResult = response.jsonBody.businesses[0];
-//   const prettyJson = JSON.stringify(firstResult, null, 4);
-//   console.log(prettyJson);
