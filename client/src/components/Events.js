@@ -4,20 +4,44 @@ const axios = require("axios");
 const moment = require("moment");
 
 const Events = () => {
-  const [input, setInput] = useState({
-    city: "",
-    startDate: "",
-    endDate: "",
-  })
+  const [input, setInput] = useState({ city: "", startDate: "", endDate: ""})
+  const [inputValid, setInputValid] = useState({ isValid: true, message:'' })
   const [eventList, setEventList ] = useState([])
 
   async function eventsResearch() {
-    console.log(`starting`);
+    console.log(`starting`)
+    if( input.city === "" ) {
+      setInputValid({isValid: false, message:'Event location is required.' })
+      setTimeout( ()=>{
+        setInputValid({...inputValid, isValid: true })
+      },2000)
+      return
+    }
+    if( input.endDate === "" ) {
+      setInputValid({isValid: false, message:'End date is required.' })
+      setTimeout( ()=>{
+        setInputValid({...inputValid, isValid: true })
+      },2000)
+      return
+    }
+    if( input.startDate === "" ) {
+      setInputValid({isValid: false, message:'Start date is required.' })
+      setTimeout( ()=>{
+        setInputValid({...inputValid, isValid: true })
+      },2000)
+      return
+    }
     const APIresult = await axios.post("/api/events", input);
+    if(APIresult.data.length === 0){
+      setInputValid({isValid: false, message:'No event found.' })
+      setTimeout( ()=>{
+        setInputValid({...inputValid, isValid: true })
+      },2000)
+    }
     setEventList(APIresult.data)
   }
 
-  async function handleInput(event) {
+  async function handleInputChange(event) {
     const { id, value } = event.target;
     switch (id) {
       default:
@@ -46,7 +70,7 @@ const Events = () => {
                 id="startDate"
                 type="date"
                 className="form-control select-date"
-                onChange={handleInput}
+                onChange={handleInputChange}
               />{" "}
             </div>
           </div>
@@ -58,7 +82,7 @@ const Events = () => {
                 id="endDate"
                 type="date"
                 className="form-control select-date"
-                onChange={handleInput}
+                onChange={handleInputChange}
               />{" "}
             </div>
           </div>
@@ -74,16 +98,20 @@ const Events = () => {
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
               id="city"
-              onChange={handleInput}
+              onChange={handleInputChange}
             />
             <button
               onClick={eventsResearch}
               type="button"
               className="btn btn-primary"
             >
-              Primary
+              Search
             </button>
           </div>
+          {inputValid.isValid ? '': 
+          <div className="alert alert-danger" id="alertFailed" >
+            {inputValid.message}
+          </div>}
         </div>
       </div>
 
