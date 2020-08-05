@@ -54,12 +54,20 @@ const Navbar = (props) => {
               )}
             </a>
           </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/Events">
+              Special Event{" "}
+              {window.location === "/Events" ? (
+                <span className="sr-only">(current)</span>
+              ) : (
+                ""
+              )}
+            </a>
+          </li>
         </ul>
         {props.currUser ? (
           <span>
-            <p className="welcomeName">
-              Welcome Back! {props.currUser.name}
-            </p>
+            <p className="welcomeName">Welcome Back! {props.currUser.name}</p>
             <a className="logoutBtn" href="/" onClick={signOut}>
               Log Out
             </a>
