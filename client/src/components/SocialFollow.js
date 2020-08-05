@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faFacebook,
     faTwitter,
-    faInstagram
+    faInstagram,
+    faGithub
   } from "@fortawesome/free-brands-svg-icons";
 
 export default function SocialFollow() {
@@ -24,42 +25,15 @@ export default function SocialFollow() {
         className="instagram social"> 
         <FontAwesomeIcon icon={faInstagram} size="2x" /> 
         </a> 
-          {/* <a className="facebook social" href="#!" > 
-          <FontAwesomeIcon icon={faFacebook} size="4x" /> 
-            <i class="icon-social-facebook"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a className="twitter social" href="#!"> 
-          <FontAwesomeIcon icon={faTwitter} size="4x" />
-            <i class="icon-social-twitter"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a className="instagram social" href="#!" > 
-          <FontAwesomeIcon icon={faInstagram} size="4x" /> 
-            <i class="icon-social-github"></i>
-          </a> */}
+        <a href="" 
+        className="github"> 
+        <FontAwesomeIcon icon={faGithub} size="2x" /> 
+        </a> 
         </li>
       </ul>
       <p class="text-muted small mb-0">Copyright &copy; BetterBiz 2020</p>
     </div>
   </footer>
-    // <footer class="footer text-center">
-    //   <h3>Connect with Us!</h3>   
-    //   <a href="" 
-    //     className="facebook social"> 
-    //     <FontAwesomeIcon icon={faFacebook} size="2x" /> 
-    //     </a> 
-    //     <a href="" className="twitter social"> 
-    //     <FontAwesomeIcon icon={faTwitter} size="2x" /> 
-    //     </a> 
-    //     <a href="" 
-    //     className="instagram social"> 
-    //     <FontAwesomeIcon icon={faInstagram} size="2x" /> 
-    //     </a> 
-    
-    //  </footer>
 
   );
 }

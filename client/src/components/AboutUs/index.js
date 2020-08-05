@@ -1,6 +1,8 @@
 import React from "react";
 import "./AboutUs.css"; 
 
+// to upload images , use 224 px by 224 px 
+
 
 const AboutUs = () => {
   return (
