@@ -16,7 +16,8 @@ const SubmitBus = () => {
     yelpId: "",
     website: "",
     highlight: [],
-    ownDelivery: true
+    ownDelivery: false,
+    deliveryWebsite: ""
   });
   const [isSubmit, setIsSubmit] = useState(false);
   const [yelpData, setYelpData] = useState(undefined);
@@ -175,11 +176,23 @@ const SubmitBus = () => {
                 <label className="mt-3 formLabel" htmlFor="ownDelivery">Does this business offer its own, independent delivery services?</label>
                 <div class="form-group">
                   <label for="businessDelivery">Letting others know how to order from this business not using one of the big delivery platforms can help this business make more money.</label>
-                  <select class="form-control" id="ownDelivery" onChange={handleDeliveryChange}>
-                    <option>Yes</option>
-                    <option>No</option>
+                  <select value={busData.ownDelivery ? "Yes" : "No"}class="form-control" id="ownDelivery" onChange={handleDeliveryChange}>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
                   </select>
                 </div>
+                {busData.ownDelivery ? (
+                <div>
+                  <label className="mt-2" htmlFor="ownDeliveryWebsite">What's the website where people can find more information about the delivery service?</label>
+                  <input
+                    onChange={handleInputChange}
+                    value={busData.deliveryWebsite}
+                    type="text"
+                    className="form-control"
+                    id="deliveryWebsite"
+                    name="deliveryWebsite"
+                  />
+                </div>) : null}
               </div>
             )}
 

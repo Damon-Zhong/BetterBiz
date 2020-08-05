@@ -16,7 +16,8 @@ let BusinessSeeds = [
         highlight:['LGBT', 'Black', 'Eco'],
         yelpId: 'pai-northern-thai-kitchen-toronto-5',
         website: 'www.painorthern.ca',
-        ownDelivery: true
+        ownDelivery: true,
+        deliveryWebsite: 'www.painorthern.ca'
     },
     {
         busType:'Restaurant',
@@ -26,7 +27,8 @@ let BusinessSeeds = [
         highlight:[ 'Eco','Community' ],
         yelpId: 'seven-lives-tacos-y-mariscos-toronto',
         website: 'www.sevenlives.ca',
-        ownDelivery: false
+        ownDelivery: false,
+        deliveryWebsite: ''
     }
 ]
 

@@ -15,23 +15,23 @@ const BusinessSchema = new Schema({
     url: {
         type: String,
     },
-    image: {
-        type: String,
+    summary: {
+        type: String
     },
-    address:{
-        city: String,
-        country: String,
-        address1: String,
-        zipCode: String
-    },
-    attributes:[{
+    highlight:[{
         type: String
     }],
     yelpId: {
         type: String
     },
+    website: {
+        type: String
+    },
     ownDelivery: {
         type: Boolean
+    },
+    deliveryWebsite: {
+        type: String
     }
 });
 
