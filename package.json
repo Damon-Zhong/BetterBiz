@@ -44,6 +44,7 @@
     "passport-linkedin-oauth2": "^2.0.0",
     "passport-twitter": "^1.0.4",
     "path": "^0.12.7",
+    "react-geocode": "^0.2.1",
     "uuid": "^8.3.0",
     "yelp-fusion": "^3.0.0"
   }
