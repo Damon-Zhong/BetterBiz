@@ -7,7 +7,7 @@ const axios = require("axios");
 const moment = require("moment");
 
 const Events = () => {
-  const [input, setInput] = useState({ city: "", startDate: "", endDate: "" });
+  const [input, setInput] = useState({ city: "Toronto", startDate: "", endDate: "" });
   const [inputValid, setInputValid] = useState({ isValid: true, message: "" });
   const [eventList, setEventList] = useState([]);
 
@@ -49,8 +49,9 @@ const Events = () => {
     switch (id) {
       default:
         break;
-      case "city":
-        setInput({ ...input, [id]: value });
+      case "category":
+        console.log(input)
+        setInput({ ...input, [id]: value.toLowerCase() });
         break;
       case "startDate":
         const startTimestamp = moment(value).format("X");
@@ -75,6 +76,7 @@ const Events = () => {
       <section className="callout">
         <div className="container">
           <div className="row">
+            {/* Start Date */}
             <div className="col-6">
               <div className="input-grp">
                 <label>Start Date</label>{" "}
@@ -86,7 +88,7 @@ const Events = () => {
                 />{" "}
               </div>
             </div>
-
+            {/* End Date */}
             <div className="col-6">
               <div className="input-grp">
                 <label>End Date</label>{" "}
@@ -98,24 +100,15 @@ const Events = () => {
                 />{" "}
               </div>
             </div>
-
-            <div className="input-group inputBox">
-              <label>City Name </label>
-              <input
-                type="text"
-                className="form-control inputSec inputSection"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
-                id="city"
-                onChange={handleInputChange}
-              />
-              <button
-                onClick={eventsResearch}
-                type="button"
-                className="btn btn-primary"
-              >
-                Search
-              </button>
+            {/* Event Category */}
+            <div className="col-6">
+              <div className="input-grp">
+                <label>Event Category</label>
+                <select className="form-control inputSection" id="category" onChange={handleInputChange} required >
+                  <option>Charities</option>
+                  <option>Kids-Family</option>
+                </select>
+              </div>
             </div>
             {inputValid.isValid ? (
               ""
@@ -126,6 +119,13 @@ const Events = () => {
             )}
           </div>
           <div className="row">
+            <button
+                onClick={eventsResearch}
+                type="button"
+                className="btn btn-primary"
+              >
+                Search
+            </button>
             {eventList.map( event=><EventCard {...event} />)}
             {JSON.parse(localStorage.getItem('currUser')).type === 'Business' ? <Link className='btn btn-primary' to='/events/submit'>Submit Event</Link>:''}
           </div>
