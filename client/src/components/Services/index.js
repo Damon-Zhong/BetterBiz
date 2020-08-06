@@ -109,14 +109,14 @@ export default (props) => {
       </Row>
       <Row>
         <Col sm={6} className="p-0">
-          <div className="categoryImageAbout"></div>
+          <div className="categoryImageEvents"></div>
         </Col>
         <Col sm={6} className="p-0">
           <div className="categoryText">
             <div className="p-5">
-              <h3>About BetterBiz</h3>
-              <p>Learn more about our team and how we came up with BetterBiz. We'll also tell you about the technologies, service providers, and artists who help bring BetterBiz to life!</p>
-              <Button className="outlineButton" variant="primary" href="/about">Learn more</Button>
+              <h3>Find events to support the local business community</h3>
+              <p>Use our events search to find events that benefit Toronto's local business community. Now more than ever our local businesses need our support!</p>
+              <Button className="outlineButton" variant="primary" href="/events">Find events</Button>
             </div>
           </div>
         </Col>

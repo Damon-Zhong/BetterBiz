@@ -22,8 +22,8 @@
     background-size: 50%;
 }
 
-.categoryImageAbout {
-    background-image: url(../../images/about.png);
+.categoryImageEvents {
+    background-image: url(../../images/calendar.png);
     height: 500px;
     background-position: center;
     background-repeat: no-repeat;
@@ -93,7 +93,7 @@
         background-image: url(../../images/orientation.png);
     }
 
-    .categoryImageHighlights, .categoryImageShop, .categoryImageAbout {
+    .categoryImageHighlights, .categoryImageShop, .categoryImageEvents {
         background-size: 80%;
     }
   }
