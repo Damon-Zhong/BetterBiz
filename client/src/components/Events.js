@@ -127,7 +127,7 @@ const Events = () => {
                 Search
             </button>
             {eventList.length !== 0 ? eventList.map( event=><EventCard {...event} />) : ''}
-            {JSON.parse(localStorage.getItem('currUser')).type === 'Business' ? <Link className='btn btn-primary' to='/events/submit'>Submit Event</Link>:''}
+            {localStorage.getItem('currUser') && JSON.parse(localStorage.getItem('currUser')).type === 'Business' ? <Link className='btn btn-primary' to='/events/submit'>Submit Event</Link>:''}
           </div>
         </div>
       </section>
