@@ -17,18 +17,18 @@ const HeaderNavbar = (props) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <NavDropdown title="Explore" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/businesses/black-owned">Black-owned</NavDropdown.Item>
-              <NavDropdown.Item href="/businesses/lgbt-owned">LGBT-owned</NavDropdown.Item>
-              <NavDropdown.Item href="/businesses/women-owned">Women-owned</NavDropdown.Item>
-              <NavDropdown.Item href="/businesses/eco-friendly">Eco-friendly</NavDropdown.Item>
-              <NavDropdown.Item href="/businesses/community">Community impact</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/black-owned">Black-owned</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/lgbt-owned">LGBT-owned</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/women-owned">Women-owned</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/eco-friendly">Eco-friendly</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/community">Community impact</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Businesses by type" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/businesses/restaurants">Restaurants</NavDropdown.Item>
-              <NavDropdown.Item href="/businesses/shops">Shops</NavDropdown.Item>
-              <NavDropdown.Item href="/businesses/serivce">Service</NavDropdown.Item>
-              <NavDropdown.Item href="/businesses/leisure">Leisure</NavDropdown.Item>
-              <NavDropdown.Item href="/businesses/culture">Culture</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/restaurants">Restaurants</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/shops">Shops</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/serivce">Service</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/leisure">Leisure</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/culture">Culture</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="/events">Special events</Nav.Link>
             <Nav.Link href="/submit">Submit business</Nav.Link>

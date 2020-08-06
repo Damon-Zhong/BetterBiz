@@ -8,7 +8,7 @@ const db = require( '../model' )
 
 function router( app ){
     //[GET] business by category
-    app.get('/api/businesses/:category', async ( req, res ) => {
+    app.get('/api/overview/:category', async ( req, res ) => {
         console.log( '[GET] business by category.....' )
         const category = req.params.category
         // const term = req.query.term

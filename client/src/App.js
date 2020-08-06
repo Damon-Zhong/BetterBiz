@@ -41,11 +41,11 @@ function App() {
         <Route exact path="/events/submit">
           <SubmitEvent />
         </Route>
-        <Route component={Category} path='/businesses/:category'>
+        <Route component={Category} path='/overview/:category'>
         </Route>
         <Route
           component={BusinessPage}
-          path="/businesses/:category/:businessName"
+          path="/businesses/:businessName"
         ></Route>
         <SocialFollow />
       </Router>
