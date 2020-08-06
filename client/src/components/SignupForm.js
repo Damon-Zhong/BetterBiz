@@ -21,7 +21,7 @@ function SignUp() {
     let confirmInput = Object.values(formInput).filter((value) => {
       return value !== "";
     });
-    if (confirmInput.length === 4) {
+    if (confirmInput.length === 5) {
       const result = await axios
         .post("/api/register", formInput)
         .catch((err) => {
@@ -36,7 +36,7 @@ function SignUp() {
         window.localStorage.setItem(
           "currUser",
           JSON.stringify({
-            type: result.data.typ,
+            type: result.data.type,
             id: result.data.id,
             email: result.data.email,
             name: result.data.firstName,

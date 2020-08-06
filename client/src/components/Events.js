@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 import EventCard from './EventCard'
 const axios = require("axios");
 const moment = require("moment");
@@ -120,9 +121,7 @@ const Events = () => {
       <div className="container">
         <div className="row">
         {eventList.map( event=><EventCard {...event} />)}
-          {/* <EventCard />
-          <EventCard />
-          <EventCard /> */}
+        {JSON.parse(localStorage.getItem('currUser')).type === 'Business' ? <Link to='/events/submit'>Submit Event</Link>:''}
         </div>
       </div>
     </>
