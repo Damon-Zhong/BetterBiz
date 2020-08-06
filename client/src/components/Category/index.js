@@ -6,7 +6,7 @@ const Category = ({match}) => {
 
     useEffect(() => {
         async function initCategoryPage( category ){
-            const DBresult = await axios.get(`/api/businesses/${category}`)
+            const DBresult = await axios.get(`/api/overview/${category}`)
             console.log( DBresult.data )
             setBusinessList(DBresult.data)
         }
