@@ -67,7 +67,7 @@ export default () => {
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementRed">
           <Link to='/overview/community'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={community} style={{maxWidth: "100px", width: "30%"}}/>
-            <p className="highlightKeyword text-center">COMMUNITY IMPACT<br/></p>
+            <p className="highlightKeyword text-center">COMMUNITY<br/>IMPACT<br/></p>
           </Link>
         </Col>
         <Col sm={1} className="p-0">
