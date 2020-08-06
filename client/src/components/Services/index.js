@@ -91,19 +91,19 @@ export default () => {
         <Col sm={1} className="p-0">
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
-          <Link to='/overview/Restaurants'>
+          <Link to='/overview/Restaurant'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={food} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">RESTAURANTS</p>
           </Link>
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
-          <Link to='/overview/Shops'>
+          <Link to='/overview/Shop'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={shopIcon} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">SHOPS</p>
           </Link>
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
-          <Link to='/overview/Serivces'>
+          <Link to='/overview/Serivce'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={lawyer} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">SERVICE</p>
           </Link>
