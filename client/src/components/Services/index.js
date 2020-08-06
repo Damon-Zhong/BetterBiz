@@ -41,31 +41,31 @@ export default () => {
         <Col sm={1} className="p-0">
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementRed">
-          <Link className="highlightIcon" to='/overview/black-owned'>
+          <Link className="highlightIcon" to='/overview/Black-owned'>
             <Image className="mt-5 mb-3 mx-auto d-block" src={heart} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">BLACK-<br/>OWNED<br/></p>
           </Link>
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementRed">
-          <Link to='/overview/lgbt-owned'>
+          <Link to='/overview/LGBT-owned'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={lgbt} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">LGBT-<br/>OWNED<br/></p>
           </Link>
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementRed">
-          <Link to='/overview/women-owned'>
+          <Link to='/overview/Women-owned'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={woman} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">WOMEN-<br/>OWNED<br/></p>
           </Link>
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementRed">
-          <Link to='/overview/eco-friendly'>
+          <Link to='/overview/Eco-friendly'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={eco} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">ECO-<br/>FRIENDLY<br/></p>
           </Link>
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementRed">
-          <Link to='/overview/community'>
+          <Link to='/overview/Community'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={community} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">COMMUNITY<br/>IMPACT<br/></p>
           </Link>
@@ -91,31 +91,31 @@ export default () => {
         <Col sm={1} className="p-0">
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
-          <Link to='/overview/restaurants'>
+          <Link to='/overview/Restaurant'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={food} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">RESTAURANTS</p>
           </Link>
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
-          <Link to='/overview/shops'>
+          <Link to='/overview/Shop'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={shopIcon} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">SHOPS</p>
           </Link>
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
-          <Link to='/overview/serivce'>
+          <Link to='/overview/Serivce'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={lawyer} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">SERVICE</p>
           </Link>
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
-          <Link to='/overview/leisure'>
+          <Link to='/overview/Leisure'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={wellness} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">LEISURE</p>
           </Link>
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
-          <Link to='/overview/culture'>
+          <Link to='/overview/Culture'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={theater} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">CULTURE</p>
           </Link>

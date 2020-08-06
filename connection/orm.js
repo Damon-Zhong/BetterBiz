@@ -21,12 +21,13 @@ const orm = {
         return DBresult
     },
 
-    insertBusiness: async (busData) => {
-        const returnBusiness = await db.Business.findOne({yelpId: busData.yelpId});
+    insertBusiness: async (busInfo) => {
+        const returnBusiness = await db.Business.findOne({yelpId: busInfo.yelpId});
         if(returnBusiness){
             throw new Error('This business already exists. Each business can only be added once to BetterBiz.');
         } else {
-            console.log('[insertBusiness] Data received:', busData)
+            const {image_url} = await Yelp.yelpBusinessResult(busInfo.yelpId)
+            const busData = { ...busInfo, image:image_url }
             await db.Business.create(busData)
         }
     },

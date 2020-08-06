@@ -141,25 +141,25 @@ const SubmitBus = () => {
                 <label className="mt-3 formLabel" htmlFor="highlights">What makes this business special?</label>
                 <label>Please keep in mind that BetterBiz is targeted at underrepresented businesses, so at least one of the following criteria should be met.</label>
                 <div class="form-check">
-                  <input class="form-check-input" onClick={handleHighlightChange} type="checkbox" value="Black" id="black-owned-check"/>
+                  <input class="form-check-input" onClick={handleHighlightChange} type="checkbox" value="Black-owned" id="black-owned-check"/>
                   <label class="form-check-label" for="black-owned-check">
                     🖤 Black-owned
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" onClick={handleHighlightChange} type="checkbox" value="LGBT" id="lgbt-owned-check"/>
+                  <input class="form-check-input" onClick={handleHighlightChange} type="checkbox" value="LGBT-owned" id="lgbt-owned-check"/>
                   <label class="form-check-label" for="lgbt-owned-check">
                     🏳️‍🌈 LGBT-owned
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" onClick={handleHighlightChange} type="checkbox" value="Women" id="women-owned-check"/>
+                  <input class="form-check-input" onClick={handleHighlightChange} type="checkbox" value="Women-owned" id="women-owned-check"/>
                   <label class="form-check-label" for="women-owned-check">
                     ♀ Women-owned
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" onClick={handleHighlightChange} type="checkbox" value="Eco" id="eco-friendly-check"/>
+                  <input class="form-check-input" onClick={handleHighlightChange} type="checkbox" value="Eco-friendly" id="eco-friendly-check"/>
                   <label class="form-check-label" for="eco-friendly-check">
                     🌱 Eco-friendly
                   </label>

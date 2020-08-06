@@ -17,18 +17,18 @@ const HeaderNavbar = (props) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <NavDropdown title="Explore" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/overview/Black">Black-owned</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/LGBT">LGBT-owned</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/Women">Women-owned</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/Eco">Eco-friendly</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Black-owned">Black-owned</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/LGBT-owned">LGBT-owned</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Women-owned">Women-owned</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Eco-friendly">Eco-friendly</NavDropdown.Item>
               <NavDropdown.Item href="/overview/Community">Community impact</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Businesses by type" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/overview/restaurants">Restaurants</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/shops">Shops</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/serivce">Service</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/leisure">Leisure</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/culture">Culture</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Restaurant">Restaurants</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Shop">Shop</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Service">Service</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Leisure">Leisure</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Culture">Culture</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="/events">Special events</Nav.Link>
             <Nav.Link href="/submit">Submit business</Nav.Link>
