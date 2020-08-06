@@ -14,3 +14,13 @@
     align-items: center;
     justify-content: center;
 }
+
+@media only screen and (max-width: 600px) {
+    .mobile {
+        padding: 20px;
+    }
+
+    .mobileGif {
+        height: 200px;
+    }
+}

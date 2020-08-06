@@ -16,3 +16,19 @@
 .formLabel {
   font-weight: bold;
 }
+
+.outlineButton.btn-primary {
+  color: #ED7562!important;
+  border: 2px solid #ED7562!important;
+  background-color: #F2F2F2!important;
+}
+
+.form {
+  width: 80%!important;
+}
+
+@media only screen and (max-width: 600px) {
+  .form {
+    width: 100%!important;
+  }
+}

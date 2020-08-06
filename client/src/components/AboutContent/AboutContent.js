@@ -11,7 +11,7 @@ function AboutContent(){
             <div className="line"></div>
             <Row>
                 <Col sm={6} className="p-0">
-                <div className="categoryImageMission"></div>
+                <div className="categoryImageMission noMobileContent"></div>
                 </Col>
                 <Col sm={6} className="p-0">
                 <div className="categoryText">

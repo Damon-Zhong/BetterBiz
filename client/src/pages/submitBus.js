@@ -103,7 +103,7 @@ const SubmitBus = () => {
       <Modal status={isSubmit} />
       {/* Submit business form  */}
       <Submit />
-      <div className="mt-5 container">
+      <div className="mt-5 container form">
         <form>
           <div className="form-group">
 
@@ -218,7 +218,7 @@ const SubmitBus = () => {
           <button
             onClick={handleFormSubmit}
             type="submit"
-            className="btn btn-primary box2"
+            className="btn btn-primary outlineButton"
             // data-toggle="modal"
             // data-target="#thankyouModal"
           >
@@ -226,6 +226,7 @@ const SubmitBus = () => {
           </button>
         </form>
       </div>
+      <div className="line mt-5"></div>
     </div>
   );
 };

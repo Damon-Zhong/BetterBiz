@@ -12,3 +12,29 @@
     15px 15px 15px rgba(0, 0, 0, 0), inset 0px 0px 5px rgba(255, 255, 255, 0.8),
     inset -4px -4px 5px rgba(0, 0, 0, 0.05), 0 50px 40px rgba(0, 0, 0, 0.05) !important;
 }
+
+.submitHeaderImage {
+  background-image: url(../../images/submit.png);
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+}
+
+.submitHeaderText {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .submitHeaderImage {
+    background-size: 50%;
+    height: 200px;
+  }
+
+  .submitHeaderText {
+    height: 300px;
+  }
+}

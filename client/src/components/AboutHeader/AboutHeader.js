@@ -12,15 +12,15 @@ const AboutHeader = () => {
             <Col sm={1}>
             </Col>
             <Col sm={5} className="aboutHeaderText">
-                <div>
+                <div className="mobile">
                     <h1 className="headline homepage mb-3">Making diverse businesses visible</h1>
                     <h5 className="intro mb-5">
                         Learn more about the team behind BetterBiz, our mission, and the technologies, services, and artists who help bring our platform to life.
                     </h5>
                 </div>
             </Col>
-            <Col sm={5}>
-                <div className="aboutHeaderImage"></div>
+            <Col sm={5} className="mobileGif">
+                <div className="mobileGif aboutHeaderImage"></div>
             </Col>
             <Col sm={1}>
             </Col>

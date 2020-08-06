@@ -13,3 +13,9 @@
     background-repeat: no-repeat;
     background-size: 50%;
 }
+
+@media only screen and (max-width: 600px) {
+    .noMobileContent {
+        display: none;
+    }
+}
