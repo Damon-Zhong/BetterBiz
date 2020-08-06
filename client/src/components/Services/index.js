@@ -116,7 +116,7 @@ export default (props) => {
             <div className="p-5">
               <h3>About BetterBiz</h3>
               <p>Learn more about our team and how we came up with BetterBiz. We'll also tell you about the technologies, service providers, and artists who help bring BetterBiz to life!</p>
-              <Button variant="primary" href="/about">Learn more</Button>
+              <Button className="outlineButton" variant="primary" href="/about">Learn more</Button>
             </div>
           </div>
         </Col>
