@@ -13,6 +13,7 @@ const SubmitBus = () => {
 
   const [busData, setBusData] = useState({
     busType: "Food",
+    city: "Toronto",
     name: "",
     url: "",
     summary: "",
@@ -118,14 +119,7 @@ const SubmitBus = () => {
             />
 
             <label className="mt-3 formLabel" htmlFor="city">City</label>
-            <input
-              onChange={handleInputChange}
-              value={busData.city}
-              type="text"
-              className="form-control"
-              id="city"
-              name="city"
-            />
+            <p>Toronto</p>
 
             {yelpData && (
               <div>
