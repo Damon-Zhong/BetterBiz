@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import EventCard from "./EventCard";
-import eventComing from "../images/upcoming0.jpg";
 import "./EventCard/EventCard.css";
 const axios = require("axios");
 const moment = require("moment");
@@ -70,13 +69,8 @@ const Events = () => {
   }
   return (
     <>
-      <div>
-        <img
-          src={eventComing}
-          style={{ objectFit: "cover", width: "100%", height: "60vh" }}
-        />
-        <div class="centered1">EVENTS ARE WHAT WE DO.</div>
-        <div class="centered2">NO EVENT TOO SMALL. NO EVENT TOO BIG.</div>
+      <div className="eventHeader">
+        <div class="centered2 text-center">Help support your local community by visiting events, big and small!</div>
       </div>
       <section className="callout">
         <div className="container">
@@ -150,6 +144,7 @@ const Events = () => {
             )}
           </div>
         </div>
+        <div className="line mt-5"></div>
       </section>
     </>
   );
