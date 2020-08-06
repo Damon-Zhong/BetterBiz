@@ -1,11 +1,3 @@
-// Compact oAuth library
-// ---------------------
-// Written By: Filipe Laborde // fil@rezox.com
-// License:    MIT - use as you wish
-//
-// Usage: include server-side code for oAuth
-// require('./oAuth')(app);
-
 const cors = require('cors');
 const passport = require('passport');
 const session = require('express-session');
@@ -15,9 +7,7 @@ const { Strategy: FacebookStrategy } = require('passport-facebook');
 
 function oAuth( app, API_URL, providers, createOAuthSession ){
     console.log( '[oAuth] adding oAuth related endpoints & middleware' );
-
-    // we need to enable API calls from OUTSIDE our system
-    // as the oAuth will be coming from another server
+    //Enable API call across proxy header
     app.use( cors() );
 
     // oAuth requires session-library
@@ -36,7 +26,6 @@ function oAuth( app, API_URL, providers, createOAuthSession ){
     providers.map( provider=>{
         if( process.env[`${provider.toUpperCase()}_KEY`] ){
             console.log( `   > found ** ${provider} ** KEY, Added!`);
-
             let CONFIG = {
                 clientID: process.env[`${provider.toUpperCase()}_KEY`],
                 clientSecret: process.env[`${provider.toUpperCase()}_SECRET`],

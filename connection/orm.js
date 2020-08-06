@@ -4,7 +4,9 @@ const bcrypt = require('bcrypt');
 var Filter = require('bad-words'),
     filter = new Filter();
 
-mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost/betterbiz', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+mongoose.connect(process.env.MONGODB_URI|| 
+    'mongodb://damon:Heroku1021@ds117859.mlab.com:17859/heroku_ns0kn10t', 
+    {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
 // include mongoose models
 const db = require( '../model' )

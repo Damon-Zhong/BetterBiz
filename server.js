@@ -6,7 +6,7 @@ const orm = require('./connection/orm')
 const uuid = require('uuid')
 const app = express()
 const PORT = process.env.PORT || 8080
-const API_URL = 'http://localhost:8080'
+const API_URL = process.env.NODE_ENV === 'production' ? 'https://betterbiz2020.herokuapp.com' : 'http://localhost:8080'
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())

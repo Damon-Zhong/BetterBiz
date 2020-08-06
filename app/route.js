@@ -1,6 +1,5 @@
 const yelp = require('./apiRoute')
 const orm = require('../connection/orm')
-const path = require('path')
 const uuid = require('uuid')
 var Filter = require('bad-words'),
     filter = new Filter();
