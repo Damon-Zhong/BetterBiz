@@ -7,13 +7,14 @@ import scrollDown from "../../images/scrollDown.gif";
 const Header = () => {
   return (
     <div className="header">
-      <header className="masthead d-flex">
+      <div className="mobile-header"></div>
+      <header className="desktop-header d-flex">
         <div className="container text-center my-auto headerText">
-          <h1 className="homepage mb-3">Discover new businesses in your neighbourhood</h1>
-          <h5 className="mb-5">
-            BetterBiz is here to give visibility to underrepresented businesses. We want to help you support diverse businesses with a positive impact on their community.
+          <h1 className="homepage mb-3">Discover new businesses in Toronto</h1>
+          <h5 className="intro mb-5">
+            BetterBiz is here to give visibility to underrepresented businesses in Toronto. We want to help you support diverse businesses with a positive impact on their community.
           </h5>
-          <div className="container mt-5">
+          <div className="noScroll container mt-5">
               <Image className="scrollDown" src={scrollDown} style={{margin: "0 auto", width: "100px", display: "block" }}/>
             </div>
           </div>

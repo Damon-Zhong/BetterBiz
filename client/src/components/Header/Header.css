@@ -37,9 +37,25 @@
   background-size: cover;
 }
 
+.desktop-header {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.mobile-header {
+  display: none;
+}
+
 @media only screen and (max-width: 900px) {
   .homepage {
     font-size: 50px!important;
+  }
+
+  .header {
+    background-image: url(../../images/header-sm.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 
@@ -50,5 +66,32 @@
 
   .homepage {
     font-size: 40px!important;
+  }
+
+  .header {
+    background-image: none;
+  }
+
+  .noScroll {
+    display: none;
+  }
+
+  .desktop-header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .mobile-header {
+    background-image: url(../../images/store.png);
+    height: 250px;
+    width: 100%;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+  }
+
+  .intro {
+    font-weight: 400;
   }
 }
