@@ -9,7 +9,7 @@ const db = require( '../model' )
 
 function router( app ){
     //[GET] general serach by term
-    app.get('/businesses', async ( req, res ) => {
+    app.get('/businesses/:category', async ( req, res ) => {
         const location = req.query.location
         const term = req.query.term
         const results = await yelp.generalSearch(location, term)
