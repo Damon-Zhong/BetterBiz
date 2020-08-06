@@ -11,7 +11,7 @@ function BusinessSummary({name, summary, address, website, phone, highlights}){
             <p>
                 {summary}
             </p>
-            <p><b>{address.join(", ")}<br/><a href={website} target="_blank">{name}'s website</a> | Phone: {phone}</b></p>
+            <p><b>{address.join(", ")}<br/><a href={website.startsWith('http') ? website : `http://${website}`} target="_blank">{name}'s website</a> | Phone: {phone}</b></p>
             <Row className="mt-5">
                 <Col className="col-sm-12">
                     <h5 className="mb-3">What makes this business special</h5>
@@ -23,7 +23,7 @@ function BusinessSummary({name, summary, address, website, phone, highlights}){
                         (highlight) => {
                             const highlightData = highlightsMap[highlight];
                             return(
-                                <p key={highlight}>{highlightData.emoji}&nbsp;&nbsp;<b>{highlightData.title}</b></p>
+                                <p key={highlight}>{highlightData ? highlightData.emoji : null}&nbsp;&nbsp;<b>{highlightData ? highlightData.title : ''}</b></p>
                             )
                         }
                     )}

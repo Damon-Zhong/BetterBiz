@@ -34,12 +34,17 @@ const Yelp = {
     },
 
     getEvent: async (input) => {
-        const url = `https://api.yelp.com/v3/events?location=Toronto&start_date=${input.startDate}&end_date=${input.endDate}&categories=${input.category}&limit=30`;
-        const result = await axios.get(url, {
-            headers: { Authorization: AuthStr },
-        });
-        console.log(result.data.events);
-        return result.data.events;
+        try {
+            const url = `https://api.yelp.com/v3/events?location=Toronto&start_date=${input.startDate}&end_date=${input.endDate}&categories=${input.category}&limit=30`;
+            const result = await axios.get(url, {
+                headers: { Authorization: AuthStr },
+            });
+            console.log(result.data.events);
+            return result.data.events;
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
     },
 
     getSuggestionList: async (busInfo) => {

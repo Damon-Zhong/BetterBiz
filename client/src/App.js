@@ -10,8 +10,8 @@ import AccountIndex from "./components/AccountIndex";
 import BusinessPage from "./pages/businessPage";
 import SocialFollow from "./components/SocialFollow";
 import Events from "./components/Events";
-import SubmitEvent from './components/SubmitEvent'
-import Category from "./components/Category"
+import SubmitEvent from './components/SubmitEvent';
+import Category from "./components/Category";
 // import Map from "./components/Map";
 
 // just  testing this

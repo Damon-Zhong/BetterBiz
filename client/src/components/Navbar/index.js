@@ -24,13 +24,13 @@ const HeaderNavbar = (props) => {
               <NavDropdown.Item href="/overview/Community">Community impact</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Businesses by type" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/overview/Restaurants">Restaurants</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/Shops">Shops</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/Services">Services</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Restaurant">Restaurants</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Shop">Shops</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Service">Services</NavDropdown.Item>
               <NavDropdown.Item href="/overview/Leisure">Leisure</NavDropdown.Item>
               <NavDropdown.Item href="/overview/Culture">Culture</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/events">Special events</Nav.Link>
+            <Nav.Link href="/events">Community events</Nav.Link>
             <Nav.Link href="/submit">Submit business</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
           </Nav>

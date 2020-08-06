@@ -52,7 +52,7 @@ const EventCard = (props) => {
         <div className="card-body">
           {/* event_site_url */}
           <a href={props.event_site_url} target="_blank" className="card-link">
-            SEE DETAILS
+            See details
           </a>
         </div>
       </div>
