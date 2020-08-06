@@ -17,11 +17,11 @@ const HeaderNavbar = (props) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <NavDropdown title="Explore" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/overview/black-owned">Black-owned</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/lgbt-owned">LGBT-owned</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/women-owned">Women-owned</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/eco-friendly">Eco-friendly</NavDropdown.Item>
-              <NavDropdown.Item href="/overview/community">Community impact</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Black">Black-owned</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/LGBT">LGBT-owned</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Women">Women-owned</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Eco">Eco-friendly</NavDropdown.Item>
+              <NavDropdown.Item href="/overview/Community">Community impact</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Businesses by type" id="basic-nav-dropdown">
               <NavDropdown.Item href="/overview/restaurants">Restaurants</NavDropdown.Item>
