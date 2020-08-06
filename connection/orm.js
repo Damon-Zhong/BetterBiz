@@ -86,7 +86,8 @@ const orm = {
         const updateUser = await db.User.findOne({email: userEmail})
         console.log(updateUser)
         if(updateUser){
-            await db.User.updateOne({email: userEmail},{password: userPwd })
+            const passwordHash = await bcrypt.hash(userPwd, 10)
+            await db.User.updateOne({email: userEmail},{password: passwordHash })
             return true
         }else{
             return false
