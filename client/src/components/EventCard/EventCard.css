@@ -5,6 +5,11 @@
   padding: 5px;
 }
 
+.searchBox {
+  position: absolute;
+  margin-top: 32px;
+}
+
 .inputSec {
   margin-left: 10px;
 }
