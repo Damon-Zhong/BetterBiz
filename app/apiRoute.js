@@ -60,7 +60,7 @@ const Yelp = {
     },
 
     getEvent: async (input) => {
-        const url = `https://api.yelp.com/v3/events?location=${input.city}&start_date=${input.startDate}&end_date=${input.endDate}`;
+        const url = `https://api.yelp.com/v3/events?location=Toronto&start_date=${input.startDate}&end_date=${input.endDate}&categories=${input.category}&limit=10`;
         const result = await axios.get(url, {
             headers: { Authorization: AuthStr },
         });
