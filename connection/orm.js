@@ -8,15 +8,19 @@ mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost/betterbiz', {use
 
 // include mongoose models
 const db = require( '../model' )
+const categoryList = ['Restaurant', 'Shop', 'Service', 'Leisure', 'Culture']
 
 const orm = {
     getAllBusinesses: async () => {
         await db.Business.find({})
     },
 
-    // getBusinessByName: async () => {
-
-    // },
+    getBusByAttribute: async (category) => {
+        //if category is one of the business type return 
+        // if( categoryList.indexOf(category)>-1 ){
+        const DBresult = await db.Business.find({ $or:[{busType: category},{hightlight: category}] })
+        return DBresult
+    },
 
     insertBusiness: async (busData) => {
         const returnBusiness = await db.Business.findOne({yelpId: busData.yelpId});

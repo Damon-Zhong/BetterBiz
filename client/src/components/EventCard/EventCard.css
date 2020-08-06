@@ -1,0 +1,44 @@
+.inputBox {
+  width: 50%;
+  margin-top: 5px;
+  margin: 50px;
+  padding: 5px;
+}
+
+.inputSec {
+  margin-left: 10px;
+}
+.cardEach {
+  margin-top: 10px;
+}
+.cardStyle {
+  border: 2px solid #3d405b !important;
+}
+
+.inputSection {
+  border: 2px solid #3d405b !important;
+}
+
+.centered2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bolder;
+  text-shadow: 2px 2px linen;
+  font-size: xx-large;
+  font-style: italic;
+}
+
+.centered1 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bolder;
+  text-shadow: 2px 2px linen;
+  font-size: xx-large;
+  font-style: italic;
+}

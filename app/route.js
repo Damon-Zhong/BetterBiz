@@ -8,22 +8,19 @@ var Filter = require('bad-words'),
 const db = require( '../model' )
 
 function router( app ){
-    //[GET] general serach by term
-    app.get('/businesses', async ( req, res ) => {
-        const location = req.query.location
-        const term = req.query.term
-        const results = await yelp.generalSearch(location, term)
-        res.send(results) //send back yelp ID for later use
+    //[GET] business by category
+    app.get('/api/businesses/:category', async ( req, res ) => {
+        console.log( '[GET] business by category.....' )
+        const category = req.params.category
+        // const term = req.query.term
+        const results = await orm.getBusByAttribute(category)
+        res.send(results)
     })
     //[GET] match business by yelp ID
     app.get('/businessess/:id', async( req, res ) => {
         const yelpId = req.params.id
         const results = await yelp.getBusById(yelpId)
         res.send(results)
-    })
-
-    app.get('/businesses/:businessName', (req, res) => {
-        res.sendFile(path.join(__dirname, '..', '/client/build/index.html'));
     })
 
     app.get('/api/businesses/:businessUrl', async (req, res) => {

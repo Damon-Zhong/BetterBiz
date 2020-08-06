@@ -18,11 +18,7 @@ import personOnPhone from "../../images/personOnPhone.png";
 import Button from "react-bootstrap/Button";
 import "./Services.css";
 
-export default (props) => {
-  const callYelp = async(title) =>{
-    const result = await axios.get(`/businesses/${title.replace(' ', '')}`)
-    console.log(`[callYelp] data received: ${result}`)
-  }
+export default () => {
 
   return (
     <div>
@@ -46,23 +42,23 @@ export default (props) => {
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={heart} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">BLACK-<br/>OWNED</p>
+          <p className="highlightKeyword text-center">BLACK-<br/>OWNED<br/><Link to='/businesses/black-owned'>More</Link></p>
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={lgbt} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">LGBT-<br/>OWNED</p>
+          <p className="highlightKeyword text-center">LGBT-<br/>OWNED<br/><Link to='/businesses/lgbt-owned'>More</Link></p>
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={woman} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">WOMEN-<br/>OWNED</p>
+          <p className="highlightKeyword text-center">WOMEN-<br/>OWNED<br/><Link to='/businesses/women-owned'>More</Link></p>
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={eco} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">ECO-<br/>FRIENDLY</p>
+          <p className="highlightKeyword text-center">ECO-<br/>FRIENDLY<br/><Link to='/businesses/eco-friendly'>More</Link></p>
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={community} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">COMMUNITY IMPACT</p>
+          <p className="highlightKeyword text-center">COMMUNITY IMPACT<br/><Link to='/businesses/community'>More</Link></p>
         </Col>
         <Col sm={1} className="p-0">
         </Col>
@@ -86,23 +82,23 @@ export default (props) => {
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={food} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">RESTAURANTS</p>
+          <p className="highlightKeyword text-center">RESTAURANTS <Link to='/businesses/restaurants'>More</Link></p>
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={shopIcon} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">SHOPS</p>
+          <p className="highlightKeyword text-center">SHOPS<Link to='/businesses/shops'>More</Link></p>
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={lawyer} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">SERVICE</p>
+          <p className="highlightKeyword text-center">SERVICE<Link to='/businesses/serivce'>More</Link></p>
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={wellness} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">LEISURE</p>
+          <p className="highlightKeyword text-center">LEISURE<Link to='/businesses/leisure'>More</Link></p>
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={theater} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">CULTURE</p>
+          <p className="highlightKeyword text-center">CULTURE<Link to='/businesses/culture'>More</Link></p>
         </Col>
         <Col sm={1} className="p-0">
         </Col>
@@ -116,7 +112,7 @@ export default (props) => {
             <div className="p-5">
               <h3>About BetterBiz</h3>
               <p>Learn more about our team and how we came up with BetterBiz. We'll also tell you about the technologies, service providers, and artists who help bring BetterBiz to life!</p>
-              <Button variant="primary" href="/about">Learn more</Button>
+              <Button className="outlineButton" variant="primary" href="/about">Learn more</Button>
             </div>
           </div>
         </Col>
