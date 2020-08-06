@@ -1,0 +1,21 @@
+.btn.btn-primary.btn-category {
+    color: black!important;
+    background-color: #F2F2F2!important;
+    border: 1px solid #F2F2F2!important;
+}
+
+.btn.btn-primary.btn-category:hover {
+    color: white!important;
+    background-color: #ED7562!important;
+    border: 1px solid #ED7562!important;
+}
+
+.card.category-card {
+    /* box-shadow: 0 0 7px #4a4a4a; */
+    border: 3px solid #F2F2F2;
+    border-radius: 10px;
+}
+
+.card-title {
+    font-weight: bold!important;
+}

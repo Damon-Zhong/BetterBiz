@@ -38,7 +38,7 @@ function AboutTeam(){
                     alt=""
                 />
                 <h4 className="mt-3">Damon</h4>
-                <p class="text-muted">Lead Designer</p>
+                <p class="text-muted">Damon is a Full stack developer with a financial reporting and analytics background.</p>
                 <a
                     className="btn btn-dark btn-social mx-2"
                     href="https://github.com/Damon-Zhong"
@@ -60,7 +60,7 @@ function AboutTeam(){
                     alt=""
                 />
                 <h4 className="mt-3">Etam</h4>
-                <p class="text-muted">Lead Designer</p>
+                <p class="text-muted">Etam is a Web Developer with an Aircraft Maintenance Engineer background.</p>
                 <a
                     className="btn btn-dark btn-social mx-2"
                     href="https://github.com/etammao"
@@ -88,7 +88,7 @@ function AboutTeam(){
                     alt=""
                 />
                 <h4 className="mt-3">Sadia</h4>
-                <p class="text-muted">Lead Designer</p>
+                <p class="text-muted">Sadia is a web developer based in Toronto.</p>
                 <a
                     className="btn btn-dark btn-social mx-2"
                     href="https://github.com/sadia110"
