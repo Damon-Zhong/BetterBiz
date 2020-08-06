@@ -54,6 +54,7 @@ function LogIn(props) {
     localStorage.setItem(
       "currUser",
       JSON.stringify({
+        type: userData.type,
         id: userData.id,
         name: userData.name,
         session: userData.session,

@@ -115,6 +115,14 @@ function router( app ){
         const eventList = await yelp.getEvent(input)
         res.send(eventList)
     })
+
+    //[POST] submit event (business user only)
+    app.post('/api/event/submit', async ( req, res )=>{
+        const eventInput = req.body
+        console.log(`[POST] submit event - data received:${eventInput}`)
+        const newEvent = await orm.submitEvent(eventInput)
+        res.send(newEvent)
+    })
 }
 
 module.exports = router;

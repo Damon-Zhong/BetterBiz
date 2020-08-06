@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import EventCard from "./EventCard";
+import {Link} from 'react-router-dom'
+import EventCard from './EventCard'
 import eventComing from "../images/upcoming0.jpg";
 import "./EventCard/EventCard.css";
 const axios = require("axios");
@@ -72,13 +73,6 @@ const Events = () => {
         <div class="centered2">NO EVENT TOO SMALL. NO EVENT TOO BIG.</div>
       </div>
       <section className="callout">
-        {/* <div className="container text-center">
-          <h2 className="mx-auto mb-5">
-            {" "}
-            Own a business? Submit your Business and hlep grow our community!
-          </h2>
-        </div> */}
-
         <div className="container">
           <div className="row">
             <div className="col-6">
@@ -131,18 +125,9 @@ const Events = () => {
               </div>
             )}
           </div>
-        </div>
-
-        <br />
-
-        <div className="container">
           <div className="row">
-            {eventList.map((event) => (
-              <EventCard {...event} />
-            ))}
-            {/* <EventCard />
-          <EventCard />
-          <EventCard /> */}
+            {eventList.map( event=><EventCard {...event} />)}
+            {JSON.parse(localStorage.getItem('currUser')).type === 'Business' ? <Link className='btn btn-primary' to='/events/submit'>Submit Event</Link>:''}
           </div>
         </div>
       </section>

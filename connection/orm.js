@@ -97,7 +97,7 @@ const orm = {
     loginUser: async function (userData, session){
         //check user type
         //if user type is one of the providers return provider information
-        if( userData.type === 'facebook'||'google'||'twitter'){
+        if( userData.type === 'facebook'||userData.type === 'google'||userData.type === 'twitter'){
             const returnUser = await db.User.findOne({firstName: userData.firstName})
             console.log(`Return user from ${userData.type}: ${returnUser}`)
             if( !returnUser ){
@@ -131,11 +131,11 @@ const orm = {
         return {
             isLogin: true,
             message: 'Successfully Logging in!',
+            type: userDB.type,
             id: userDB._id,
             name: userDB.firstName,
             email: userDB.email,
             session: userDB.session,
-            // createdAt: userDB.createdAt
         }
     },
 
@@ -207,6 +207,12 @@ const orm = {
             }
         ])
         return reviews[0];
+    },
+
+    submitEvent: async (eventInput) => {
+        console.log(`[submitEvent] data received: ${eventInput}`)
+        const newEvent = await db.Event.create(eventInput)
+        return newEvent
     }
 }
 
