@@ -40,25 +40,35 @@ export default () => {
       <Row className="highlightRow">
         <Col sm={1} className="p-0">
         </Col>
-        <Col sm={2} className="p-0 mb-5">
-          <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={heart} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">BLACK-<br/>OWNED<br/><Link to='/overview/black-owned'>More</Link></p>
+        <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementRed">
+          <Link className="highlightIcon" to='/overview/black-owned'>
+            <Image className="mt-5 mb-3 mx-auto d-block" src={heart} style={{maxWidth: "100px", width: "30%"}}/>
+            <p className="highlightKeyword text-center">BLACK-<br/>OWNED<br/></p>
+          </Link>
         </Col>
-        <Col sm={2} className="p-0 mb-5">
-          <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={lgbt} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">LGBT-<br/>OWNED<br/><Link to='/overview/lgbt-owned'>More</Link></p>
+        <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementRed">
+          <Link to='/overview/lgbt-owned'>
+            <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={lgbt} style={{maxWidth: "100px", width: "30%"}}/>
+            <p className="highlightKeyword text-center">LGBT-<br/>OWNED<br/></p>
+          </Link>
         </Col>
-        <Col sm={2} className="p-0 mb-5">
-          <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={woman} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">WOMEN-<br/>OWNED<br/><Link to='/overview/women-owned'>More</Link></p>
+        <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementRed">
+          <Link to='/overview/women-owned'>
+            <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={woman} style={{maxWidth: "100px", width: "30%"}}/>
+            <p className="highlightKeyword text-center">WOMEN-<br/>OWNED<br/></p>
+          </Link>
         </Col>
-        <Col sm={2} className="p-0 mb-5">
-          <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={eco} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">ECO-<br/>FRIENDLY<br/><Link to='/overview/eco-friendly'>More</Link></p>
+        <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementRed">
+          <Link to='/overview/eco-friendly'>
+            <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={eco} style={{maxWidth: "100px", width: "30%"}}/>
+            <p className="highlightKeyword text-center">ECO-<br/>FRIENDLY<br/></p>
+          </Link>
         </Col>
-        <Col sm={2} className="p-0 mb-5">
-          <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={community} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">COMMUNITY IMPACT<br/><Link to='/overview/community'>More</Link></p>
+        <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementRed">
+          <Link to='/overview/community'>
+            <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={community} style={{maxWidth: "100px", width: "30%"}}/>
+            <p className="highlightKeyword text-center">COMMUNITY IMPACT<br/></p>
+          </Link>
         </Col>
         <Col sm={1} className="p-0">
         </Col>
@@ -80,25 +90,35 @@ export default () => {
       <Row className="categoryRow">
         <Col sm={1} className="p-0">
         </Col>
-        <Col sm={2} className="p-0 mb-5">
-          <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={food} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">RESTAURANTS <Link to='/overview/restaurants'>More</Link></p>
+        <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
+          <Link to='/overview/restaurants'>
+            <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={food} style={{maxWidth: "100px", width: "30%"}}/>
+            <p className="highlightKeyword text-center">RESTAURANTS</p>
+          </Link>
         </Col>
-        <Col sm={2} className="p-0 mb-5">
-          <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={shopIcon} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">SHOPS<Link to='/overview/shops'>More</Link></p>
+        <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
+          <Link to='/overview/shops'>
+            <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={shopIcon} style={{maxWidth: "100px", width: "30%"}}/>
+            <p className="highlightKeyword text-center">SHOPS</p>
+          </Link>
         </Col>
-        <Col sm={2} className="p-0 mb-5">
-          <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={lawyer} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">SERVICE<Link to='/overview/serivce'>More</Link></p>
+        <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
+          <Link to='/overview/serivce'>
+            <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={lawyer} style={{maxWidth: "100px", width: "30%"}}/>
+            <p className="highlightKeyword text-center">SERVICE</p>
+          </Link>
         </Col>
-        <Col sm={2} className="p-0 mb-5">
-          <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={wellness} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">LEISURE<Link to='/overview/leisure'>More</Link></p>
+        <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
+          <Link to='/overview/leisure'>
+            <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={wellness} style={{maxWidth: "100px", width: "30%"}}/>
+            <p className="highlightKeyword text-center">LEISURE</p>
+          </Link>
         </Col>
-        <Col sm={2} className="p-0 mb-5">
-          <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={theater} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">CULTURE<Link to='/overview/culture'>More</Link></p>
+        <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
+          <Link to='/overview/culture'>
+            <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={theater} style={{maxWidth: "100px", width: "30%"}}/>
+            <p className="highlightKeyword text-center">CULTURE</p>
+          </Link>
         </Col>
         <Col sm={1} className="p-0">
         </Col>

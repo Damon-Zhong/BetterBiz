@@ -62,10 +62,6 @@
     background-color: #74D5DF;
 }
 
-.highlightIcon {
-    
-}
-
 .highlightKeyword {
     color: white;
     font-size: 20px;
@@ -82,6 +78,22 @@
     color: #ED7562!important;
     border: 2px solid #ED7562!important;
     background-color: #F2F2F2!important;
+}
+
+.iconBarElementRed:hover {
+    background-color: #F18979!important;
+    border: 1px solid #F18979!important;
+    border-radius: 4px!important;
+}
+
+.iconBarElementBlue:hover {
+    background-color: #9FDAE0!important;
+    border: 1px solid #9FDAE0!important;
+    border-radius: 4px!important;
+}
+
+.iconBarElementRed:hover a, .iconBarElementBlue:hover a {
+    text-decoration: none!important;
 }
 
 .btn {
