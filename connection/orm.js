@@ -53,17 +53,18 @@ const orm = {
         //hashing password
         const passwordHash = await bcrypt.hash(userInfo.password, 10)
         const userData = {
+            type: userInfo.type,
             email: userInfo.email,
             password: passwordHash,
             firstName: userInfo.firstName,
             lastName: userInfo.lastName,
             session:session}
         const newUser = await db.User.create(userData)
-        // const user = await db.User.findOne({email: userData.email})
         if( newUser._id ){
             return {
                 isExist: false,
                 messgae:`Success! ${newUser.email} was successfully registered`,
+                type: newUser.type,
                 id:newUser._id,
                 firstName: newUser.firstName,
                 email: newUser.email,
@@ -91,15 +92,16 @@ const orm = {
     loginUser: async function (userData, session){
         //check user type
         //if user type is one of the providers return provider information
-        if( userData.type !== 'Customer'){
+        if( userData.type === 'facebook'||'google'||'twitter'){
             const returnUser = await db.User.findOne({firstName: userData.firstName})
-            console.log(returnUser)
+            console.log(`Return user from ${userData.type}: ${returnUser}`)
             if( !returnUser ){
                 await db.User.create(userData)
             }
             return {
                 isLogin: true,
                 message: `Successfully Logging in! with ${userData.type}`,
+                type: userData.type,
                 id: userData.authId,
                 name: userData.firstName,
                 session: userData.session
