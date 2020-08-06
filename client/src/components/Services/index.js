@@ -1,32 +1,8 @@
 import React from "react"
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 
-export default (props) => {
-  const categories = [ 'Restaurant', 'Shop', 'Service', 'Office', 'Culture', 'Other' ]
-   
-  //   {
-  //     title: "Black Owned",
-  //     caption: "Black Owned",
-  //   },
-  //   {
-  //     title: "Women Owned",
-  //     caption: "Women Owned",
-  //   },
-  //   {
-  //     title: "LGBTQ Owned",
-  //     caption: "LGBTQ Owned",
-  //   },
-  //   {
-  //     title: "Eco Friendly",
-  //     caption: "Eco Friendly",
-  //   },
-  // ]
-
-  const callYelp = async(title) =>{
-    const result = await axios.get(`/businesses/${title.replace(' ', '')}`)
-    console.log(`[callYelp] data received: ${result}`)
-  }
+export default () => {
+  const categories = [ 'Restaurant', 'Shop', 'Service', 'Leisure', 'Culture', 'Other' ]
 
   return (
     <section
@@ -40,7 +16,7 @@ export default (props) => {
         </div>
         <div className="row">
           {categories.map((category, index) => (
-              <div key={index} className="col-lg-3 col-md-6 mb-5 mb-lg-0" onClick={callYelp}>
+              <div key={index} className="col-lg-3 col-md-6 mb-5 mb-lg-0" >
                 <span className="service-icon rounded-circle mx-auto mb-3">
                   <i className="icon-screen-smartphone">&#127793;</i>
                 </span>

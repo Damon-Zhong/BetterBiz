@@ -10,6 +10,7 @@ import AccountIndex from "./components/AccountIndex";
 import BusinessPage from "./pages/businessPage";
 import SocialFollow from "./components/SocialFollow";
 import Events from "./components/Events";
+import Category from "./components/Category"
 // import Map from "./components/Map";
 
 // just  testing this
@@ -36,9 +37,11 @@ function App() {
         <Route path="/events">
           <Events />
         </Route>
+        <Route component={Category} path='/businesses/:category'>
+        </Route>
         <Route
           component={BusinessPage}
-          path="/businesses/:businessName"
+          path="/businesses/:category/:businessName"
         ></Route>
         <SocialFollow />
       </Router>
