@@ -26,8 +26,10 @@
 
 #### Landing page
  <p> Our Homepage provides an overview of our app, walks the viewer over as what our app is about, and the services our application provides. The simple design allows users to find the type of business they are looking for. </p>  
- ![image](https://user-images.githubusercontent.com/64391826/89506111-9d2a0900-d798-11ea-92e6-78364ac01451.png)
-![image](https://user-images.githubusercontent.com/64391826/89506177-bb900480-d798-11ea-96ae-e02060c16020.png)
+
+![Homepage1](https://user-images.githubusercontent.com/64391826/89506111-9d2a0900-d798-11ea-92e6-78364ac01451.png) 
+
+![Homepage2](https://user-images.githubusercontent.com/64391826/89506177-bb900480-d798-11ea-96ae-e02060c16020.png)
 
  
   
