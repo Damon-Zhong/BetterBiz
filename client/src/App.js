@@ -10,29 +10,12 @@ import AccountIndex from "./components/AccountIndex";
 import BusinessPage from "./pages/businessPage";
 import SocialFollow from "./components/SocialFollow";
 import Events from "./components/Events";
+import Category from "./components/Category"
 // import Map from "./components/Map";
 
 // just  testing this
 function App() {
-  const servicesList = [
-    {
-      title: "Black Owned",
-      caption: "Black Owned",
-    },
-    {
-      title: "Women Owned",
-      caption: "Women Owned",
-    },
-    {
-      title: "LGBTQ Owned",
-      caption: "LGBTQ Owned",
-    },
-    {
-      title: "Eco Friendly",
-      caption: "Eco Friendly",
-    },
-  ];
-
+  
   const [isLogin, setLogin] = useState(false);
   let currUser = JSON.parse(window.localStorage.getItem("currUser"));
   return (
@@ -40,7 +23,7 @@ function App() {
         <Navbar isLogin={isLogin} currUser={currUser} />
         <Route exact path="/">
           <Header />
-          <Services servicesLinks={servicesList} />
+          <Services />
         </Route>
         <Route path="/account">
           <AccountIndex setLogin={setLogin} />
@@ -54,9 +37,11 @@ function App() {
         <Route path="/events">
           <Events />
         </Route>
+        <Route component={Category} path='/businesses/:category'>
+        </Route>
         <Route
           component={BusinessPage}
-          path="/businesses/:businessName"
+          path="/businesses/:category/:businessName"
         ></Route>
         <SocialFollow />
       </Router>
