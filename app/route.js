@@ -109,17 +109,27 @@ function router( app ){
 
     //[POST] get events
     app.post('/api/events', async ( req, res )=>{
-        const input = req.body
-        const eventList = await yelp.getEvent(input)
-        res.send(eventList)
+        try {
+            const input = req.body
+            const eventList = await yelp.getEvent(input)
+            res.send(eventList)
+        } catch (error) {
+            console.log(error)
+            res.status(500).send({ status: false, message: error.toString() })
+        }
     })
 
     //[POST] submit event (business user only)
     app.post('/api/event/submit', async ( req, res )=>{
-        const eventInput = req.body
-        console.log(`[POST] submit event - data received:${eventInput}`)
-        const newEvent = await orm.submitEvent(eventInput)
-        res.send(newEvent)
+        try {
+            const eventInput = req.body
+            console.log(`[POST] submit event - data received:${eventInput}`)
+            const newEvent = await orm.submitEvent(eventInput)
+            res.send(newEvent)
+        } catch (error) {
+            console.log(error)
+            res.status(500).send({ status: false, message: error.toString() })
+        }
     })
 }
 

@@ -17,11 +17,12 @@
   margin-top: 10px;
 }
 .cardStyle {
-  border: 2px solid #3d405b !important;
+  border: 3px solid #F2F2F2;
+  border-radius: 10px;
 }
 
 .inputSection {
-  border: 2px solid #3d405b !important;
+  border: 2px solid #4a4a4a !important;
 }
 
 .centered2 {
