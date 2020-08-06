@@ -20,12 +20,15 @@
   ## Description
  <p> BetterBuz is a platform that serves both customers and the business. For our business we want to give a platform where entrepreneurs can showcase their business and allow them to reach out and connect to more people.  As for our users we want them to be able to connect with communities that they care about and be able to support their local business . As Torontoian we are proud of our diversity, especially in the small business sector. However many businesses that are classified as minority are overlooked or simply not given enough credit. BetterBiz wants to shine the spotlight on those businesses and help people support their communities.
  
- <br>The application is accessible under: https://shielded-sierra-26115.herokuapp.com/</p>  
+ <br>The application is accessible under: </p>  
 
 ### Core features
 
 #### Landing page
- <p> Our Homepage provides an overview of our app, walks the viewer over as what our app is about, and the services our application provides. The simple design allows users to find the type of business they are looking for. </p> 
+ <p> Our Homepage provides an overview of our app, walks the viewer over as what our app is about, and the services our application provides. The simple design allows users to find the type of business they are looking for. </p>  
+ ![homepage1](https://user-images.githubusercontent.com/64391826/89505178-38ba7a00-d797-11ea-83e0-e3181a69401d.png =200x200) 
+ 
+  
 
   
 
