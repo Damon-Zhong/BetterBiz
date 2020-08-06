@@ -6,7 +6,7 @@ const orm = require('./connection/orm')
 const uuid = require('uuid')
 const app = express()
 const PORT = process.env.PORT || 8080
-const API_URL = process.env.NODE_ENV === 'production' ? 'https://betterbiz01.herokuapp.com/' : 'http://localhost:8080'
+const API_URL = process.env.NODE_ENV === 'production' ? 'https://betterbiz01.herokuapp.com' : 'http://localhost:8080'
 //connect to database
 mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/betterbiz',
     {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
