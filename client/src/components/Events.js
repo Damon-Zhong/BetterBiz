@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
-import EventCard from './EventCard'
+import { Link } from "react-router-dom";
+import EventCard from "./EventCard";
 import eventComing from "../images/upcoming0.jpg";
 import "./EventCard/EventCard.css";
 const axios = require("axios");
 const moment = require("moment");
 
 const Events = () => {
-  const [input, setInput] = useState({ city: "Toronto", startDate: "", endDate: "" });
+  const [input, setInput] = useState({
+    city: "Toronto",
+    startDate: "",
+    endDate: "",
+    category: "charities",
+  });
   const [inputValid, setInputValid] = useState({ isValid: true, message: "" });
   const [eventList, setEventList] = useState([]);
 
@@ -50,7 +55,7 @@ const Events = () => {
       default:
         break;
       case "category":
-        console.log(input)
+        console.log(input);
         setInput({ ...input, [id]: value.toLowerCase() });
         break;
       case "startDate":
@@ -104,7 +109,12 @@ const Events = () => {
             <div className="col-6">
               <div className="input-grp">
                 <label>Event Category</label>
-                <select className="form-control inputSection" id="category" onChange={handleInputChange} required >
+                <select
+                  className="form-control inputSection"
+                  id="category"
+                  onChange={handleInputChange}
+                  required
+                >
                   <option>Charities</option>
                   <option>Kids-Family</option>
                 </select>
@@ -117,17 +127,27 @@ const Events = () => {
                 {inputValid.message}
               </div>
             )}
-          </div>
-          <div className="row">
-            <button
+
+            <div className="col-3">
+              <button
                 onClick={eventsResearch}
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-primary searchBox"
               >
                 Search
-            </button>
-            {eventList.length !== 0 ? eventList.map( event=><EventCard {...event} />) : ''}
-            {localStorage.getItem('currUser') && JSON.parse(localStorage.getItem('currUser')).type === 'Business' ? <Link className='btn btn-primary' to='/events/submit'>Submit Event</Link>:''}
+              </button>
+            </div>
+            {eventList.length !== 0
+              ? eventList.map((event) => <EventCard {...event} />)
+              : ""}
+            {localStorage.getItem("currUser") &&
+            JSON.parse(localStorage.getItem("currUser")).type === "Business" ? (
+              <Link className="btn btn-primary" to="/events/submit">
+                Submit Event
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </section>
