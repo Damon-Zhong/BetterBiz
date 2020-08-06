@@ -137,12 +137,11 @@ const SubmitBus = () => {
                   id="busType"
                   required
                 >
-                  <option value="Food">Food</option>
+                  <option value="Restaurant">Restaurant</option>
                   <option value="Shop">Shop</option>
                   <option value="Service">Service</option>
-                  <option value="Office">Office</option>
+                  <option value="Leisure">Leisure</option>
                   <option value="Culture">Culture</option>
-                  <option value="Other">Other</option>
                 </select>
     
                 <label className="mt-3 formLabel" htmlFor="highlights">What makes this business special?</label>

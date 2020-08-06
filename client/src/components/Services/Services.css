@@ -1,0 +1,99 @@
+.categoryText {
+    background-color: #F2F2F2;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.categoryImageHighlights {
+    background-image: url(../../images/personOnPhone.png);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40%;
+}
+
+.categoryImageShop {
+    background-image: url(../../images/shop.png);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+.categoryImageAbout {
+    background-image: url(../../images/about.png);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+.categoryImageService {
+    background-image: url(../../images/service.png);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+}
+
+.categoryImageOffice {
+    background-image: url(../../images/office.png);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+}
+
+.categoryImageCulture {
+    background-image: url(../../images/culture.png);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+}
+
+.highlightRow {
+    background-color: #ED7562;
+}
+
+.categoryRow {
+    background-color: #74D5DF;
+}
+
+.highlightIcon {
+    
+}
+
+.highlightKeyword {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.line {
+    height: 2px;
+    background-color: #4a4a4a;
+    width: 100%;
+}
+
+.outlineButton.btn-primary {
+    color: #ED7562!important;
+    border: 2px solid #ED7562!important;
+    background-color: #F2F2F2!important;
+}
+
+.btn {
+    box-shadow: none!important;
+}
+
+@media only screen and (max-width: 575px) {
+    .categoryImageHighlights {
+        background-image: url(../../images/orientation.png);
+    }
+
+    .categoryImageHighlights, .categoryImageShop, .categoryImageAbout {
+        background-size: 80%;
+    }
+  }

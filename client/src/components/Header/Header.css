@@ -17,3 +17,85 @@
     inset 0px 0px 5px #1d809f, inset -4px -4px 5px rgba(0, 0, 0, 0.05),
     0 50px 40px rgba(0, 0, 0, 0.05) !important;
 }
+
+.headline {
+  color: #ED7562;
+}
+
+.intro {
+  font-weight: 400;
+}
+
+.homepage {
+  font-size: 60px!important;
+}
+
+.scrollDown {
+  transform: rotate(90deg);
+}
+
+.headerText {
+  width: 50%!important;
+}
+
+.header {
+  background-image: url(../../images/header.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.desktop-header {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.mobile-header {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .homepage {
+    font-size: 50px!important;
+  }
+
+  .header {
+    background-image: url(../../images/header-sm.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .headerText {
+    width: 100%!important;
+  }
+
+  .homepage {
+    font-size: 40px!important;
+  }
+
+  .header {
+    background-image: none;
+  }
+
+  .noScroll {
+    display: none;
+  }
+
+  .desktop-header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .mobile-header {
+    background-image: url(../../images/store.png);
+    height: 250px;
+    width: 100%;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+  }
+}

@@ -5,10 +5,13 @@ import axios from 'axios'
 const Category = ({match}) => {
     const [businessList, setBusinessList] = useState([])
 
-    useEffect(async () => {
-        const DBresult = await axios.get(`/api/businesses/${match.params.category}`)
-        console.log( DBresult.data )
-        setBusinessList(DBresult.data)
+    useEffect(() => {
+        async function initCategoryPage( category ){
+            const DBresult = await axios.get(`/api/businesses/${category}`)
+            console.log( DBresult.data )
+            setBusinessList(DBresult.data)
+        }
+        initCategoryPage(match.params.category)
     }, []);
     
     return (

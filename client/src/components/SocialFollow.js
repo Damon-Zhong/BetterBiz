@@ -9,28 +9,18 @@ import {
 
 export default function SocialFollow() {
   return (  
-    <footer className="footer text-center">
-    <div className="container">
-      <ul className="list-inline mb-5">
-        <li className="list-inline-item"> 
-        <h3>Connect with Us!</h3>   
-         <a href="" 
-        className="facebook social"> 
-        <FontAwesomeIcon icon={faFacebook} size="2x" /> 
-        </a> 
-        <a href="" className="twitter social"> 
-        <FontAwesomeIcon icon={faTwitter} size="2x" /> 
-        </a> 
-        <a href="" 
-        className="instagram social"> 
-        <FontAwesomeIcon icon={faInstagram} size="2x" /> 
-        </a> 
-        <a href="" 
-        className="github"> 
+    <footer class="footer text-center">
+    <div class="container">
+      <ul class="list-inline mb-5">
+        <li class="list-inline-item"> 
+        <h3>Find us on Github</h3>   
+        <a href="https://github.com/Damon-Zhong/BetterBiz" 
+        className="github social"> 
         <FontAwesomeIcon icon={faGithub} size="2x" /> 
         </a> 
         </li>
       </ul>
+      <p className="text-muted small mb-0">Built with ❤️ in Toronto</p>
       <p className="text-muted small mb-0">Copyright &copy; BetterBiz 2020</p>
     </div>
   </footer>
