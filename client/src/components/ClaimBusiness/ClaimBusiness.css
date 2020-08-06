@@ -1,6 +1,12 @@
 .claimbusiness {
     padding: 15px;
-    background-color: lightgray;
-    border: 1px solid lightgray;
+    background-color: #F2F2F2;
+    border: 1px solid #F2F2F2;
     border-radius: 4px;
+}
+
+.line {
+    height: 2px;
+    background-color: #F2F2F2;
+    width: 100%;
 }

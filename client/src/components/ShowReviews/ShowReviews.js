@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import Image from "react-bootstrap/Image";
 import loadingSpinner from "../../images/loadingSpinner.gif";
 import SubmitReviews from '../SubmitReviews/SubmitReviews';
+import "./ShowReviews.css";
 
 function ShowReviews({businessId}){
     const [loading, setLoading] = useState(true);
@@ -39,32 +40,34 @@ function ShowReviews({businessId}){
     }
     
     return(
-        <div className="container mt-5">
-            <hr className="mb-5"></hr>
-            <h4>What our users think about this business</h4>
-            {!data.length ? <p>This business does not have any reviews yet. If you want to leave a review, please <a href="http://google.ca">sign up or log in</a> and submit a review by clicking on the button below.</p> : null}
-            <div id="reviewCards">
-                {data.length ? data.map(review => {
-                    return(
-                        <div key={review._id} className="card mb-3">
-                            <div className="card-body">
-                                <h5 className="card-title">{review.review.title}</h5>
-                                <h6 className="card-subtitle mb-2 text-muted">Posted by {review.userDetails[0].firstName} on {(new Date(review.createdAt)).toDateString()}</h6>
-                                <p className="card-text">{review.review.body}</p>
+        <div>
+            <div className="line mt-5"></div>
+            <div className="container mt-5">
+                <h4 className="mb-3">What our users think about this business</h4>
+                {!data.length ? <p>This business does not have any reviews yet. If you want to leave a review, please <a href="http://google.ca">sign up or log in</a> and submit a review by clicking on the button below.</p> : null}
+                <div id="reviewCards">
+                    {data.length ? data.map(review => {
+                        return(
+                            <div key={review._id} className="card mb-3">
+                                <div className="card-body">
+                                    <h5 className="card-title">{review.review.title}</h5>
+                                    <h6 className="card-subtitle mb-2 text-muted">Posted by {review.userDetails[0].firstName} on {(new Date(review.createdAt)).toDateString()}</h6>
+                                    <p className="card-text">{review.review.body}</p>
+                                </div>
                             </div>
-                        </div>
-                    )
-                }) : null}
+                        )
+                    }) : null}
+                </div>
+                <SubmitReviews
+                    addReview={review => {
+                        setData([
+                            review,
+                            ...data,
+                        ])
+                    }}
+                    businessId={businessId}
+                />
             </div>
-            <SubmitReviews
-                addReview={review => {
-                    setData([
-                        review,
-                        ...data,
-                    ])
-                }}
-                businessId={businessId}
-            />
         </div>
     )
 }

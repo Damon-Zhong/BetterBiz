@@ -3,3 +3,15 @@
     border-color: #0F7173!important;
     font-weight: bold!important;
 }
+
+.outlineButton.btn-primary {
+    color: #ED7562!important;
+    border: 2px solid #ED7562!important;
+    background-color: white!important;
+}
+
+.outlineButtonSecondary.btn-secondary {
+    color: #74D5DF!important;
+    border: 2px solid #74D5DF!important;
+    background-color: white!important;
+}

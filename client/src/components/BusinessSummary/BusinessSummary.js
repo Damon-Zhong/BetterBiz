@@ -29,7 +29,7 @@ function BusinessSummary({name, summary, address, website, phone, highlights}){
                     )}
                 </Col>
                 <Col className="col-sm-6">
-                    <p>These business features have been sourced by our own community. If you want to add an underrepresented business to our database, click <a href="http://google.com">here</a>.</p>
+                    <p>These business features have been sourced by our own community. If you want to add an underrepresented business to our database, click <a href="/submit">here</a>.</p>
                 </Col>
             </Row>
         </div>

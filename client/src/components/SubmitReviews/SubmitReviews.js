@@ -61,7 +61,7 @@ function SubmitReviews({addReview, businessId}){
 
     return(
         <div className="submit container mb-5">
-            <Button className="submitButton" variant="primary" onClick={handleShow}>
+            <Button className="submitButton outlineButton" variant="primary" onClick={handleShow}>
                 Submit review
             </Button>
             <Modal show={show} onHide={handleClose}>
@@ -84,10 +84,10 @@ function SubmitReviews({addReview, businessId}){
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button variant="secondary" className="outlineButtonSecondary" onClick={handleClose}>
                     Cancel
                 </Button>
-                <Button variant="primary" onClick={handleSubmit}>
+                <Button variant="primary" className="outlineButton" onClick={handleSubmit}>
                     Submit review
                 </Button>
                 </Modal.Footer>

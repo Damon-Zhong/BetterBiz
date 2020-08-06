@@ -1,3 +1,15 @@
-.businessFeature, .delivery {
+.businessFeature {
     width: 100%;
+}
+
+.delivery {
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+.deliveryText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
