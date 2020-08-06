@@ -5,7 +5,7 @@ var Filter = require('bad-words'),
     filter = new Filter();
 
 mongoose.connect(process.env.MONGODB_URI|| 
-    'mongodb://damon:Heroku1021@ds117859.mlab.com:17859/heroku_ns0kn10t', 
+    'mongodb://localhost/betterbiz', 
     {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
 // include mongoose models
