@@ -2,9 +2,9 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
-import black from "../../images/black.jpg";
-import lgbt from "../../images/lgbt.jpg";
-import eco from "../../images/eco.jpg";
+// import black from "../../images/black.jpg";
+// import lgbt from "../../images/lgbt.jpg";
+// import eco from "../../images/eco.jpg";
 import delivery from "../../images/delivery.jpg";
 import "./BusinessHighlights.css";
 

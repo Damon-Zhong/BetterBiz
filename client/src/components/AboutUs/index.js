@@ -81,6 +81,7 @@ const AboutUs = () => {
                 className="btn btn-dark btn-social mx-2"
                 href="https://github.com/cestmarcel"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <i class="fab fa-github"></i>
               </a>
@@ -103,6 +104,7 @@ const AboutUs = () => {
                 className="btn btn-dark btn-social mx-2"
                 href="https://github.com/Damon-Zhong"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <i class="fab fa-github"></i>
               </a>
@@ -124,6 +126,7 @@ const AboutUs = () => {
                 className="btn btn-dark btn-social mx-2"
                 href="https://github.com/etammao"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <i class="fab fa-github"></i>
               </a>
@@ -131,6 +134,7 @@ const AboutUs = () => {
                 class="btn btn-dark btn-social mx-2"
                 href="https://www.linkedin.com/in/aige-mao"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <i class="fab fa-linkedin-in"></i>
               </a>
@@ -150,6 +154,7 @@ const AboutUs = () => {
                 className="btn btn-dark btn-social mx-2"
                 href="https://github.com/sadia110"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <i class="fab fa-github"></i>
               </a>

@@ -8,15 +8,19 @@ mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost/betterbiz', {use
 
 // include mongoose models
 const db = require( '../model' )
+const categoryList = ['Restaurant', 'Shop', 'Service', 'Leisure', 'Culture']
 
 const orm = {
     getAllBusinesses: async () => {
         await db.Business.find({})
     },
 
-    // getBusinessByName: async () => {
-
-    // },
+    getBusByAttribute: async (category) => {
+        //if category is one of the business type return 
+        // if( categoryList.indexOf(category)>-1 ){
+        const DBresult = await db.Business.find({ $or:[{busType: category},{hightlight: category}] })
+        return DBresult
+    },
 
     insertBusiness: async (busData) => {
         const returnBusiness = await db.Business.findOne({yelpId: busData.yelpId});
@@ -82,7 +86,8 @@ const orm = {
         const updateUser = await db.User.findOne({email: userEmail})
         console.log(updateUser)
         if(updateUser){
-            await db.User.updateOne({email: userEmail},{password: userPwd })
+            const passwordHash = await bcrypt.hash(userPwd, 10)
+            await db.User.updateOne({email: userEmail},{password: passwordHash })
             return true
         }else{
             return false
@@ -92,7 +97,7 @@ const orm = {
     loginUser: async function (userData, session){
         //check user type
         //if user type is one of the providers return provider information
-        if( userData.type === 'facebook'||'google'||'twitter'){
+        if( userData.type === 'facebook'||userData.type === 'google'||userData.type === 'twitter'){
             const returnUser = await db.User.findOne({firstName: userData.firstName})
             console.log(`Return user from ${userData.type}: ${returnUser}`)
             if( !returnUser ){
@@ -126,11 +131,11 @@ const orm = {
         return {
             isLogin: true,
             message: 'Successfully Logging in!',
+            type: userDB.type,
             id: userDB._id,
             name: userDB.firstName,
             email: userDB.email,
             session: userDB.session,
-            // createdAt: userDB.createdAt
         }
     },
 
@@ -202,6 +207,12 @@ const orm = {
             }
         ])
         return reviews[0];
+    },
+
+    submitEvent: async (eventInput) => {
+        console.log(`[submitEvent] data received: ${eventInput}`)
+        const newEvent = await db.Event.create(eventInput)
+        return newEvent
     }
 }
 

@@ -1,4 +1,4 @@
-.logoutBtn {
+logoutBtn {
   position: relative;
   /* width: 70px;
   height: 25px; */
@@ -36,3 +36,5 @@
 .navbar.bg-light a {
   color: #4a4a4a!important;
 }
+
+
