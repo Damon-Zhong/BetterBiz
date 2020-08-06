@@ -24,6 +24,9 @@ const BusinessSchema = new Schema({
     yelpId: {
         type: String
     },
+    image:{
+        type:String
+    },
     website: {
         type: String
     },
