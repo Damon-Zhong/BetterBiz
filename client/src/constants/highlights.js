@@ -1,21 +1,21 @@
 const highlights = {
-    Black: {
+    'Black-owned': {
         emoji: "🖤",
         title: "Black-owned"
     },
-    LGBT: {
+    'LGBT-owned': {
         emoji: "🏳️‍🌈",
         title: "LGBT-owned"
     },
-    Eco: {
+    'Eco-friendly': {
         emoji: "🌱",
         title: "Eco-friendly"
     },
-    Women: {
+    'Women-owned': {
         emoji: "♀",
         title: "Women-owned"
     },
-    Community: {
+    'Community impact': {
         emoji: "🤲",
         title: "Community impact"
     }
