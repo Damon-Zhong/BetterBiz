@@ -1,77 +1,56 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
-const Navbar = (props) => {
+const HeaderNavbar = (props) => {
   const signOut = () => {
     window.localStorage.clear();
     window.location.pathname = "/";
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link to="/">BetterBiz</Link>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">
-              Home{" "}
-              {window.location === "/" ? (
-                <span className="sr-only">(current)</span>
-              ) : (
-                ""
-              )}
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/submit">
-              Submit Business{" "}
-              {window.location === "/submit" ? (
-                <span className="sr-only">(current)</span>
-              ) : (
-                ""
-              )}
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/about">
-              About Us{" "}
-              {window.location === "/about" ? (
-                <span className="sr-only">(current)</span>
-              ) : (
-                ""
-              )}
-            </a>
-          </li>
-        </ul>
+      <Navbar bg="light" expand="lg">
+        <Link className="logo" to="/"></Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <NavDropdown title="Explore" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/black-owned">Black-owned</NavDropdown.Item>
+              <NavDropdown.Item href="/lgbt-owned">LGBT-owned</NavDropdown.Item>
+              <NavDropdown.Item href="/women-owned">Women-owned</NavDropdown.Item>
+              <NavDropdown.Item href="/eco-friendly">Eco-friendly</NavDropdown.Item>
+              <NavDropdown.Item href="/community">Community impact</NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="Businesses by type" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/restaurants">Restaurants</NavDropdown.Item>
+              <NavDropdown.Item href="/shops">Shops</NavDropdown.Item>
+              <NavDropdown.Item href="/serivce">Service</NavDropdown.Item>
+              <NavDropdown.Item href="/leisure">Leisure</NavDropdown.Item>
+              <NavDropdown.Item href="/culture">Culture</NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href="/submit">Submit business</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
         {props.currUser ? (
-          <span>
-            <p className="welcomeName">
-              Welcome Back! {props.currUser.name}
-            </p>
-            <a className="logoutBtn" href="/" onClick={signOut}>
+          <Nav className="mr-auto">
+            <Nav.Link href="/account">
+              Welcome back! {props.currUser.name}
+            </Nav.Link>
+            <Nav.Link className="logoutBtn" href="/" onClick={signOut}>
               Log Out
-            </a>
-          </span>
+            </Nav.Link>
+          </Nav>
         ) : (
-          <Link className="loginBtn" to="/account">
-            Login | Signup
-          </Link>
+          <Nav className="mr-auto">
+            <Nav.Link href="/account">Log in</Nav.Link>
+            <Nav.Link href="/account/signup">Sign up</Nav.Link>
+          </Nav>
         )}
-      </div>
-    </nav>
+      </Navbar>
   );
 };
 
-export default Navbar;
+export default HeaderNavbar;

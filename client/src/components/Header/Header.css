@@ -18,6 +18,14 @@
     0 50px 40px rgba(0, 0, 0, 0.05) !important;
 }
 
+.headline {
+  color: #ED7562;
+}
+
+.intro {
+  font-weight: 400;
+}
+
 .homepage {
   font-size: 60px!important;
 }
@@ -89,9 +97,5 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
-  }
-
-  .intro {
-    font-weight: 400;
   }
 }

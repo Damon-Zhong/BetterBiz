@@ -10,7 +10,7 @@ const Header = () => {
       <div className="mobile-header"></div>
       <header className="desktop-header d-flex">
         <div className="container text-center my-auto headerText">
-          <h1 className="homepage mb-3">Discover new businesses in Toronto</h1>
+          <h1 className="headline homepage mb-3">Discover new businesses in Toronto</h1>
           <h5 className="intro mb-5">
             BetterBiz is here to give visibility to underrepresented businesses in Toronto. We want to help you support diverse businesses with a positive impact on their community.
           </h5>
