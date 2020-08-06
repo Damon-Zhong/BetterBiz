@@ -9,9 +9,8 @@ const db = require( '../model' )
 function router( app ){
     //[GET] business by category
     app.get('/api/overview/:category', async ( req, res ) => {
-        console.log( '[GET] business by category.....' )
+        console.log( `[GET] business by category.....${req.params.category}` )
         const category = req.params.category
-        // const term = req.query.term
         const results = await orm.getBusByAttribute(category)
         res.send(results)
     })

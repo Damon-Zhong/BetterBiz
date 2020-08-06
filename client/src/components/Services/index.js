@@ -42,23 +42,23 @@ export default () => {
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={heart} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">BLACK-<br/>OWNED<br/><Link to='/overview/black-owned'>More</Link></p>
+          <p className="highlightKeyword text-center">BLACK-<br/>OWNED<br/><Link to='/overview/Black'>More</Link></p>
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={lgbt} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">LGBT-<br/>OWNED<br/><Link to='/overview/lgbt-owned'>More</Link></p>
+          <p className="highlightKeyword text-center">LGBT-<br/>OWNED<br/><Link to='/overview/LGBT'>More</Link></p>
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={woman} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">WOMEN-<br/>OWNED<br/><Link to='/overview/women-owned'>More</Link></p>
+          <p className="highlightKeyword text-center">WOMEN-<br/>OWNED<br/><Link to='/overview/Women'>More</Link></p>
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={eco} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">ECO-<br/>FRIENDLY<br/><Link to='/overview/eco-friendly'>More</Link></p>
+          <p className="highlightKeyword text-center">ECO-<br/>FRIENDLY<br/><Link to='/overview/Eco'>More</Link></p>
         </Col>
         <Col sm={2} className="p-0 mb-5">
           <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={community} style={{maxWidth: "100px", width: "30%"}}/>
-          <p className="highlightKeyword text-center">COMMUNITY IMPACT<br/><Link to='/overview/community'>More</Link></p>
+          <p className="highlightKeyword text-center">COMMUNITY IMPACT<br/><Link to='/overview/Community'>More</Link></p>
         </Col>
         <Col sm={1} className="p-0">
         </Col>

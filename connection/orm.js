@@ -4,13 +4,11 @@ const bcrypt = require('bcrypt');
 var Filter = require('bad-words'),
     filter = new Filter();
 
-mongoose.connect(process.env.MONGODB_URI|| 
-    'mongodb://localhost/betterbiz', 
+mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost/betterbiz', 
     {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
 // include mongoose models
 const db = require( '../model' )
-const categoryList = ['Restaurant', 'Shop', 'Service', 'Leisure', 'Culture']
 
 const orm = {
     getAllBusinesses: async () => {
@@ -18,9 +16,8 @@ const orm = {
     },
 
     getBusByAttribute: async (category) => {
-        //if category is one of the business type return 
-        // if( categoryList.indexOf(category)>-1 ){
-        const DBresult = await db.Business.find({ $or:[{busType: category},{hightlight: category}] })
+        const DBresult = await db.Business.find({ $or:[{busType: category},{highlight: category}] })
+        console.log(`[getBusByAttribute]: ${DBresult}`)
         return DBresult
     },
 
