@@ -20,7 +20,7 @@ function AboutContentBottom(){
                         <p>Helping Torontonians find underrepresented businesses is our goal. We want people to discover all the diversity our city has to offer!</p>
                         <p>Here's what we do for our users:</p>
                         <p>
-                            <li>Categorized business based on community </li>
+                            <li>Categorize businesses based on community impact</li>
                             <li>
                             Get key details about each business, delivery,
                             reviews, website links etc.{" "}
