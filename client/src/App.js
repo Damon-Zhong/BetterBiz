@@ -5,7 +5,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import SubmitPage from "./pages/submitBus";
-import AboutUs from "./components/AboutUs";
+import AboutPage from "./pages/AboutPage";
 import AccountIndex from "./components/AccountIndex";
 import BusinessPage from "./pages/businessPage";
 import SocialFollow from "./components/SocialFollow";
@@ -33,7 +33,7 @@ function App() {
           <SubmitPage />
         </Route>
         <Route path="/about">
-          <AboutUs />
+          <AboutPage />
         </Route>
         <Route exact path="/events">
           <Events />

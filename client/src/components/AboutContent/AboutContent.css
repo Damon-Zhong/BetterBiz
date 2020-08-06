@@ -1,0 +1,15 @@
+.categoryImageMission {
+    background-image: url(../../images/support.jpg);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+}
+
+.categoryImageSources {
+    background-image: url(../../images/photo.png);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}

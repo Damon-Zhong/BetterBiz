@@ -33,7 +33,6 @@ img::selection {
 
 .team-member { 
   flex-direction: row; 
-  margin-right: 3rem;
   margin-bottom: 3rem;
   text-align: center;
 } 

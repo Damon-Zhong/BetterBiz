@@ -7,7 +7,7 @@ function ClaimBusiness(){
             <hr/>
             <div className="claimbusiness mt-5">
                 <h5>Is this your business?</h5>
-                <p>If this is your business, you can claim this business page by sending an email to <a href="mailto:contact.betterbiz@gmail.com">contact.betterbiz@gmail.com</a>. We'll ask you to verify that you're the owner of this business. After that, you'll be able to post promotions and messages to your business page.</p>
+                <p>If this is your business and you wish to not be featured on this page, simply send an email to <a href="mailto:contact.betterbiz@gmail.com">contact.betterbiz@gmail.com</a> to let us know. Please also reach out to us if you have any other feedback, we'd love to hear from you!</p>
             </div>
         </div>
     )

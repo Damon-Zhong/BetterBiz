@@ -1,0 +1,16 @@
+.aboutHeader {
+    height: 500px;
+}
+
+.aboutHeaderImage {
+    background-image: url(../../images/loveTo.gif);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+}
+.aboutHeaderText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
