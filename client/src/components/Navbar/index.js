@@ -11,7 +11,7 @@ const HeaderNavbar = (props) => {
     window.location.pathname = "/";
   };
   return (
-      <Navbar bg="light" expand="lg">
+      <Navbar sticky="top" bg="light" expand="lg">
         <Link className="logo" to="/"></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
