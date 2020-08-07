@@ -9,6 +9,7 @@ function SignUp() {
     firstName: "",
     lastName: "",
     password: "",
+    type: "Customer",
   });
 
   const [formState, setFormState] = useState({
@@ -66,9 +67,9 @@ function SignUp() {
           <div className="form-group">
             {/* user type */}
             <label>Type of User</label>
-            <select className="mb-2 form-control" id="type" onChange={handleInputChange} required >
-              <option>Customer</option>
-              <option>Business</option>
+            <select className="mb-2 form-control" id="type" onChange={handleInputChange} required value={formInput.type}>
+              <option value="Customer">Customer</option>
+              <option value="Business">Business</option>
             </select>
             {/* Email */}
             <label>Email</label>

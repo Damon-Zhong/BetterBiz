@@ -140,30 +140,30 @@ const orm = {
     },
 
     getReviews: async (businessId) => {
-        // const reviews = await db.Review.find({businessId: businessId});
-        const reviews = await db.Review.aggregate([
-            { '$match': {
-                businessId: businessId
+        const reviews = await db.Review.find({ businessId });
+
+        if (reviews.length) {
+            const users = {};
+            for (let i=0; i<reviews.length; i++) {
+                const review = reviews[i];
+                const user = await db.User.findOne({ _id: new mongoose.Types.ObjectId(review.userId) });
+                users[review.userId] = user;
             }
-            },
-            { '$lookup': {
-                'let': { 'userObjId': { '$toObjectId': '$userId' } },
-                'from': 'users',
-                'pipeline': [
-                    { '$match': { '$expr': { '$eq': [ '$_id', '$$userObjId' ] } } }
-                ],
-                'as': 'userDetails'
-            }},
-            { '$project': {
-                '_id': 1,
-                'review': 1,
-                'createdAt': 1,
-                'userDetails.firstName': 1,
-                'userDetails.lastName': 1
-            }
-            }
-        ])
-        return reviews;
+
+            return reviews.reduce((formattedReviews, review) => {
+                return [
+                    ...formattedReviews,
+                    {
+                        _id: review._id,
+                        review: review.review,
+                        createdAt: review.createdAt,
+                        firstName: users[review.userId].firstName,
+                    }
+                ]
+            }, []);
+        }
+
+        return [];
     },
 
     submitReview: async (reviewData) => {
@@ -183,30 +183,20 @@ const orm = {
             }
         }
         await db.Review.create(dataToSubmit);
-        const reviews = await db.Review.aggregate([
-            { '$match': {
-                userId: dataToSubmit.userId,
-                businessId: dataToSubmit.businessId,
-            }
-            },
-            { '$lookup': {
-                'let': { 'userObjId': { '$toObjectId': '$userId' } },
-                'from': 'users',
-                'pipeline': [
-                    { '$match': { '$expr': { '$eq': [ '$_id', '$$userObjId' ] } } }
-                ],
-                'as': 'userDetails'
-            }},
-            { '$project': {
-                '_id': 1,
-                'review': 1,
-                'createdAt': 1,
-                'userDetails.firstName': 1,
-                'userDetails.lastName': 1
-            }
-            }
-        ])
-        return reviews[0];
+
+        const review = await db.Review.findOne({
+            userId: dataToSubmit.userId,
+            businessId: dataToSubmit.businessId,
+        });
+
+        const user = await db.User.findOne({ _id: new mongoose.Types.ObjectId(dataToSubmit.userId) });
+
+        return {
+            _id: review._id,
+            review: review.review,
+            createdAt: review.createdAt,
+            firstName: user.firstName,
+        }
     },
 
     submitEvent: async (eventInput) => {

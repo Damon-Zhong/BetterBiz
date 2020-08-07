@@ -51,7 +51,7 @@ function ShowReviews({businessId}){
                             <div key={review._id} className="card mb-3">
                                 <div className="card-body">
                                     <h5 className="card-title">{review.review.title}</h5>
-                                    <h6 className="card-subtitle mb-2 text-muted">Posted by {review.userDetails[0].firstName} on {(new Date(review.createdAt)).toDateString()}</h6>
+                                    <h6 className="card-subtitle mb-2 text-muted">Posted by {review.firstName} on {(new Date(review.createdAt)).toDateString()}</h6>
                                     <p className="card-text">{review.review.body}</p>
                                 </div>
                             </div>
