@@ -171,6 +171,17 @@ const SubmitBus = () => {
                   </label>
                 </div>
     
+                <label className="mt-3 formLabel" htmlFor="website">What is the businesses' website?</label>
+                <input
+                  onChange={handleInputChange}
+                  value={busData.website}
+                  type="text"
+                  className="form-control"
+                  id="website"
+                  name="website"
+                  required
+                />
+
                 <label className="mt-3 formLabel" htmlFor="summary">Add a short business description</label>
                 <div class="form-group">
                   <label for="businessDescription">Please summarize what this business has to offer.</label>
