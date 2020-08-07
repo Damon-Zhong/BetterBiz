@@ -13,9 +13,9 @@
     inset -4px -4px 5px rgba(0, 0, 0, 0.05), 0 50px 40px rgba(0, 0, 0, 0.05) !important;
 }
 
-.formLabel {
+/* .formLabel {
   font-weight: bold;
-}
+} */
 
 .outlineButton.btn-primary {
   color: #ED7562!important;
@@ -25,6 +25,10 @@
 
 .form {
   width: 80%!important;
+}
+
+.notBold {
+  font-weight: 400!important;
 }
 
 @media only screen and (max-width: 600px) {
