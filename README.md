@@ -27,7 +27,7 @@
 #### Landing page
  <p> Our Homepage provides an overview of our app, walks the viewer over as what our app is about, and the services our application provides. The simple design allows users to find the type of business they are looking for. </p>  
 
-Home page 1                |  Home page 2
+               |  
 :-------------------------:|:-------------------------:
 ![landingpage2](https://user-images.githubusercontent.com/64391826/89507662-d2375b00-d79a-11ea-983e-7db0dd7d36fd.png)  |  ![landpage1](https://user-images.githubusercontent.com/64391826/89507669-d4011e80-d79a-11ea-9890-c44dfa7b1746.png)
   
@@ -107,13 +107,14 @@ To get started with the application, simply clone the project and run "npm run i
 
 
 ## Credits ***need to edit***
-- The project uses the MongoDB npm package to connect to the SQL database and to perform queries. Documentation available under: https://www.npmjs.com/package/mysql
+- The project uses the MongoDB npm package to connect to the SQL database and to perform queries. Documentation available under: https://www.npmjs.com/package/mongose
 - This application uses the express module for Node.js. Documentation is available under https://www.npmjs.com/package/express.
 - The dotenv module is used to handle database credentials. Documentation is available under: https://www.npmjs.com/package/dotenv
+- The moments module is used for the calendar feature. Documentation is available unser: https://www.npmjs.com/package/moment
 - Heroku is in use to host the application. Documentation: https://devcenter.heroku.com/categories/reference
-- The application is using the Heroku add-on "JawsDB" for the SQL database integration. Documentation available under: https://www.jawsdb.com/docs/
 - Bootstrap is used to facilitate a the mobile-first setup of the application. Documentation under: https://getbootstrap.com/docs/4.1/getting-started/introduction/
-- Google Fonts is in use for the display fonts. More information available under: https://fonts.google.com/about
+- Google Fonts is in use for the display fonts. More information available under: https://fonts.google.com/about  
+- DrawKits used for styling our website with images. For more information: https://www.drawkit.io
 
  [Back To The Top](#table-of-contents)
 
