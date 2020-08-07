@@ -70,14 +70,10 @@ function LogIn(props) {
     <div className="container">
       {formState.isLogin ? <Redirect to="/" /> : ""}
       <div className="container col-xl-5 col-lg-6 col-md-8 col-sm-10">
-        <h1 className="text-center">Log In</h1>
+        <h2 className="mb-2">Log In</h2>
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
-            <label>
-              <i>
-                <strong> Email</strong>
-              </i>
-            </label>
+            <label>Email</label>
             <input
               type="email"
               className="form-control form-control-lg"
@@ -86,11 +82,7 @@ function LogIn(props) {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="exampleInputPassword1">
-              <i>
-                <strong> Password</strong>
-              </i>
-            </label>
+            <label htmlFor="exampleInputPassword1">Password</label>
             <input
               type="password"
               className="form-control form-control-lg"
@@ -101,25 +93,24 @@ function LogIn(props) {
           <div className="button">
             <div className="row">
               <button
-                className="col-2 btn btn-primary box3"
+                className="ml-3 btn btn-primary signup-btn"
                 style={{ marginBottom: "10px" }}
                 id="logIntoAccount"
               >
                 Submit
               </button>
-              <span className="col-10 pl-5 loginTxt">
+            </div>
+            <span className="loginTxt">
                 <a
-                  className="text-decoration-none text-white"
+                  className="text-decoration-none"
                   href="/account/signup"
                 >
                   <u>Don't have an account yet? </u>
                 </a>
-              </span>
-            </div>
-
-            <p className="pl-5 loginTxt ">
+            </span>
+            <p className="loginTxt text-left">
               <a
-                className="text-decoration-none text-white"
+                className="text-decoration-none"
                 href="/account/password"
               >
                 <u>Forgot your password? </u>

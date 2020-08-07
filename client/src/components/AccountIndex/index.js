@@ -6,7 +6,7 @@ import ChangePwd from "../ChangePwdForm";
 
 const AccountIndex = (props) => {
   return (
-    <section className="content-section bg-primary text-white">
+    <section className="content-section bg-primary">
       {/* {window.location.pathname === '/signup' ? (
       <div className="container text-center">
         <h2 className="mb-4"> Sign in rate and submit reviews ! </h2>
