@@ -47,7 +47,7 @@ function AboutTeam(){
                 >
                     <i class="fab fa-github"></i>
                 </a>
-                <a class="btn btn-dark btn-social mx-2" href="#!" target="_blank">
+                <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/damonzhong/" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
                 </div>
