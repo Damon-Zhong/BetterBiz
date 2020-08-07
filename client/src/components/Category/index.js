@@ -46,7 +46,9 @@ const Category = ({match}) => {
     const rows = createRows(cards);
     return (<div>
                 <div className="container mt-5">
-                <h3 className='mt-3 mb-3 categoryHead'>Toronto {match.params.category}s: find diverse businesses in our city</h3>     
+                <h3 className='mt-3 mb-3 categoryHead'>
+                    Toronto {match.params.category === 'Restaurant' || match.params.category === 'Shop' ? 
+                        match.params.category+'s' : match.params.category}: find diverse businesses in our city</h3>     
                 </div>
                 <div className="container mt-5">
                 {rows.map((row, index) => {
