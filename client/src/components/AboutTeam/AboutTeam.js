@@ -88,7 +88,7 @@ function AboutTeam(){
                     alt=""
                 />
                 <h4 className="mt-3">Sadia</h4>
-                <p class="text-muted">Sadia is a web developer based in Toronto.</p>
+                <p class="text-muted">Sadia is a web developer who is currently a student at York University, studying Accounting.</p>
                 <a
                     className="btn btn-dark btn-social mx-2"
                     href="https://github.com/sadia110"
