@@ -12,6 +12,8 @@ function BusinessPage({match}){
     const [data, setData] = useState({});
     const [errors, setErrors] = useState(false);
 
+    const array = ["Restaurants", "Restaurant", "Shop", "Shops"];
+
     useEffect(() => {
         fetch(`/api/businesses/${match.params.businessName}`)
             .then(res => res.json())
@@ -46,7 +48,7 @@ function BusinessPage({match}){
     <div>
         <BusinessImage imageUrl={data.yelp.image_url} />
         <BusinessSummary name={data.betterBiz.name} summary={data.betterBiz.summary} address={data.yelp.location.display_address} website={data.betterBiz.website} phone={data.yelp.phone} highlights={data.betterBiz.highlight}/>
-        {data.betterBiz.ownDelivery ? <BusinessHighlights /> : null}
+        {array.includes(data.betterBiz.busType) ? <BusinessHighlights ownDelivery={data.betterBiz.ownDelivery} website={data.betterBiz.website} phone={data.yelp.phone} /> : null}
         <ShowReviews businessId={data.betterBiz._id}/>
         <ClaimBusiness />
     </div>

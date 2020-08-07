@@ -8,7 +8,7 @@ import Image from "react-bootstrap/Image";
 import delivery from "../../images/delivery.png";
 import "./BusinessHighlights.css";
 
-function BusinessHighlights(){
+function BusinessHighlights({ownDelivery, phone, website}){
     return (
         <div>
             <div className="line mt-5"></div>
@@ -20,8 +20,8 @@ function BusinessHighlights(){
                     <Col sm={6} className="deliveryText">
                         <div>
                             <h5>Help this business make more money</h5>
-                            <p>This business has their own delivery service. If you choose this over the big delivery platforms, you can help this business make more money off of your transaction.</p>
-                            <p><b>Call 067151865 or visit www.businessname.com to place your order.</b></p>
+                            {ownDelivery ? <p dangerouslySetInnerHTML={{ __html: `This business has their own delivery service. Call ${phone} or visit <a href="${website.startsWith('http') ? website : `http://${website}`}" target="_blank">${website}</a> to place your order.` }} />  : <p>If you pick up your order instead of ordering through the big delivery platforms, this business will get 100% of the amount you pay.</p>} 
+                            <p>Consider helping this business make more money off of your transaction!</p>
                         </div>
                     </Col>
                 </Row>

@@ -4,8 +4,8 @@ import "./EventCard.css";
 
 const EventCard = (props) => {
   return (
-    <div className="col-md-4 cardEach">
-      <div className="card h-100 cardStyle">
+    <div className="col-md-4 mt-5 cardEach">
+      <div className="card h-100">
         {/* image_url */}
         <img
           src={
@@ -17,7 +17,7 @@ const EventCard = (props) => {
           className="card-img-top"
           alt={props.id}
         />
-        <div className="card-body cardStyle">
+        <div className="card-body">
           {/* name */}
           <h5 className="card-title">{props.name}</h5>
           {/* description */}
