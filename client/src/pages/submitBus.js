@@ -139,7 +139,7 @@ const SubmitBus = () => {
                 </select>
     
                 <label className="mt-3 formLabel" htmlFor="highlights">What makes this business special?</label>
-                <label>Please keep in mind that BetterBiz is targeted at underrepresented businesses, so at least one of the following criteria should be met.</label>
+                <p className="notBold">Please keep in mind that BetterBiz is targeted at underrepresented businesses, so at least one of the following criteria should be met.</p>
                 <div class="form-check">
                   <input class="form-check-input" onClick={handleHighlightChange} type="checkbox" value="Black-owned" id="black-owned-check"/>
                   <label class="form-check-label" for="black-owned-check">
@@ -171,16 +171,27 @@ const SubmitBus = () => {
                   </label>
                 </div>
     
+                <label className="mt-3 formLabel" htmlFor="website">What is the businesses' website?</label>
+                <input
+                  onChange={handleInputChange}
+                  value={busData.website}
+                  type="text"
+                  className="form-control"
+                  id="website"
+                  name="website"
+                  required
+                />
+
                 <label className="mt-3 formLabel" htmlFor="summary">Add a short business description</label>
                 <div class="form-group">
-                  <label for="businessDescription">Please summarize what this business has to offer.</label>
-                  <textarea class="form-control" id="summary" onChange={handleInputChange} rows="3"></textarea>
+                  <p className="notBold" for="businessDescription">Please summarize what this business has to offer.</p>
+                  <textarea class="form-control" id="summary" onChange={handleInputChange} required rows="3"></textarea>
                 </div>
     
                 <label className="mt-3 formLabel" htmlFor="ownDelivery">Does this business offer its own, independent delivery services?</label>
                 <div class="form-group">
-                  <label for="businessDelivery">Letting others know how to order from this business not using one of the big delivery platforms can help this business make more money.</label>
-                  <select value={busData.ownDelivery ? "Yes" : "No"}class="form-control" id="ownDelivery" onChange={handleDeliveryChange}>
+                  <p className="notBold" for="businessDelivery">Letting others know how to order from this business not using one of the big delivery platforms can help this business make more money.</p>
+                  <select value={busData.ownDelivery ? "Yes" : "No"}class="form-control" required id="ownDelivery" onChange={handleDeliveryChange}>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                   </select>
@@ -195,6 +206,7 @@ const SubmitBus = () => {
                     className="form-control"
                     id="deliveryWebsite"
                     name="deliveryWebsite"
+                    required
                   />
                 </div>) : null}
               </div>

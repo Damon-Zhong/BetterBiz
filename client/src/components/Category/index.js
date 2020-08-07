@@ -29,7 +29,7 @@ const Category = ({match}) => {
     const cards = 
         businessList.map( (business, index) => {
             return (
-                <Col className="col-sm-4" key={index}>
+                <Col sm={4} key={index}>
                     <Card className="mb-2 category-card" style={{ width: '100%' }}>
                         <Card.Img variant="top" src={business.image ? business.image : "https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483296.jpg%27%7D"} />
                         <Card.Body>

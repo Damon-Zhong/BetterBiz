@@ -1,5 +1,5 @@
  # BetterBiz 
- ## Plateform that help people connect with underrepresented business. 
+ ## Platform that helps people connect with underrepresented businesses 
 
 ![LandingPage](https://user-images.githubusercontent.com/64391826/89501772-ea56ac80-d791-11ea-9f57-ed6677804197.png)
  
@@ -18,57 +18,69 @@
   ---
 
   ## Description
- <p> BetterBuz is a platform that serves both customers and the business. For our business we want to give a platform where entrepreneurs can showcase their business and allow them to reach out and connect to more people.  As for our users we want them to be able to connect with communities that they care about and be able to support their local business . As Torontoian we are proud of our diversity, especially in the small business sector. However many businesses that are classified as minority are overlooked or simply not given enough credit. BetterBiz wants to shine the spotlight on those businesses and help people support their communities.
+ <p> BetterBiz is a platform that serves both customers and businesses. For our businesses we want to provide a platform where entrepreneurs can showcase their business and allow them to reach out and connect to more people.  For our users we want to connect them with communities that they care about and be able to support new local businesses. As Torontonians we are proud of our diversity, especially in the small business sector. However, many businesses that are classified as minority are overlooked or simply not given enough credit. BetterBiz wants to shine the spotlight on those businesses and help people support their communities.
  
- <br>The application is accessible under: </p>  
+ <br>The application is accessible under: https://betterbiz01.herokuapp.com </p>  
 
 ### Core features
 
 #### Landing page
- <p> Our Homepage provides an overview of our app, walks the viewer over as what our app is about, and the services our application provides. The simple design allows users to find the type of business they are looking for. </p>  
+ <p> Our Homepage provides an overview of our app, walks the viewer through what our app is about, and the services our application provides. The simple design allows users to find the type of business they are looking for. </p>  
+ 
 
-Home page 1                |  Home page 2
+
+1                          |  2
 :-------------------------:|:-------------------------:
-![landingpage2](https://user-images.githubusercontent.com/64391826/89507662-d2375b00-d79a-11ea-983e-7db0dd7d36fd.png)  |  ![landpage1](https://user-images.githubusercontent.com/64391826/89507669-d4011e80-d79a-11ea-9890-c44dfa7b1746.png)
-  
+  ![landingpage2](https://user-images.githubusercontent.com/64391826/89507662-d2375b00-d79a-11ea-983e-7db0dd7d36fd.png) |  ![landpage1](https://user-images.githubusercontent.com/64391826/89507669-d4011e80-d79a-11ea-9890-c44dfa7b1746.png) 
+
 
   
 
 #### Explore Page
- <p> We have listed 5 categories that we feel represent our diverse society. Users are able to  explore the different types of business that are available for each category. </p> 
+ <p> We have listed 5 categories that we feel provide a good snapshot our diverse community. Users are able to explore the different types of businesses that are available for each group. </p>  
+ 
+![Explore](https://user-images.githubusercontent.com/64391826/89622216-b4ccc480-d860-11ea-837e-759c2ff01f9b.png)
 
  
  
 #### Business Type Page 
- <p>  Users can narrow down their search based on the type of business they are looking for.
+ <p>  Users can narrow down their search based on the type of business they are looking for, whether it's restaurants, shops, services, culture or leisure. Our team worked hard on rendering business into our database—but we also need our community's help, which is why we've built a submit page for businesses (see below).
 </p>
 
+![Businesstype](https://user-images.githubusercontent.com/64391826/89622394-fa898d00-d860-11ea-99a6-5efa047544ee.png)
   
 
 #### Special Events Page 
- <p> Our Special Events page is an additional feature  that we believe will be useful for our users. It enables users to search through the calendar and they are presented with events taking place in a city. </p> 
+ <p> Our Special Events page is an additional feature that we believe will be useful for our users. It enables users to search through the calendar to be presented with charity and community events taking place in Toronto along with links for tickets. </p> 
 
   
   
 #### Submit Page  
  <p> This feature allows for entrepreneurs to submit their own business into our database to be featured on our website. </p>  
 
+![Submitpage](https://user-images.githubusercontent.com/64391826/89622503-2573e100-d861-11ea-91a0-806b8f515ab4.png)
    
 #### Sign-up/Login   
  <p> Users are able to sign up as members and share their own experience with others by submitting reviews on the business page. </p> 
 
+![Signup](https://user-images.githubusercontent.com/64391826/89622287-d2019300-d860-11ea-82d6-0bc9512f3078.png)
 
 [Back To The Top](#table-of-contents)
 
   ---  
 ## Future development roadmap  
-<p>In the foreseeable feature our Team has many ideas that can make this app more user friendly. The application that are to be added in the future are:</p>      
+<p>For the foreseeable feature our team has many ideas that can make this app more user friendly. The features we would like to add in the future are:</p>      
 
-- Add additional categories   
-- Improve search option by being able to combine categories (black owned  + LGBT owned )
-- Expand our platform to other major cities  
-- Allow business to advertise a promotion 
-- Able to filter business based on distance of user location  
+- Enable different functionalities for business users
+     - Claim business
+     - Create events/promotions for claimed businesses
+- Allow business users to advertise a promotion
+- Add additional categories
+- Improve search option by being able to combine categories (black owned + LGBT owned)
+- Expand our platform to other major cities
+- Enable map/street view on business profile
+- Enable business sharing on social media platforms
+
  
 
 
@@ -86,12 +98,10 @@ Home page 1                |  Home page 2
 - JavaScript 
 - Node 
 - MongoDB 
-
    
 ### APIs
-- Business : Yelp API ([Documentation](
-- Events: ? API ([Documentation](
-
+- Yelp Fusion API 
+- Event API 
 
 ### Hosting Platforms 
 - Github
@@ -106,14 +116,15 @@ To get started with the application, simply clone the project and run "npm run i
   ----
 
 
-## Credits ***need to edit***
-- The project uses the MongoDB npm package to connect to the SQL database and to perform queries. Documentation available under: https://www.npmjs.com/package/mysql
+## Credits 
+- The project uses the MongoDB npm package to connect to the SQL database and to perform queries. Documentation available under: https://www.npmjs.com/package/mongose
 - This application uses the express module for Node.js. Documentation is available under https://www.npmjs.com/package/express.
 - The dotenv module is used to handle database credentials. Documentation is available under: https://www.npmjs.com/package/dotenv
+- The moments module is used for the calendar feature. Documentation is available unser: https://www.npmjs.com/package/moment
 - Heroku is in use to host the application. Documentation: https://devcenter.heroku.com/categories/reference
-- The application is using the Heroku add-on "JawsDB" for the SQL database integration. Documentation available under: https://www.jawsdb.com/docs/
 - Bootstrap is used to facilitate a the mobile-first setup of the application. Documentation under: https://getbootstrap.com/docs/4.1/getting-started/introduction/
-- Google Fonts is in use for the display fonts. More information available under: https://fonts.google.com/about
+- Google Fonts is in use for the display fonts. More information available under: https://fonts.google.com/about  
+- DrawKits is used for styling our website with images. For more information: https://www.drawkit.io
 
  [Back To The Top](#table-of-contents)
 
