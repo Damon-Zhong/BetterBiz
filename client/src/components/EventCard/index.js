@@ -4,7 +4,7 @@ import "./EventCard.css";
 
 const EventCard = (props) => {
   return (
-    <div className="col-md-4 mt-5 cardEach">
+    <div sm={4} className="mt-5 cardEach">
       <div className="card h-100">
         {/* image_url */}
         <img
