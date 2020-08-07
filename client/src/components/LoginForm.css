@@ -16,3 +16,17 @@
     inset 0px 0px 5px #1d809f, inset -4px -4px 5px rgba(0, 0, 0, 0.05),
     0 50px 40px rgba(0, 0, 0, 0.05) !important;
 }
+
+.content-section.bg-primary {
+  background-color: #f4f4f4!important;
+}
+
+.btn-primary.signup-btn {
+  color: #ED7562!important;
+  border: 2px solid #ED7562!important;
+  background-color: #F2F2F2!important;
+}
+
+.form-group label {
+  font-weight: bold!important;
+}

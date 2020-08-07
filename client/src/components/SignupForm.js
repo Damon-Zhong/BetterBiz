@@ -61,6 +61,7 @@ function SignUp() {
     <div className="container">
       <div className="container col-xl-5 col-lg-6 col-md-8 col-sm-10">
         <h2 className="mb-3">Create an account</h2>
+        <p>Please create an account if you want to leave a review for one of the businesses featured on this website.</p>
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
             {/* user type */}

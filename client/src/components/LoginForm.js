@@ -71,6 +71,9 @@ function LogIn(props) {
       {formState.isLogin ? <Redirect to="/" /> : ""}
       <div className="container col-xl-5 col-lg-6 col-md-8 col-sm-10">
         <h2 className="mb-2">Log In</h2>
+        <p>
+          Welcome back! Please log in below to access your account and submit reviews for the businesses featured on this page.
+        </p>
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
             <label>Email</label>
