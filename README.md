@@ -26,23 +26,28 @@
 
 #### Landing page
  <p> Our Homepage provides an overview of our app, walks the viewer over as what our app is about, and the services our application provides. The simple design allows users to find the type of business they are looking for. </p>  
+ 
 
-               |  
+
+1                          |  2
 :-------------------------:|:-------------------------:
-![landingpage2](https://user-images.githubusercontent.com/64391826/89507662-d2375b00-d79a-11ea-983e-7db0dd7d36fd.png)  |  ![landpage1](https://user-images.githubusercontent.com/64391826/89507669-d4011e80-d79a-11ea-9890-c44dfa7b1746.png)
-  
+  ![landingpage2](https://user-images.githubusercontent.com/64391826/89507662-d2375b00-d79a-11ea-983e-7db0dd7d36fd.png) |  ![landpage1](https://user-images.githubusercontent.com/64391826/89507669-d4011e80-d79a-11ea-9890-c44dfa7b1746.png) 
+
 
   
 
 #### Explore Page
- <p> We have listed 5 categories that we feel represent our diverse society. Users are able to  explore the different types of business that are available for each category. </p> 
+ <p> We have listed 5 categories that we feel represent our diverse society. Users are able to  explore the different types of business that are available for each category. </p>  
+ 
+![Explore](https://user-images.githubusercontent.com/64391826/89622216-b4ccc480-d860-11ea-837e-759c2ff01f9b.png)
 
  
  
 #### Business Type Page 
- <p>  Users can narrow down their search based on the type of business they are looking for.
+ <p>  Users can narrow down their search based on the type of business they are looking for whether its resaurants, shops ,services, culture or leisure. Our team worked hard in rendering business into our database. 
 </p>
 
+![Businesstype](https://user-images.githubusercontent.com/64391826/89622394-fa898d00-d860-11ea-99a6-5efa047544ee.png)
   
 
 #### Special Events Page 
@@ -53,10 +58,12 @@
 #### Submit Page  
  <p> This feature allows for entrepreneurs to submit their own business into our database to be featured on our website. </p>  
 
+![Submitpage](https://user-images.githubusercontent.com/64391826/89622503-2573e100-d861-11ea-91a0-806b8f515ab4.png)
    
 #### Sign-up/Login   
  <p> Users are able to sign up as members and share their own experience with others by submitting reviews on the business page. </p> 
 
+![Signup](https://user-images.githubusercontent.com/64391826/89622287-d2019300-d860-11ea-82d6-0bc9512f3078.png)
 
 [Back To The Top](#table-of-contents)
 
@@ -64,11 +71,16 @@
 ## Future development roadmap  
 <p>In the foreseeable feature our Team has many ideas that can make this app more user friendly. The application that are to be added in the future are:</p>      
 
-- Add additional categories   
-- Improve search option by being able to combine categories (black owned  + LGBT owned )
-- Expand our platform to other major cities  
-- Allow business to advertise a promotion 
-- Able to filter business based on distance of user location  
+- Enable different functionalities for business users
+     - Claim business
+     - Create events/promotions for claimed businesses
+- Allow business users to advertise a promotion
+- Add additional categories
+- Improve search option by being able to combine categories (black owned + LGBT owned )
+- Expand our platform to other major cities
+- Enable map/street view on business profile
+- Enable business sharing on social media platforms
+
  
 
 
@@ -89,8 +101,8 @@
 
    
 ### APIs
-- Business : Yelp API ([Documentation](
-- Events: ? API ([Documentation](
+- Yelp Fusion API 
+- Event API 
 
 
 ### Hosting Platforms 
