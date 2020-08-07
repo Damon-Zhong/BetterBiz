@@ -24,10 +24,12 @@ function SubmitReviews({addReview, businessId}){
             const userData = localStorage.getItem("currUser");
             if(!userData){
                 setErrorMessage("You must be logged in to submit a review.")
+                return;
             }
             const parsedUser = JSON.parse(userData);
             if(!parsedUser || !"id" in parsedUser){
                 setErrorMessage("You must be logged in to submit a review.")
+                return;
             }
             setErrorMessage("");
             fetch('/api/review', {
