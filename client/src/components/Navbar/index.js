@@ -34,9 +34,8 @@ const HeaderNavbar = (props) => {
             <Nav.Link href="/submit">Submit business</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
           </Nav>
-        </Navbar.Collapse>
-        {props.currUser ? (
-          <Nav className="mr-auto">
+          {props.currUser ? (
+          <Nav>
             <Nav.Link href="/account">
               Welcome back! {props.currUser.name}
             </Nav.Link>
@@ -45,11 +44,12 @@ const HeaderNavbar = (props) => {
             </Nav.Link>
           </Nav>
         ) : (
-          <Nav className="mr-auto">
+          <Nav>
             <Nav.Link href="/account">Log in</Nav.Link>
             <Nav.Link href="/account/signup">Sign up</Nav.Link>
           </Nav>
         )}
+        </Navbar.Collapse>
       </Navbar>
   );
 };
