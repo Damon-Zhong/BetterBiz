@@ -18,9 +18,9 @@
   ---
 
   ## Description
- <p> BetterBuz is a platform that serves both customers and the businesses. For our businesses we want to give a platform where entrepreneurs can showcase their business and allow them to reach out and connect to more people.  As for our user (customeers)  we want them to be able to connect with communities that they care about and be able to support their local business . As Torontoian we are proud of our diversity, especially in the small business sector. However many businesses that are classified as minority are overlooked or simply not given enough credit. BetterBiz wants to shine the spotlight on those businesses and help people support their communities.
+ <p> BetterBuz is a platform that serves both customers and the businesses. For our businesses we want to give a platform where entrepreneurs can showcase their business and allow them to reach out and connect to more people.  As for our user (customers)  we want to connect them  with communities that they care about and be able to support their local business . As Torontonians we are proud of our diversity, especially in the small business sector. However many businesses that are classified as minority are overlooked or simply not given enough credit. BetterBiz wants to shine the spotlight on those businesses and help people support their communities.
  
- <br>The application is accessible under: </p>  
+ <br>The application is accessible under: https://betterbiz01.herokuapp.com </p>  
 
 ### Core features
 
@@ -37,21 +37,21 @@
   
 
 #### Explore Page
- <p> We have listed 5 categories that we feel represent our diverse society. Users are able to  explore the different types of business that are available for each category. </p>  
+ <p> We have listed 5 categories that we feel represent our diverse society. Users are able to  explore the different types of business that are available for each group. </p>  
  
 ![Explore](https://user-images.githubusercontent.com/64391826/89622216-b4ccc480-d860-11ea-837e-759c2ff01f9b.png)
 
  
  
 #### Business Type Page 
- <p>  Users can narrow down their search based on the type of business they are looking for whether its resaurants, shops ,services, culture or leisure. Our team worked hard in rendering business into our database. 
+ <p>  Users can narrow down their search based on the type of business they are looking for whether its restaurants,shops ,services, culture or leisure. Our team worked hard in rendering business into our database. 
 </p>
 
 ![Businesstype](https://user-images.githubusercontent.com/64391826/89622394-fa898d00-d860-11ea-99a6-5efa047544ee.png)
   
 
 #### Special Events Page 
- <p> Our Special Events page is an additional feature  that we believe will be useful for our users. It enables users to search through the calendar and they are presented with events taking place in a city. </p> 
+ <p> Our Special Events page is an additional feature  that we believe will be useful for our users. It enables users to search through the calendar and  are presented with events taking place in a city along with links for tickets. </p> 
 
   
   
