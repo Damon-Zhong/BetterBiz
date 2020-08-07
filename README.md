@@ -1,5 +1,5 @@
  # BetterBiz 
- ## Plateform that help people connect with underrepresented business. 
+ ## Platform that help people connect with underrepresented businesses. 
 
 ![LandingPage](https://user-images.githubusercontent.com/64391826/89501772-ea56ac80-d791-11ea-9f57-ed6677804197.png)
  
@@ -18,7 +18,7 @@
   ---
 
   ## Description
- <p> BetterBuz is a platform that serves both customers and the business. For our business we want to give a platform where entrepreneurs can showcase their business and allow them to reach out and connect to more people.  As for our users we want them to be able to connect with communities that they care about and be able to support their local business . As Torontoian we are proud of our diversity, especially in the small business sector. However many businesses that are classified as minority are overlooked or simply not given enough credit. BetterBiz wants to shine the spotlight on those businesses and help people support their communities.
+ <p> BetterBuz is a platform that serves both customers and the businesses. For our businesses we want to give a platform where entrepreneurs can showcase their business and allow them to reach out and connect to more people.  As for our user (customeers)  we want them to be able to connect with communities that they care about and be able to support their local business . As Torontoian we are proud of our diversity, especially in the small business sector. However many businesses that are classified as minority are overlooked or simply not given enough credit. BetterBiz wants to shine the spotlight on those businesses and help people support their communities.
  
  <br>The application is accessible under: </p>  
 
@@ -118,7 +118,7 @@ To get started with the application, simply clone the project and run "npm run i
   ----
 
 
-## Credits ***need to edit***
+## Credits 
 - The project uses the MongoDB npm package to connect to the SQL database and to perform queries. Documentation available under: https://www.npmjs.com/package/mongose
 - This application uses the express module for Node.js. Documentation is available under https://www.npmjs.com/package/express.
 - The dotenv module is used to handle database credentials. Documentation is available under: https://www.npmjs.com/package/dotenv
