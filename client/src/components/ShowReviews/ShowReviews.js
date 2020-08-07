@@ -44,7 +44,7 @@ function ShowReviews({businessId}){
             <div className="line mt-5"></div>
             <div className="container mt-5">
                 <h4 className="mb-3">What our users think about this business</h4>
-                {!data.length ? <p>This business does not have any reviews yet. If you want to leave a review, please <a href="http://google.ca">sign up or log in</a> and submit a review by clicking on the button below.</p> : null}
+                {!data.length ? <p>This business does not have any reviews yet. If you want to leave a review, please <a href="/account">sign up or log in</a> and submit a review by clicking on the button below.</p> : null}
                 <div id="reviewCards">
                     {data.length ? data.map(review => {
                         return(
