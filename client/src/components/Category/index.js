@@ -30,8 +30,8 @@ const Category = ({match}) => {
         businessList.map( (business, index) => {
             return (
                 <Col sm={4} key={index}>
-                    <Card className="mb-2 category-card" style={{ width: '100%' }}>
-                        <Card.Img variant="top" src={business.image ? business.image : "https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483296.jpg%27%7D"} />
+                    <Card className="mb-2 category-card" style={{ width: '100%', height:'60vh' }}>
+                        <Card.Img variant="top" style={{ height:'38vh'}} src={business.image ? business.image : "https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483296.jpg%27%7D"} />
                         <Card.Body>
                             <Card.Title className="card-title">{business.name}</Card.Title>
                             <Card.Text>

@@ -103,7 +103,7 @@ export default () => {
           </Link>
         </Col>
         <Col sm={2} className="p-0 mt-2 mb-2 iconBarElementBlue">
-          <Link to='/overview/Serivce'>
+          <Link to='/overview/Service'>
             <Image className="mt-5 mb-3 highlightIcon mx-auto d-block" src={lawyer} style={{maxWidth: "100px", width: "30%"}}/>
             <p className="highlightKeyword text-center">SERVICE</p>
           </Link>
